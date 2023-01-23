@@ -1,0 +1,13 @@
+#game, #pieces {
+    width: 500px;
+    height: 200px;
+    border: 1px solid black;
+    margin: auto;
+}
+
+.block {
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    margin: 5px;
+}

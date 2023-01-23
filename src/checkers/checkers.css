@@ -1,0 +1,36 @@
+#board {
+    /*width: 600px;
+    height: 600px;*/
+}
+
+table, th, td {
+    border: 1px solid;
+}
+
+td {
+    width: 80px;
+    height: 80px;
+}
+
+td.red {
+    background-color: red;
+}
+
+td.black {
+    background-color: black;
+}
+
+.piece {
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border: 1px solid;
+}
+
+.team-white {
+    background-color: white;
+}
+
+.team-red {
+    background-color: red;
+}
