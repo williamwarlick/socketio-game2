@@ -143,7 +143,7 @@ const addDragListeners = (element) => {
             gameState.board[newPos.y][newPos.x] = gameState.board[currentPos.y][currentPos.x];
             gameState.board[currentPos.y][currentPos.x] = 0;
 
-            //socket.emit('checkers', gameState);
+            socket.emit('moveablock', gameState);
         }
         
     });

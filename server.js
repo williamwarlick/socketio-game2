@@ -33,6 +33,11 @@ io.on('connection', async (socket) => {
         console.log('checkers: ' + msg);
         io.emit('checkers', msg);
     });
+
+    socket.on('moveablock', (msg) => {
+        console.log('moveablock: ' + msg);
+        io.emit('moveablock', msg);
+    });
 });
 
 server.listen(3000, () => {
