@@ -42,6 +42,42 @@ const initBoardBlocks = () => {
     gameState.board[0][3] = 2;
     gameState.board[0][4] = 1;
     gameState.board[0][5] = 3;
+
+    gameState.board[0][6] = 1;
+    gameState.board[0][7] = 1;
+    gameState.board[0][8] = 2;
+    gameState.board[0][9] = 2;
+    gameState.board[0][10] = 1;
+    gameState.board[0][11] = 3;
+
+    //gameState.board[0][12] = 1;
+    //gameState.board[0][13] = 1;
+    gameState.board[0][14] = 2;
+    gameState.board[0][15] = 2;
+    gameState.board[0][16] = 1;
+    gameState.board[0][17] = 3;
+
+    gameState.board[1][0] = 3;
+    gameState.board[1][1] = 3;
+    gameState.board[1][2] = 2;
+    gameState.board[1][3] = 2;
+    gameState.board[1][4] = 1;
+    gameState.board[1][5] = 3;
+
+    gameState.board[1][6] = 3;
+    gameState.board[1][7] = 1;
+    //gameState.board[1][8] = 2;
+    gameState.board[1][9] = 3;
+    //gameState.board[1][10] = 1;
+    gameState.board[1][11] = 3;
+
+    gameState.board[0][12] = 3;
+    //gameState.board[1][13] = 1;
+    gameState.board[1][14] = 2;
+    gameState.board[1][15] = 2;
+    gameState.board[1][16] = 1;
+    //gameState.board[1][17] = 3;
+
 }
 
 const flipY = (y, h) => {
@@ -67,7 +103,7 @@ const buildBoard = () => {
             cell.setAttribute('data-y', (flipY(y, BOARD_DIM.h)).toString());
 
             var section = Math.floor(x/SECTION_WIDTH + 1);
-            var subsection = Math.floor((x - (section-1)*SECTION_WIDTH)/SUB_SECTION_WIDTH + 1);
+            var subsection = Math.floor((x - (section-1) * SECTION_WIDTH)/SUB_SECTION_WIDTH + 1);
             var isSectionLeftEdge = section - prevSection > 0;
             var isSubSectionLeftEdge = subsection - prevSubsection > 0;
 
@@ -134,8 +170,9 @@ const addDragListeners = (element) => {
         var spaceIsEmpty = gameState.board[newPos.y][newPos.x] == 0;
         var spaceHasBlockBelowOrFloor = newPos.y == 0 || gameState.board[newPos.y - 1][newPos.x] > 0;
         var spaceBelowIsNotCurrentPos = !(currentPos.x == newPos.x && newPos.y - 1 == currentPos.y);
+        var noBlockAbove = gameState.board[currentPos.y + 1][currentPos.x] == 0;
 
-        if (spaceIsEmpty && spaceHasBlockBelowOrFloor && spaceBelowIsNotCurrentPos) {
+        if (spaceIsEmpty && spaceHasBlockBelowOrFloor && spaceBelowIsNotCurrentPos && noBlockAbove) {
             e.target.appendChild(block);
             block.setAttribute('data-x', newPos.x.toString());
             block.setAttribute('data-y', newPos.y.toString());
