@@ -7,6 +7,7 @@ module.exports = {
         game1: './src/game1.js',
         game2: './src/game2.js',
         checkers: './src/checkers/checkers.js',
+        moveablock: './src/moveablock/moveablock.js',
     },
   output: {
     filename: '[name].js',
@@ -50,6 +51,12 @@ module.exports = {
       inject: true,
       chunks: ['checkers'],
       filename: 'checkers.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/moveablock/moveablock.html',
+      inject: true,
+      chunks: ['moveablock'],
+      filename: 'moveablock.html'
     }),
   ]
 };
