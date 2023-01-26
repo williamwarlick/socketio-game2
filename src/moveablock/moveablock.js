@@ -170,9 +170,10 @@ const addDragListeners = (element) => {
         var spaceIsEmpty = gameState.board[newPos.y][newPos.x] == 0;
         var spaceHasBlockBelowOrFloor = newPos.y == 0 || gameState.board[newPos.y - 1][newPos.x] > 0;
         var spaceBelowIsNotCurrentPos = !(currentPos.x == newPos.x && newPos.y - 1 == currentPos.y);
-        var noBlockAbove = gameState.board[currentPos.y + 1][currentPos.x] == 0;
+        var noBlockAboveOrCeiling = currentPos.y == (BOARD_DIM.h - 1) ||
+            gameState.board[currentPos.y + 1][currentPos.x] == 0;
 
-        if (spaceIsEmpty && spaceHasBlockBelowOrFloor && spaceBelowIsNotCurrentPos && noBlockAbove) {
+        if (spaceIsEmpty && spaceHasBlockBelowOrFloor && spaceBelowIsNotCurrentPos && noBlockAboveOrCeiling) {
             e.target.appendChild(block);
             block.setAttribute('data-x', newPos.x.toString());
             block.setAttribute('data-y', newPos.y.toString());
