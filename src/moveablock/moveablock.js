@@ -11,14 +11,6 @@ const SECTION_WIDTH = BOARD_DIM.w/SECTION_NUM;
 
 const SUB_SECTION_WIDTH = SECTION_WIDTH/SUB_SECTION_NUM;
 
-const BLOCK_GROUP_NUM = 3;
-
-const BLOCK_NUM_PER_GROUP = 10;
-
-const RED = 'red-block';
-const BLUE = 'blue-block';
-const GREEN = 'green-block';
-
 let gameState = {
     board: []
 }
