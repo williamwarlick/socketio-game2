@@ -1,19 +1,8 @@
 import socket from '../socket';
+import moveablock from '../../moveablock-server';
 import './moveablock.css';
 
-const BOARD_DIM = {w: 18, h: 6};
-
-const SECTION_NUM = 3;
-
-const SUB_SECTION_NUM = 2;
-
-const SECTION_WIDTH = BOARD_DIM.w/SECTION_NUM;
-
-const SUB_SECTION_WIDTH = SECTION_WIDTH/SUB_SECTION_NUM;
-
-let gameState = {
-    board: []
-}
+const mab = new moveablock.MoveABlock();
 
 let pieceIdCounter = 0;
 
@@ -22,55 +11,6 @@ const generatePieceId = () => {
 
     return 'piece' + pieceIdCounter.toString();
 };
-
-const initBoardState = () => {
-    gameState.board = [...Array(BOARD_DIM.h)].map(_=>Array(BOARD_DIM.w).fill(0));
-}
-
-const initBoardBlocks = () => {
-    gameState.board[0][0] = 1;
-    gameState.board[0][1] = 1;
-    gameState.board[0][2] = 2;
-    gameState.board[0][3] = 2;
-    gameState.board[0][4] = 1;
-    gameState.board[0][5] = 3;
-
-    gameState.board[0][6] = 1;
-    gameState.board[0][7] = 1;
-    gameState.board[0][8] = 2;
-    gameState.board[0][9] = 2;
-    gameState.board[0][10] = 1;
-    gameState.board[0][11] = 3;
-
-    //gameState.board[0][12] = 1;
-    //gameState.board[0][13] = 1;
-    gameState.board[0][14] = 2;
-    gameState.board[0][15] = 2;
-    gameState.board[0][16] = 1;
-    gameState.board[0][17] = 3;
-
-    gameState.board[1][0] = 3;
-    gameState.board[1][1] = 3;
-    gameState.board[1][2] = 2;
-    gameState.board[1][3] = 2;
-    gameState.board[1][4] = 1;
-    gameState.board[1][5] = 3;
-
-    gameState.board[1][6] = 3;
-    gameState.board[1][7] = 1;
-    //gameState.board[1][8] = 2;
-    gameState.board[1][9] = 3;
-    //gameState.board[1][10] = 1;
-    gameState.board[1][11] = 3;
-
-    gameState.board[0][12] = 3;
-    //gameState.board[1][13] = 1;
-    gameState.board[1][14] = 2;
-    gameState.board[1][15] = 2;
-    gameState.board[1][16] = 1;
-    //gameState.board[1][17] = 3;
-
-}
 
 const flipY = (y, h) => {
     return Math.abs(y - (h-1));
@@ -85,17 +25,17 @@ const buildBoard = () => {
     var prevSection = 1;
     var prevSubsection = 1;
 
-    for(let y = 0; y < BOARD_DIM.h; y++) {
+    for(let y = 0; y < mab.settings.BOARD_DIM.h; y++) {
         var row = board.insertRow(y);
-        for(let x = 0; x < BOARD_DIM.w; x++) {
+        for(let x = 0; x < mab.settings.BOARD_DIM.w; x++) {
             var cell = row.insertCell(x);
 
-            cell.setAttribute('id', 'cell-' + x.toString() + (flipY(y, BOARD_DIM.h)).toString());
+            cell.setAttribute('id', 'cell-' + x.toString() + (flipY(y, mab.settings.BOARD_DIM.h)).toString());
             cell.setAttribute('data-x', x.toString());
-            cell.setAttribute('data-y', (flipY(y, BOARD_DIM.h)).toString());
+            cell.setAttribute('data-y', (flipY(y, mab.settings.BOARD_DIM.h)).toString());
 
-            var section = Math.floor(x/SECTION_WIDTH + 1);
-            var subsection = Math.floor((x - (section-1) * SECTION_WIDTH)/SUB_SECTION_WIDTH + 1);
+            var section = Math.floor(x/mab.getSectionWidth() + 1);
+            var subsection = Math.floor((x - (section-1) * mab.getSectionWidth())/mab.getSubSectionWidth() + 1);
             var isSectionLeftEdge = section - prevSection > 0;
             var isSubSectionLeftEdge = subsection - prevSubsection > 0;
 
@@ -111,7 +51,7 @@ const buildBoard = () => {
             }
 
             // add block
-            addBlock(cell, x, flipY(y, BOARD_DIM.h));
+            addBlock(cell, x, flipY(y, mab.settings.BOARD_DIM.h));
             addDragListeners(cell);
 
             prevSection = section;
@@ -121,9 +61,9 @@ const buildBoard = () => {
 };
 
 const addBlock = (cell, x, y) => {
-    var blockState = gameState.board[y][x];
+    var blockState = mab.state.board[y][x].block;
 
-    if (blockState > 0) {
+    if (blockState > -1) {
         var block = document.createElement('div');
         block.classList.add('block', 'group-' + blockState);
         block.setAttribute('draggable', 'true');
@@ -159,33 +99,26 @@ const addDragListeners = (element) => {
         var newPos = getElementPosition(e.target);
         var currentPos = getElementPosition(block);
 
-        var spaceIsEmpty = gameState.board[newPos.y][newPos.x] == 0;
-        var spaceHasBlockBelowOrFloor = newPos.y == 0 || gameState.board[newPos.y - 1][newPos.x] > 0;
-        var spaceBelowIsNotCurrentPos = !(currentPos.x == newPos.x && newPos.y - 1 == currentPos.y);
-        var noBlockAboveOrCeiling = currentPos.y == (BOARD_DIM.h - 1) ||
-            gameState.board[currentPos.y + 1][currentPos.x] == 0;
-
-        if (spaceIsEmpty && spaceHasBlockBelowOrFloor && spaceBelowIsNotCurrentPos && noBlockAboveOrCeiling) {
+        if (mab.validDrop(currentPos, newPos)) {
             e.target.appendChild(block);
             block.setAttribute('data-x', newPos.x.toString());
             block.setAttribute('data-y', newPos.y.toString());
 
-            gameState.board[newPos.y][newPos.x] = gameState.board[currentPos.y][currentPos.x];
-            gameState.board[currentPos.y][currentPos.x] = 0;
+            mab.state.board[newPos.y][newPos.x].block = mab.state.board[currentPos.y][currentPos.x].block;
+            mab.state.board[newPos.y][newPos.x].state = moveablock.EVENTS.DROP;
+            mab.state.board[currentPos.y][currentPos.x].block = -1;
+            mab.state.board[currentPos.y][currentPos.x].state = moveablock.EVENTS.NONE;
 
-            socket.emit('moveablock', gameState);
+            socket.emit('moveablock', mab.state);
         }
         
     });
 };
 
-initBoardState();
-initBoardBlocks();
-
 // Build the board
 buildBoard();
 
 socket.on('moveablock', (event) => {
-    gameState = event;
+    mab.state = event;
     buildBoard();
 });

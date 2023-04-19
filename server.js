@@ -29,11 +29,6 @@ io.on('connection', async (socket) => {
         io.to('room1').emit('Pong!');
     });
 
-    socket.on('checkers', (msg) => {
-        console.log('checkers: ' + msg);
-        io.emit('checkers', msg);
-    });
-
     socket.on('moveablock', (msg) => {
         console.log('moveablock: ' + msg);
         io.emit('moveablock', msg);
