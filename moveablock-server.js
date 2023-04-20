@@ -12,9 +12,9 @@ const g = () => { return {state: EVENTS.NONE, block: 1} };
 
 class MoveABlock {
     
-    constructor() {
-        this.player1 = null;
-        this.player2 = null;
+    constructor(player1, player2) {
+        this.player1 = player1;
+        this.player2 = player2;
         this.settings = {
             BOARD_DIM: {w: 18, h: 6},
             SECTION_NUM: 3,
@@ -36,6 +36,8 @@ class MoveABlock {
         };
         //this.state.board = [...Array(this.settings.BOARD_DIM.h)].map(_=>Array(this.settings.BOARD_DIM.w).fill(0));
         this.state = {};
+
+        // this will be inverted on the game view, easier to think of (0,0) as the bottom left of screen view
         this.state.board = [
             [r(),r(),g(),g(),r(),b(),r(),r(),g(),g(),r(),b(),b(),o(),g(),g(),r(),b()],
             [b(),b(),g(),g(),r(),b(),b(),r(),o(),b(),o(),b(),o(),o(),g(),g(),r(),o()],
@@ -61,10 +63,14 @@ class MoveABlock {
     };
 
     dropBlock(from, to) {
-        if(this.validDrop()) {
+        if(this.validDrop(from, to)) {
             this.state.board[to.y][to.x] = this.state.board[from.y][from.x];
-            this.state.board[from.y][from.x] = o;
+            this.state.board[from.y][from.x] = o();
+
+            return true; // accepted move
         }
+
+        return false; // rejected move
     };
 
     dragBlock(from) {};
@@ -73,9 +79,50 @@ class MoveABlock {
 }
 
 class GameServer {
-    constructor() {
+    constructor(onStateChange) {
         this.inProgress = [];
         this.onDeck = [];
+        this.onStateChange = onStateChange;
+        this.playerGameIndexMap = {};
+    }
+
+    joinMoveABlock(playerId) {
+        console.log('Player joining game: ' + playerId);
+
+        if (this.onDeck.length > 0) {
+            console.log('2nd player joined, starting game ...');
+            var game = this.onDeck.pop();
+            game.player2 = playerId;
+            var gameIndex = this.inProgress.push(game) - 1;
+            this.playerGameIndexMap[game.player1] = gameIndex;
+            this.playerGameIndexMap[game.player2] = gameIndex;
+            this.onStateChange(playerId, null, game.state);
+        } else {
+            console.log('Creating new game on-deck ...');
+            this.onDeck.push(new MoveABlock(playerId));
+        }
+    }
+
+    move(playerId, aMove) {
+        console.log('Processing move ' + playerId + ', ' + JSON.stringify(aMove));
+        var gameIndex = this.playerGameIndexMap[playerId];
+
+        console.log('Game index: ' + gameIndex);
+
+        if (gameIndex !== null && gameIndex >= 0) {
+            if (aMove.event === EVENTS.DROP) {
+                var game = this.inProgress[gameIndex];
+                var accepted = game.dropBlock(aMove.from.pos, aMove.to.pos);
+
+                if (accepted) {
+                    console.log('Move accepted ...');
+                    this.onStateChange(playerId, aMove, game.state);
+                }
+            }
+        } else {
+            console.log('Game not found for player id: ' + playerId);
+            console.log(JSON.stringify(this.playerGameIndexMap));
+        }
     }
 }
 

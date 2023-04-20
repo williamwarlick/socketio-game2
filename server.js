@@ -7,13 +7,18 @@ const io = new Server(server);
 const { InMemorySessionStore } = require("./sessionStore");
 const crypto = require("crypto");
 const randomId = () => crypto.randomBytes(8).toString("hex");
+const mab = require('./moveablock-server');
 
 const sessionStore = new InMemorySessionStore();
+const gameServer = new mab.GameServer((playerId, move, state) => {
+    io.emit('moveablock', {playerId: playerId, move: move, state: state});
+});
 
 app.use(express.static('dist'));
 
 io.on('connection', async (socket) => {  
-    console.log('A user connected ...');
+    console.log('A user connected ...' + socket.id);
+    gameServer.joinMoveABlock(socket.id);
 
     socket.on('lobby', (msg) => {
         console.log('message: ' + msg);
@@ -31,7 +36,8 @@ io.on('connection', async (socket) => {
 
     socket.on('moveablock', (msg) => {
         console.log('moveablock: ' + msg);
-        io.emit('moveablock', msg);
+        gameServer.move(socket.id, msg);
+        //io.emit('moveablock', msg);
     });
 });
 
