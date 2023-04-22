@@ -111,28 +111,55 @@ const updateBlockAttributes = (block, pos) => {
     block.setAttribute('data-y', pos.y.toString());
 }
 
+const updateCellClasses = (moveEvent, fromCell, toCell) => {
+    Array.from(document.querySelectorAll('.movefrom')).forEach((el) => el.classList.remove('movefrom'));
+    Array.from(document.querySelectorAll('.moveto')).forEach((el) => el.classList.remove('moveto'));
+    
+    if (moveEvent === EVENTS.DROP) {
+        fromCell.classList.add("movefrom");
+        toCell.classList.add("moveto");
+    } else if (moveEvent === EVENTS.DRAGOVER) {
+        //fromCell.classList.add("movefrom");
+        toCell.classList.add("moveto");
+    }
+}
+
 const updateBoard = (move) => {
-    // update board state
-    updateBoardState(move.to.pos, move.from.pos);
-    // get from block
-    var block = getBlockByPos(move.from.pos);
-    // get from cell
-    var fromCell = getCellByPos(move.from.pos);
 
-    // get to cell
-    var toCell = getCellByPos(move.to.pos);
+    if (move.event === EVENTS.DROP) {
+        // update board state
+        updateBoardState(move.to.pos, move.from.pos);
+        // get from block
+        var block = getBlockByPos(move.from.pos);
+        
+        // get from cell
+        var fromCell = getCellByPos(move.from.pos);
 
-    // update block attributes
-    updateBlockAttributes(block, move.to.pos);
-    // add block to new cell
-    toCell.appendChild(block);
+        // get to cell
+        var toCell = getCellByPos(move.to.pos);
 
-    // clear old cell?
+        // update cell classes
+        updateCellClasses(move.event, fromCell, toCell);
+
+        // update block attributes
+        updateBlockAttributes(block, move.to.pos);
+        // add block to new cell
+        toCell.appendChild(block);
+    } else if (move.event === EVENTS.DRAGOVER) {
+        // get from cell
+        //var fromCell = getCellByPos(move.from.pos);
+
+        // get to cell
+        var toCell = getCellByPos(move.to.pos);
+
+        // update cell classes
+        updateCellClasses(move.event, null, toCell);
+    }
 };
 
 const getElementPosition = (element) => {
-    var posX = parseInt(element.getAttribute('data-x'));
-    var posY = parseInt(element.getAttribute('data-y'));
+    var posX = parseInt(element.dataset.x);
+    var posY = parseInt(element.dataset.y);
 
     return {x: posX, y: posY};
 };
@@ -140,6 +167,19 @@ const getElementPosition = (element) => {
 const addDragListeners = (element) => {
     element.addEventListener('dragover', (e) => {
         e.preventDefault();
+
+        if (e.target.tagName === 'TD') {
+            //var data = e.dataTransfer.getData('text/plain');
+           // var block = document.getElementById(data);
+            var newPos = getElementPosition(e.target);
+            //var currentPos = getElementPosition(block);
+
+            /*socket.emit('moveablock', {
+                event: EVENTS.DRAGOVER, 
+                //from: {pos: currentPos, state: mab.state.board[newPos.y][newPos.x]}, 
+                to: {pos: newPos, state: null}
+            });*/
+        }
     });
 
     element.addEventListener('drop', (e) => {

@@ -79,14 +79,13 @@ class MoveABlock {
 }
 
 class GameServer {
-    constructor(onStateChange) {
+    constructor() {
         this.inProgress = [];
         this.onDeck = [];
-        this.onStateChange = onStateChange;
         this.playerGameIndexMap = {};
     }
 
-    joinMoveABlock(playerId) {
+    joinMoveABlock(io, playerId) {
         console.log('Player joining game: ' + playerId);
 
         if (this.onDeck.length > 0) {
@@ -96,14 +95,15 @@ class GameServer {
             var gameIndex = this.inProgress.push(game) - 1;
             this.playerGameIndexMap[game.player1] = gameIndex;
             this.playerGameIndexMap[game.player2] = gameIndex;
-            this.onStateChange(playerId, null, game.state);
+            //this.onStateChange(playerId, null, game.state);
+            io.emit('moveablock', {playerId: playerId, move: null, state: game.state});
         } else {
             console.log('Creating new game on-deck ...');
             this.onDeck.push(new MoveABlock(playerId));
         }
     }
 
-    move(playerId, aMove) {
+    move(socket, playerId, aMove) {
         console.log('Processing move ' + playerId + ', ' + JSON.stringify(aMove));
         var gameIndex = this.playerGameIndexMap[playerId];
 
@@ -116,7 +116,7 @@ class GameServer {
 
                 if (accepted) {
                     console.log('Move accepted ...');
-                    this.onStateChange(playerId, aMove, game.state);
+                    socket.broadcast.emit('moveablock', {playerId: playerId, move: aMove, state: game.state});
                 }
             }
         } else {

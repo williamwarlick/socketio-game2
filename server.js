@@ -10,15 +10,13 @@ const randomId = () => crypto.randomBytes(8).toString("hex");
 const mab = require('./moveablock-server');
 
 const sessionStore = new InMemorySessionStore();
-const gameServer = new mab.GameServer((playerId, move, state) => {
-    io.emit('moveablock', {playerId: playerId, move: move, state: state});
-});
+const gameServer = new mab.GameServer();
 
 app.use(express.static('dist'));
 
 io.on('connection', async (socket) => {  
     console.log('A user connected ...' + socket.id);
-    gameServer.joinMoveABlock(socket.id);
+    gameServer.joinMoveABlock(io, socket.id);
 
     socket.on('lobby', (msg) => {
         console.log('message: ' + msg);
@@ -35,9 +33,15 @@ io.on('connection', async (socket) => {
     });
 
     socket.on('moveablock', (msg) => {
-        console.log('moveablock: ' + msg);
-        gameServer.move(socket.id, msg);
-        //io.emit('moveablock', msg);
+        console.log('moveablock: ' + JSON.stringify(msg));
+
+        if (msg.event === mab.EVENTS.DROP) {
+            gameServer.move(socket, socket.id, msg);
+        } else if (msg.event === mab.EVENTS.DRAGOVER) {
+            socket.broadcast.emit('moveablock', msg);
+        } else {
+            console.log('Message event does not match.');
+        }
     });
 });
 
