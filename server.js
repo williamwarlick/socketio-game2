@@ -35,12 +35,19 @@ io.on('connection', async (socket) => {
     socket.on('moveablock', (msg) => {
         console.log('moveablock: ' + JSON.stringify(msg));
 
-        if (msg.event === mab.EVENTS.DROP) {
-            gameServer.move(socket, socket.id, msg);
-        } else if (msg.event === mab.EVENTS.DRAGOVER) {
-            socket.broadcast.emit('moveablock', msg);
+        var game = gameServer.getGameByPlayerId(socket.id);
+
+        if (game) {
+            if (msg.event === mab.EVENTS.DROP) {
+                gameServer.move(socket, socket.id, msg);
+            } else if (msg.event === mab.EVENTS.DRAGOVER || msg.event === mab.EVENTS.DRAGSTART) {
+                msg.state = null;
+                socket.broadcast.emit('moveablock', msg);
+            } else {
+                console.log('Message event does not match.');
+            }
         } else {
-            console.log('Message event does not match.');
+            console.log("Could not find game for player id: " + socket.id);
         }
     });
 });

@@ -44,6 +44,20 @@ const buildBoard = () => {
     };
 };
 
+const syncBoard = () => {
+    for(let y = 0; y < mab.settings.BOARD_DIM.h; y++) {
+        for(let x = 0; x < mab.settings.BOARD_DIM.w; x++) {
+            var cell = getCellByPos({x: x, y: y});
+
+            // clear cell
+            cell.innerHTML = "";
+
+            // add block
+            addBlock(cell, x, y);
+        }
+    };
+}
+
 const buildCell = (x,y, section, subsection, prevSection, prevSubsection) => {
     var cell = document.createElement("td");//row.insertCell(x);
 
@@ -79,19 +93,16 @@ const addBlock = (cell, x, y) => {
         block.setAttribute('data-x', x.toString());
         block.setAttribute('data-y', y.toString());
 
-        block.addEventListener('dragstart', (e) => {
-            e.dataTransfer.setData('text/plain', e.target.id);
-        });
-
         cell.appendChild(block);
     }
 };
 
 const updateBoardState = (newPos, currentPos) => {
-    mab.state.board[newPos.y][newPos.x].block = mab.state.board[currentPos.y][currentPos.x].block;
+    /*mab.state.board[newPos.y][newPos.x].block = mab.state.board[currentPos.y][currentPos.x].block;
     mab.state.board[newPos.y][newPos.x].state = moveablock.EVENTS.DROP;
     mab.state.board[currentPos.y][currentPos.x].block = -1;
-    mab.state.board[currentPos.y][currentPos.x].state = moveablock.EVENTS.NONE;
+    mab.state.board[currentPos.y][currentPos.x].state = moveablock.EVENTS.NONE;*/
+    mab.dropBlock(currentPos, newPos);
 };
 
 const getBlockByPos = (pos) => {
@@ -111,16 +122,23 @@ const updateBlockAttributes = (block, pos) => {
     block.setAttribute('data-y', pos.y.toString());
 }
 
-const updateCellClasses = (moveEvent, fromCell, toCell) => {
+const clearCellClasses = () => {
     Array.from(document.querySelectorAll('.movefrom')).forEach((el) => el.classList.remove('movefrom'));
     Array.from(document.querySelectorAll('.moveto')).forEach((el) => el.classList.remove('moveto'));
+};
+
+const updateCellClasses = (moveEvent, fromCell, toCell) => {
     
     if (moveEvent === EVENTS.DROP) {
+        clearCellClasses();
         fromCell.classList.add("movefrom");
         toCell.classList.add("moveto");
     } else if (moveEvent === EVENTS.DRAGOVER) {
-        //fromCell.classList.add("movefrom");
+        Array.from(document.querySelectorAll('.moveto')).forEach((el) => el.classList.remove('moveto'));
         toCell.classList.add("moveto");
+    } else if (moveEvent === EVENTS.DRAGSTART) {
+        Array.from(document.querySelectorAll('.movefrom')).forEach((el) => el.classList.remove('movefrom'));
+        toCell.classList.add("movefrom");
     }
 }
 
@@ -154,6 +172,11 @@ const updateBoard = (move) => {
 
         // update cell classes
         updateCellClasses(move.event, null, toCell);
+    } else if (move.event === EVENTS.DRAGSTART) {
+        var cell = getCellByPos(move.from.pos);
+
+        // update cell classes
+        updateCellClasses(move.event, null, cell);
     }
 };
 
@@ -182,6 +205,18 @@ const addDragListeners = (element) => {
         }
     });
 
+    element.addEventListener('dragstart', (e) => {
+        //e.preventDefault();
+        e.dataTransfer.setData('text/plain', e.target.id);
+        var pos = getElementPosition(e.target);
+
+        socket.emit('moveablock', {
+            event: EVENTS.DRAGSTART, 
+            from: {pos: pos, state: null}
+        });
+        
+    });
+
     element.addEventListener('drop', (e) => {
         e.preventDefault();
     
@@ -199,8 +234,8 @@ const addDragListeners = (element) => {
             //socket.emit('moveablock', mab.state);
             socket.emit('moveablock', {
                 event: EVENTS.DROP, 
-                from: {pos: currentPos, state: mab.state.board[newPos.y][newPos.x]}, 
-                to: {pos: newPos, state: mab.state.board[currentPos.y][currentPos.x]}
+                from: {pos: currentPos, state: mab.state.board[currentPos.y][currentPos.x]}, 
+                to: {pos: newPos, state: mab.state.board[newPos.y][newPos.x]}
             });
         }
         
@@ -211,12 +246,14 @@ const addDragListeners = (element) => {
 buildBoard();
 
 socket.on('moveablock', (event) => {
-    mab.state = event.state;
+    if (event.state) {
+        mab.state = event.state;
+    }
 
-    if (event.event === EVENTS.DROP || event.event === EVENTS.DRAGOVER) {
+    if (event.event === EVENTS.DROP || event.event === EVENTS.DRAGOVER
+        || event.event === EVENTS.DRAGSTART) {
         updateBoard(event);
-        //buildBoard();
     } else {
-        buildBoard();
+        syncBoard();
     }
 });

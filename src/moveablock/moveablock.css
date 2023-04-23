@@ -17,6 +17,10 @@ td.movefrom {
     background-color: yellow;
 }
 
+/*td.movefrom > .block {
+    visibility: hidden;
+}*/
+
 td.moveto {
     background-color: lightgreen;
 }

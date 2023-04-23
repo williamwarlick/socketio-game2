@@ -96,10 +96,21 @@ class GameServer {
             this.playerGameIndexMap[game.player1] = gameIndex;
             this.playerGameIndexMap[game.player2] = gameIndex;
             //this.onStateChange(playerId, null, game.state);
-            io.emit('moveablock', {playerId: playerId, move: null, state: game.state});
+            io.emit('moveablock', {playerId: playerId, state: game.state});
         } else {
             console.log('Creating new game on-deck ...');
             this.onDeck.push(new MoveABlock(playerId));
+        }
+    }
+
+    getGameByPlayerId(playerId) {
+        var gameIndex = this.playerGameIndexMap[playerId];
+
+        if (gameIndex !== null && gameIndex >= 0) {
+            return this.inProgress[gameIndex];
+        } else {
+            console.log('Game not found for player id: ' + playerId);
+            return null;
         }
     }
 
@@ -118,6 +129,9 @@ class GameServer {
                     console.log('Move accepted ...');
                     socket.broadcast.emit('moveablock', {event: aMove.event, playerId: playerId, 
                         from: aMove.from, to: aMove.to, state: game.state});
+                } else {
+                    // rejected, send game state back to socket
+                    socket.emit('moveablock', {playerId: playerId, state: game.state});
                 }
             }
         } else {
