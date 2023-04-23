@@ -129,10 +129,12 @@ class GameServer {
                     console.log('Move accepted ...');
                     socket.broadcast.emit('moveablock', {event: aMove.event, playerId: playerId, 
                         from: aMove.from, to: aMove.to, state: game.state});
-                } else {
-                    // rejected, send game state back to socket
-                    socket.emit('moveablock', {playerId: playerId, state: game.state});
                 }
+                    
+                // whether rejected or not, send game state back to socket to help
+                // keep the state synced properly
+                socket.emit('moveablock', {playerId: playerId, state: game.state});
+                
             }
         } else {
             console.log('Game not found for player id: ' + playerId);
