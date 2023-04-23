@@ -116,7 +116,8 @@ class GameServer {
 
                 if (accepted) {
                     console.log('Move accepted ...');
-                    socket.broadcast.emit('moveablock', {playerId: playerId, move: aMove, state: game.state});
+                    socket.broadcast.emit('moveablock', {event: aMove.event, playerId: playerId, 
+                        from: aMove.from, to: aMove.to, state: game.state});
                 }
             }
         } else {

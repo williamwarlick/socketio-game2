@@ -174,11 +174,11 @@ const addDragListeners = (element) => {
             var newPos = getElementPosition(e.target);
             //var currentPos = getElementPosition(block);
 
-            /*socket.emit('moveablock', {
+            socket.emit('moveablock', {
                 event: EVENTS.DRAGOVER, 
                 //from: {pos: currentPos, state: mab.state.board[newPos.y][newPos.x]}, 
                 to: {pos: newPos, state: null}
-            });*/
+            });
         }
     });
 
@@ -213,8 +213,8 @@ buildBoard();
 socket.on('moveablock', (event) => {
     mab.state = event.state;
 
-    if (event.move) {
-        updateBoard(event.move);
+    if (event.event === EVENTS.DROP || event.event === EVENTS.DRAGOVER) {
+        updateBoard(event);
         //buildBoard();
     } else {
         buildBoard();
