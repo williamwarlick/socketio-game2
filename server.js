@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const session = require('express-session');
+//const session = require('express-session');
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
@@ -14,22 +14,22 @@ const cookieParser = require('cookie-parser');
 const sessionStore = new InMemorySessionStore();
 const gameServer = new mab.GameServer();
 
-const sessionMiddleware = session({
+/*const sessionMiddleware = session({
     secret: 'mySecret',
     resave: false,
     saveUninitialized: true,
-});
+});*/
 
-io.engine.use(sessionMiddleware);
+//io.engine.use(sessionMiddleware);
 
 app.use(express.static('dist'));
 
 io.on('connection', async (socket) => {  
     // get the session from the socket
-    const session = socket.request.session;
+    //const session = socket.request.session;
     let username;
 
-    if (!session.username) {
+    /*if (!session.username) {
         // get the username from the query string
         username = randomId(); //socket.handshake.query.username;
 
@@ -37,10 +37,10 @@ io.on('connection', async (socket) => {
         session.username = username;
 
         session.save();
-    }
+    }*/
     
     console.log('A user connected ...' + username);
-    gameServer.joinMoveABlock(io, username);
+    gameServer.joinMoveABlock(io, socket.id);
 
     socket.on('lobby', (msg) => {
         console.log('message: ' + msg);
@@ -51,7 +51,7 @@ io.on('connection', async (socket) => {
         const session = socket.request.session;
 
         // get the username from the session
-        const username = session.username;
+        const username = socket.id; //session.username;
 
         console.log('moveablock: ' + JSON.stringify(msg));
 
