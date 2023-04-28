@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-//const session = require('express-session');
+const session = require('express-session');
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
@@ -10,34 +10,59 @@ const crypto = require("crypto");
 const randomId = () => crypto.randomBytes(8).toString("hex");
 const mab = require('./moveablock-server');
 const cookieParser = require('cookie-parser');
+const socketIOSession = require('socket.io-session');
 
 const sessionStore = new InMemorySessionStore();
 const gameServer = new mab.GameServer();
 
-/*const sessionMiddleware = session({
-    secret: 'mySecret',
+
+// configure session middleware
+const sessionMiddleware = session({
+    secret: 'your-secret-key',
     resave: false,
     saveUninitialized: true,
-});*/
-
-//io.engine.use(sessionMiddleware);
+  });
+  
+// use session middleware for Express app
+app.use(sessionMiddleware);
 
 app.use(express.static('dist'));
+
+io.use((socket, next) => {
+    sessionMiddleware(socket.request, socket.request.res || {}, next);
+});
+
+app.post('/login', express.urlencoded({ extended: false }), function (req, res) {
+    // login logic to validate req.body.user and req.body.pass
+    // would be implemented here. for this example any combo works
+  
+    // regenerate the session, which is good practice to help
+    // guard against forms of session fixation
+    req.session.regenerate(function (err) {
+      if (err) next(err)
+  
+      // store user information in session, typically a user id
+      req.session.user = req.body.username
+      console.log(req.session.user);
+  
+      // save the session before redirection to ensure page
+      // load does not happen before session is saved
+      req.session.save(function (err) {
+        if (err) return next(err)
+        res.redirect('/')
+      })
+    })
+  })
 
 io.on('connection', async (socket) => {  
     // get the session from the socket
     //const session = socket.request.session;
     let username;
 
-    /*if (!session.username) {
-        // get the username from the query string
-        username = randomId(); //socket.handshake.query.username;
+    const session = socket.request.session;
 
-        // store the username in the session
-        session.username = username;
-
-        session.save();
-    }*/
+    // Access session data
+    console.log(session);
     
     console.log('A user connected ...' + username);
     gameServer.joinMoveABlock(io, socket.id);
@@ -49,6 +74,7 @@ io.on('connection', async (socket) => {
     socket.on('moveablock', (msg) => {
         // get the session from the socket
         const session = socket.request.session;
+        console.log(session);
 
         // get the username from the session
         const username = socket.id; //session.username;

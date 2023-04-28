@@ -1,6 +1,11 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 #board {
-    /*width: 600px;
-    height: 600px;*/
+    width: 1000px;
+    table-layout: fixed;
+    border-collapse: collapse;
 }
 
 table {
@@ -8,9 +13,17 @@ table {
 }
 
 td {
-    width: 80px;
-    height: 80px;
+    height: 50px;
     border: 1px dotted #999;
+    text-align: center;
+}
+
+td.section-label {
+    height: 25px;
+}
+
+td.subsection-label {
+    height: 25px;
 }
 
 td.movefrom {
@@ -27,9 +40,9 @@ td.moveto {
 
 .block {
     margin: auto;
-    width: 50px;
-    height: 50px;
-    border: 1px solid;
+    width: 100%;
+    height: 100%;
+    /*border: 1px solid;*/
 }
 
 .group-0 {
