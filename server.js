@@ -32,40 +32,47 @@ io.use((socket, next) => {
     sessionMiddleware(socket.request, socket.request.res || {}, next);
 });
 
-app.post('/login', express.urlencoded({ extended: false }), function (req, res) {
+const doLogin = (req, username, callback) => {
     // login logic to validate req.body.user and req.body.pass
     // would be implemented here. for this example any combo works
   
     // regenerate the session, which is good practice to help
     // guard against forms of session fixation
     req.session.regenerate(function (err) {
-      if (err) next(err)
-  
-      // store user information in session, typically a user id
-      req.session.user = req.body.username
-      console.log(req.session.user);
-  
-      // save the session before redirection to ensure page
-      // load does not happen before session is saved
-      req.session.save(function (err) {
-        if (err) return next(err)
-        res.redirect('/')
+        if (err) next(err)
+    
+        // store user information in session, typically a user id
+        req.session.user = username;
+        console.log(req.session.user);
+    
+        // save the session before redirection to ensure page
+        // load does not happen before session is saved
+        req.session.save(function (err) {
+          if (err) return next(err)
+          
+          if (callback) {
+            callback();
+          }
+        })
       })
-    })
+};
+
+app.post('/login', express.urlencoded({ extended: false }), function (req, res) {
+    doLogin(req, req.body.username, function() {
+        res.redirect('/moveablock.html');
+    });
   })
 
 io.on('connection', async (socket) => {  
-    // get the session from the socket
-    //const session = socket.request.session;
-    let username;
-
     const session = socket.request.session;
+
+    let username = session.user;
 
     // Access session data
     console.log(session);
     
     console.log('A user connected ...' + username);
-    gameServer.joinMoveABlock(io, socket.id);
+    gameServer.joinMoveABlock(io, username);
 
     socket.on('lobby', (msg) => {
         console.log('message: ' + msg);
@@ -77,7 +84,7 @@ io.on('connection', async (socket) => {
         console.log(session);
 
         // get the username from the session
-        const username = socket.id; //session.username;
+        const username = session.user;
 
         console.log('moveablock: ' + JSON.stringify(msg));
 
@@ -95,6 +102,10 @@ io.on('connection', async (socket) => {
         } else {
             console.log("Could not find game for player id: " + username);
         }
+    });
+
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
     });
 });
 

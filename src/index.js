@@ -1,8 +1,8 @@
-import socket from './socket';
-
 const joinBtn = document.getElementById('lobbyBtn');
 
-/*joinRoom1Btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    socket.emit('joinRoom1', 'Let me join!');
-});*/
+joinBtn.addEventListener('click', (e) => {
+    //e.preventDefault();
+    var username = document.getElementById('username').value;
+    localStorage.setItem('mabUsername', username);
+    //window.location.href = '/moveablock.html';
+});

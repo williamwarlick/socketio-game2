@@ -86,21 +86,33 @@ class GameServer {
     }
 
     joinMoveABlock(io, playerId) {
-        console.log('Player joining game: ' + playerId);
 
-        if (this.onDeck.length > 0) {
-            console.log('2nd player joined, starting game ...');
-            var game = this.onDeck.pop();
-            game.player2 = playerId;
-            var gameIndex = this.inProgress.push(game) - 1;
-            this.playerGameIndexMap[game.player1] = gameIndex;
-            this.playerGameIndexMap[game.player2] = gameIndex;
-            //this.onStateChange(playerId, null, game.state);
-            io.emit('moveablock', {playerId: playerId, state: game.state});
+        if (this.playerInGame(playerId)) {
+            console.log('Player already in game ' + playerId);
         } else {
-            console.log('Creating new game on-deck ...');
-            this.onDeck.push(new MoveABlock(playerId));
+
+            console.log('Player joining game: ' + playerId);
+
+            if (this.onDeck.length > 0) {
+                console.log('2nd player joined, starting game ...');
+                var game = this.onDeck.pop();
+                game.player2 = playerId;
+                var gameIndex = this.inProgress.push(game) - 1;
+                this.playerGameIndexMap[game.player1] = gameIndex;
+                this.playerGameIndexMap[game.player2] = gameIndex;
+                //this.onStateChange(playerId, null, game.state);
+                io.emit('moveablock', {playerId: playerId, state: game.state});
+            } else {
+                console.log('Creating new game on-deck ...');
+                this.onDeck.push(new MoveABlock(playerId));
+            }
         }
+    }
+
+    playerInGame(playerId) {
+        return this.getGameByPlayerId(playerId) !== null 
+            || (this.onDeck[0] && this.onDeck[0].player1 == playerId)
+            || (this.onDeck[0] && this.onDeck[0].player2 == playerId);
     }
 
     getGameByPlayerId(playerId) {
