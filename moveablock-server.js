@@ -89,6 +89,12 @@ class GameServer {
 
         if (this.playerInGame(playerId)) {
             console.log('Player already in game ' + playerId);
+
+            let game = this.getGameByPlayerId(playerId);
+
+            if (game) {
+                io.emit('moveablock', {playerId: playerId, state: game.state});
+            }
         } else {
 
             console.log('Player joining game: ' + playerId);
@@ -100,7 +106,7 @@ class GameServer {
                 var gameIndex = this.inProgress.push(game) - 1;
                 this.playerGameIndexMap[game.player1] = gameIndex;
                 this.playerGameIndexMap[game.player2] = gameIndex;
-                //this.onStateChange(playerId, null, game.state);
+                
                 io.emit('moveablock', {playerId: playerId, state: game.state});
             } else {
                 console.log('Creating new game on-deck ...');
