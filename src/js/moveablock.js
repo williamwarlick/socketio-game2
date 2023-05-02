@@ -1,6 +1,7 @@
 import socket from '../socket';
-import moveablock, { EVENTS } from '../../moveablock-server';
-import './moveablock.css';
+import moveablock, { EVENTS, GAME_STATUS } from '../../moveablock-server';
+import '../moveablock/moveablock.css';
+import headerTemplate from '../templates/header.mustache';
 
 const mab = new moveablock.MoveABlock();
 
@@ -278,11 +279,25 @@ const addDragListeners = (element) => {
     });
 };
 
+(async function doRender(){
+    const response = await fetch('/user');
+    const data = await response.json();
+
+    // Set the rendered HTML as the content of the page
+    const header = document.getElementById('header-container');
+    header.insertAdjacentHTML('beforeend', headerTemplate(data));
+})();
+
 // Build the board
 buildBoard();
 
 socket.on('moveablock', (event) => {
+
     if (event.state) {
+        if (event.status == GAME_STATUS.WAITING) {
+            window.location.href = '/waiting.html';
+        }
+
         mab.state = event.state;
     }
 
