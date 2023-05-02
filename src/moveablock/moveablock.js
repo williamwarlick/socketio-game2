@@ -26,12 +26,12 @@ const buildBoard = () => {
     var prevSubsection = 1;
 
     for(let y = 0; y < mab.settings.BOARD_DIM.h; y++) {
-        var row = board.insertRow(y);
+        let row = board.insertRow(y);
         for(let x = 0; x < mab.settings.BOARD_DIM.w; x++) {
-            var section = Math.floor(x/mab.getSectionWidth() + 1);
-            var subsection = Math.floor((x - (section-1) * mab.getSectionWidth())/mab.getSubSectionWidth() + 1);
+            let section = Math.floor(x/mab.getSectionWidth() + 1);
+            let subsection = Math.floor((x - (section-1) * mab.getSectionWidth())/mab.getSubSectionWidth() + 1);
 
-            var cell = buildCell(x,y, section, subsection, prevSection, prevSubsection);
+            let cell = buildCell(x,y, section, subsection, prevSection, prevSubsection);
             row.appendChild(cell);
 
             // add block
@@ -42,7 +42,43 @@ const buildBoard = () => {
             prevSubsection = subsection;
         }
     };
+
+    // add label row
+    var subSectionLabelRow = board.insertRow(-1);
+    var sectionLabelRow = board.insertRow(-1);
+
+    for(let section = 0; section < mab.settings.SECTION_NUM; section++) {
+        for(let subsection = 1; subsection < (mab.settings.SUB_SECTION_NUM + 1); subsection++) {
+            subSectionLabelRow.appendChild(buildSubSectionCell(section, subsection));
+        }
+        sectionLabelRow.appendChild(buildSectionCell(section));
+    }
+    
 };
+
+const buildSubSectionCell = (section, subsection) => {
+    var cell = document.createElement("td");
+    var sectionLetter = (section+10).toString(36).toUpperCase();
+
+    cell.setAttribute('id', 'subsection-label-' + sectionLetter + subsection.toString());
+    cell.classList.add('subsection-label');
+    cell.setAttribute('colspan', mab.getSubSectionWidth());
+    cell.textContent = sectionLetter + subsection;
+
+    return cell;
+}
+
+const buildSectionCell = (section) => {
+    var cell = document.createElement("td");
+    var sectionLetter = (section+10).toString(36).toUpperCase();
+
+    cell.setAttribute('id', 'section-label-' + sectionLetter);
+    cell.classList.add('section-label');
+    cell.setAttribute('colspan', mab.getSectionWidth());
+    cell.textContent = sectionLetter;
+
+    return cell;
+}
 
 const syncBoard = () => {
     for(let y = 0; y < mab.settings.BOARD_DIM.h; y++) {
@@ -59,7 +95,7 @@ const syncBoard = () => {
 }
 
 const buildCell = (x,y, section, subsection, prevSection, prevSubsection) => {
-    var cell = document.createElement("td");//row.insertCell(x);
+    var cell = document.createElement("td");
 
     cell.setAttribute('id', 'cell-' + x.toString() + (flipY(y, mab.settings.BOARD_DIM.h)).toString());
     cell.setAttribute('data-x', x.toString());
