@@ -63,6 +63,11 @@ app.post('/login', express.urlencoded({ extended: false }), function (req, res) 
     });
   })
 
+app.get('/user', (req, res) => {
+    var username = req.session.user;
+    res.json({user: username});
+})
+
 io.on('connection', async (socket) => {  
     const session = socket.request.session;
 

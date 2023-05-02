@@ -6,11 +6,11 @@ socket.onAny((event, ...args) => {
   console.log(event, args);
 });
 
-(function onLoad() {
-  var username = localStorage.getItem('mabUsername');
-
-  if (username) {
-      socket.auth = { username };
+(async function onLoad() {
+  const response = await fetch('/user');
+  const data = await response.json();
+  
+  if (data.user) {
       socket.connect();
   } else {
     window.location.href = '/';
