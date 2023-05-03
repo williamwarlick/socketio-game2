@@ -12,9 +12,9 @@ socket.onAny((event, ...args) => {
   
   if (data.user) {
       socket.connect();
-  } else if (window.location.pathname !== '/') {
+  } /*else {
     window.location.href = '/';
-  }
+  }*/
 })();
 
 export default socket;
