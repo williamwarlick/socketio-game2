@@ -3,8 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-        index: './src/index.js',
-        moveablock: './src/moveablock/moveablock.js',
+        index: './src/js/index.js',
+        moveablock: './src/js/moveablock.js',
+        waiting: './src/js/waiting.js',
     },
   output: {
     filename: '[name].js',
@@ -22,7 +23,15 @@ module.exports = {
       {
         test: /\.(css)$/,
         use: ['style-loader', 'css-loader'],
-      }
+      },
+      {
+        test: /\.mustache$/,
+        use: [
+          {
+            loader: 'mustache-loader',
+          },
+        ],
+      },
     ]},
   plugins: [
     new HtmlWebpackPlugin({
@@ -31,6 +40,12 @@ module.exports = {
         chunks: ['index'],
         filename: 'index.html'
     }),
+    new HtmlWebpackPlugin({
+      template: './src/waiting.html',
+      inject: true,
+      chunks: ['waiting'],
+      filename: 'waiting.html'
+  }),
     new HtmlWebpackPlugin({
       template: './src/moveablock/moveablock.html',
       inject: true,

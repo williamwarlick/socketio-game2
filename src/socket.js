@@ -12,7 +12,7 @@ socket.onAny((event, ...args) => {
   
   if (data.user) {
       socket.connect();
-  } else {
+  } else if (window.location.pathname !== '/') {
     window.location.href = '/';
   }
 })();

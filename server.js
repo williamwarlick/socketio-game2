@@ -59,7 +59,7 @@ const doLogin = (req, username, callback) => {
 
 app.post('/login', express.urlencoded({ extended: false }), function (req, res) {
     doLogin(req, req.body.username, function() {
-        res.redirect('/moveablock.html');
+        res.redirect('/waiting.html');
     });
   })
 
@@ -77,7 +77,10 @@ io.on('connection', async (socket) => {
     console.log(session);
     
     console.log('A user connected ...' + username);
-    gameServer.joinMoveABlock(io, username);
+
+    if (username) {
+        gameServer.joinMoveABlock(io, username);
+    }
 
     socket.on('lobby', (msg) => {
         console.log('message: ' + msg);
