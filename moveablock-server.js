@@ -1,3 +1,5 @@
+//const { default: socket } = require("./src/socket");
+
 const EVENTS = {
     DRAGSTART: 'dragstart',
     DRAGOVER: 'dragover',
@@ -17,9 +19,9 @@ const g = () => { return {state: EVENTS.NONE, block: 1} };
 
 class MoveABlock {
     
-    constructor(player1, player2) {
-        this.player1 = player1;
-        this.player2 = player2;
+    constructor(player1, socketId1, player2, socketId2) {
+        this.player1 = {playerId: player1, socketId: socketId1};
+        this.player2 = {playerId: player2, socketId: socketId2};
         this.settings = {
             BOARD_DIM: {w: 18, h: 6},
             SECTION_NUM: 3,
@@ -54,6 +56,50 @@ class MoveABlock {
             [o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o()],
             [o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o()],
         ]
+    }
+
+    updateSocketId(playerId, socketId) {
+        if (this.player1.playerId == playerId) {
+            this.player1.socketId = socketId;
+        } else if (this.player2 && this.player2.playerId == playerId) {
+            this.player2.socketId = socketId;
+        }
+    }
+
+    getPlayerSocketIds() {
+        var players = [];
+
+        players.push(this.player1.socketId);
+
+        if(this.player2) {
+            players.push(this.player2.socketId);
+        }
+
+        return players;
+    }
+
+    getPlayerSocketId(playerId) {
+        var socketId = null;
+
+        if (this.player1.playerId == playerId) {
+            socketId = this.player1.socketId;
+        } else if (this.player2.playerId == playerId){
+            socketId = this.player2.socketId;
+        }
+
+        return socketId;
+    }
+
+    getOtherPlayerSocketId(playerId) {
+        var socketId = null;
+
+        if (this.player1.playerId != playerId) {
+            socketId = this.player1.socketId;
+        } else if (this.player2){
+            socketId = this.player2.socketId;
+        }
+
+        return socketId;
     }
 
     getSectionWidth() { return this.settings.BOARD_DIM.w/this.settings.SECTION_NUM; };
@@ -93,14 +139,15 @@ class GameServer {
         this.playerGameIndexMap = {};
     }
 
-    joinMoveABlock(io, playerId) {
+    joinMoveABlock(io, socket, playerId) {
 
         if (this.playerInGame(playerId)) {
             console.log('Player already in game ' + playerId);
 
             let game = this.getGameByPlayerId(playerId);
+            game.updateSocketId(playerId, socket.id);
 
-            io.emit('moveablock', {playerId: playerId, status: game.status, state: game.state});
+            io.to(game.getPlayerSocketIds()).emit('moveablock', {playerId: playerId, status: game.status, state: game.state});
         } else {
 
             console.log('Player joining game: ' + playerId);
@@ -109,17 +156,17 @@ class GameServer {
                 console.log('2nd player joined, starting game ...');
                 var game = this.onDeck.pop();
                 game.status = GAME_STATUS.JOINED;
-                game.player2 = playerId;
+                game.player2 = {playerId: playerId, socketId: socket.id};
                 var gameIndex = this.inProgress.push(game) - 1;
-                this.playerGameIndexMap[game.player1] = gameIndex;
-                this.playerGameIndexMap[game.player2] = gameIndex;
+                this.playerGameIndexMap[game.player1.playerId] = gameIndex;
+                this.playerGameIndexMap[game.player2.playerId] = gameIndex;
                 
-                io.emit('moveablock', {playerId: playerId, status: game.status, state: game.state});
+                io.to(game.getPlayerSocketIds()).emit('moveablock', {playerId: playerId, status: game.status, state: game.state});
             } else {
                 console.log('Creating new game on-deck ...');
-                let newGame = new MoveABlock(playerId);
+                let newGame = new MoveABlock(playerId, socket.id);
                 this.onDeck.push(newGame);
-                io.emit('moveablock', {playerId: playerId, status: newGame.status, state: newGame.state});
+                io.to(newGame.getPlayerSocketIds()).emit('moveablock', {playerId: playerId, status: newGame.status, state: newGame.state});
             }
         }
     }
@@ -133,8 +180,8 @@ class GameServer {
 
         if (gameIndex !== null && gameIndex >= 0) {
             return this.inProgress[gameIndex];
-        } else if ((this.onDeck[0] && this.onDeck[0].player1 == playerId)
-            || (this.onDeck[0] && this.onDeck[0].player2 == playerId)) {
+        } else if ((this.onDeck[0] && this.onDeck[0].player1.playerId == playerId)
+            || (this.onDeck[0] && this.onDeck[0].player2.playerId == playerId)) {
             return this.onDeck[0];
         } else {
             console.log('Game not found for player id: ' + playerId);
@@ -142,7 +189,7 @@ class GameServer {
         }
     }
 
-    move(socket, playerId, aMove) {
+    move(io, playerId, aMove) {
         console.log('Processing move ' + playerId + ', ' + JSON.stringify(aMove));
         var gameIndex = this.playerGameIndexMap[playerId];
 
@@ -155,18 +202,33 @@ class GameServer {
 
                 if (accepted) {
                     console.log('Move accepted ...');
-                    socket.broadcast.emit('moveablock', {event: aMove.event, playerId: playerId, 
-                        from: aMove.from, to: aMove.to, state: game.state});
+
+                    var otherPlayerSocketId = game.getOtherPlayerSocketId(playerId);
+
+                    if(otherPlayerSocketId) {
+                        io.to(otherPlayerSocketId).emit('moveablock', {event: aMove.event, playerId: playerId, 
+                            from: aMove.from, to: aMove.to, state: game.state});
+                    }
                 }
                     
                 // whether rejected or not, send game state back to socket to help
                 // keep the state synced properly
-                socket.emit('moveablock', {playerId: playerId, status: game.status, state: game.state});
+                io.to(game.getPlayerSocketIds()).emit('moveablock', {playerId: playerId, status: game.status, state: game.state});
                 
             }
         } else {
             console.log('Game not found for player id: ' + playerId);
             console.log(JSON.stringify(this.playerGameIndexMap));
+        }
+    }
+
+    drag(io, playerId, msg) {
+        var game = this.getGameByPlayerId(playerId);
+
+        var otherPlayerSocketId = game.getOtherPlayerSocketId(playerId);
+
+        if (otherPlayerSocketId) {
+            io.to(otherPlayerSocketId).emit('moveablock', msg);
         }
     }
 }

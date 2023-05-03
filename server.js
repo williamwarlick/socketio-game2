@@ -79,7 +79,7 @@ io.on('connection', async (socket) => {
     console.log('A user connected ...' + username);
 
     if (username) {
-        gameServer.joinMoveABlock(io, username);
+        gameServer.joinMoveABlock(io, socket, username);
     }
 
     socket.on('lobby', (msg) => {
@@ -100,10 +100,12 @@ io.on('connection', async (socket) => {
 
         if (game) {
             if (msg.event === mab.EVENTS.DROP) {
-                gameServer.move(socket, username, msg);
+                gameServer.move(io, username, msg);
             } else if (msg.event === mab.EVENTS.DRAGOVER || msg.event === mab.EVENTS.DRAGSTART) {
                 msg.state = null;
-                socket.broadcast.emit('moveablock', msg);
+                //socket.broadcast.emit('moveablock', msg);
+                gameServer.drag(io, username, msg);
+
             } else {
                 console.log('Message event does not match.');
             }
