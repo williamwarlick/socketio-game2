@@ -1,7 +1,7 @@
 import socket from '../socket';
 import moveablock, { EVENTS, GAME_STATUS } from '../../moveablock-server';
 import '../moveablock/moveablock.css';
-import headerTemplate from '../templates/header.mustache';
+import header from './header';
 
 const mab = new moveablock.MoveABlock();
 
@@ -279,15 +279,6 @@ const addDragListeners = (element) => {
     });
 };
 
-(async function doRender(){
-    const response = await fetch('/user');
-    const data = await response.json();
-
-    // Set the rendered HTML as the content of the page
-    const header = document.getElementById('header-container');
-    header.insertAdjacentHTML('beforeend', headerTemplate(data));
-})();
-
 // Build the board
 buildBoard();
 
@@ -295,6 +286,7 @@ socket.on('moveablock', (event) => {
 
     if (event.state) {
         if (event.status == GAME_STATUS.WAITING) {
+            console.log('Game status: waiting');
             window.location.href = '/waiting.html';
         }
 
