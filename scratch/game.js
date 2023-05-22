@@ -33,6 +33,8 @@ const questions = [
     game.mode = response.mode;
     game.players[0] = new mab.Player(response.player1Id);
     game.players[1] = new mab.Player(response.player2Id);
+
+    game.printCurrentRoundInstructions();
   
     game.printBoard();
     game.updateCursor(game.players[0].id, new mab.Location(0,1));

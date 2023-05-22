@@ -1,10 +1,6 @@
 const rounds = require('./rounds');
 const mab = require('./moveablock2');
-
-const o = mab.o;
-const r = mab.r;
-const b = mab.b;
-const g = mab.g;
+const {o,r,g,b,BLOCK_TYPE} = require('./components');
 
 var defaultTestBoard = [
     [o(),o(),o(),o(),o(),o(),r(),r(),g(),g(),r(),b(),g(),r(),g(),g(),r(),r()],
@@ -42,7 +38,7 @@ game.board.spaces = uncoverTestBoard;
 
 //const goal = new rounds.Goal(rounds.GOAL_ACTION.MOVE, mab.BLOCK_TYPE.BLUE, new mab.Section(rounds.SECTION.B, null));
 
-const goal = new rounds.Goal(rounds.GOAL_ACTION.UNCOVER, mab.BLOCK_TYPE.BLUE, null);
+const goal = new rounds.Goal(rounds.GOAL_ACTION.UNCOVER, BLOCK_TYPE.BLUE, null);
 
 const round = new rounds.Round(game.board, [goal]);
 

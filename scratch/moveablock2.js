@@ -1,25 +1,16 @@
 const utils = require('./utils');
+const {BLOCK_TYPE, Section, Space, SPACE_STATUS, r, o, g, b} = require('./components');
+const rnds = require('./rounds');
 
 const GAME_MODE = {
     ONE_PLAYER: 'ONE_PLAYER',
     TWO_PLAYER: 'TWO_PLAYER',
 }
 
-const BLOCK_TYPE = {
-    RED: 'RED',
-    GREEN: 'GREEN',
-    BLUE: 'BLUE',
-    EMPTY: 'EMPTY',
-}
-
-const GOAL_STATUS = {
-    INCOMPLETE: 'INCOMPLETE',
+const GAME_STATUS = {
+    NEW: 'NEW',
+    STARTED: 'STARTED',
     COMPLETE: 'COMPLETE',
-}
-
-const SPACE_STATUS = {
-    OPEN: 'OPEN',
-    CLOSED: 'CLOSED',
 }
 
 const PLAYER_ROLE = {
@@ -63,18 +54,6 @@ class Move {
 
     toString() {
         return `playerId: ${this.playerId}, from: ${this.from}, to: ${this.to}`;
-    }
-}
-
-const o = () => { return new Space(BLOCK_TYPE.EMPTY)};
-const r = () => { return new Space(BLOCK_TYPE.RED)};
-const b = () => { return new Space(BLOCK_TYPE.BLUE)};
-const g = () => { return new Space(BLOCK_TYPE.GREEN)};
-
-class Section {
-    constructor(section, subsection) {
-        this.section = section;
-        this.subsection = subsection;
     }
 }
 
@@ -159,37 +138,6 @@ class Board {
 
 }
 
-class Round {
-    constructor(instructions, isGoalMet) {
-        this.isGoalMet = isGoalMet;
-        this.instructions = instructions;
-    }
-}
-
-/*class Block {
-    constructor(type) {
-        this.type = type;
-    }
-}*/
-
-/*class Cursor {
-    constructor(player, status) {
-        this.player = player;
-        this.status = status;
-    }
-}*/
-
-class Space {
-    constructor(blockType) {
-        this.blockType = blockType;
-        this.status = SPACE_STATUS.OPEN;
-    }
-
-    equals(space) {
-        return this.blockType === space.blockType;
-    }
-}
-
 class Game {
     constructor () {
         this.mode = null,
@@ -197,6 +145,7 @@ class Game {
         
         this.rounds = [];
         this.currentRound = 0;
+        this.status = GAME_STATUS.NEW;
 
         this.settings = {
             BOARD_DIM: {w: 18, h: 6},
@@ -223,24 +172,12 @@ class Game {
 
         this.initRounds();
 
+        this.board.spaces = this.rounds[this.currentRound].initBoard;
+
     }
 
     initRounds() {
-        for(var i=0; i < this.settings.ROUNDS_NUM; i++) {
-            let newRound = new Round("Stack 5 blue block on top of each other.", () => {
-                var pattern = [
-                    [b()],
-                    [b()],
-                    [b()],
-                    [b()],
-                    [b()],
-                ];
-
-                return utils.findPattern(this.board.spaces, pattern);
-            });
-
-            this.rounds.push(newRound);
-        }
+        this.rounds = rnds.getDefaultRounds(this.settings.ROUNDS_NUM);
     }
 
     getSectionWidth() { return this.settings.BOARD_DIM.w/this.settings.SECTION_NUM; };
@@ -266,8 +203,19 @@ class Game {
             this.board.moves.push(new Move(playerId, from, to));
 
             // check for Round goal met
-            if (this.rounds[this.currentRound].isGoalMet()) {
+            if (this.rounds[this.currentRound].isComplete(this.board)) {
                 console.log("Goal is met.")
+
+                // if last round, change game status to complete
+                if (this.currentRound === this.rounds.length - 1) {
+                    this.status = GAME_STATUS.COMPLETE;
+                } else {
+                    // increment the round
+                    this.currentRound = this.currentRound + 1;
+                    // reset board space
+                    this.spaces = this.rounds[this.currentRound].initBoard;
+                }
+
             } else {
                 console.log("Goal not met.");
             }
@@ -297,6 +245,14 @@ class Game {
             console.log(`${i}: ${this.board.moves[i]}`);
         }
         console.log('');
+    }
+
+    printCurrentRoundInstructions() {
+        var currRound = this.rounds[this.currentRound];
+        console.log(`Round ${this.currentRound} Instructions: `);
+        for (var goal of currRound.goals) {
+            console.log(goal.description);
+        }
     }
 
     printBoard() {
@@ -337,5 +293,5 @@ class Game {
 }
 
 if (module && module.exports) {
-    module.exports = {Game, Player, Location, Section, GAME_MODE, BLOCK_TYPE, r, g, b, o};
+    module.exports = {Game, Player, Location, GAME_MODE};
 }
