@@ -71,10 +71,20 @@ const r = () => { return new Space(BLOCK_TYPE.RED)};
 const b = () => { return new Space(BLOCK_TYPE.BLUE)};
 const g = () => { return new Space(BLOCK_TYPE.GREEN)};
 
-class Board {
-    constructor() {
-        this.spaces = [];
+class Section {
+    constructor(section, subsection) {
+        this.section = section;
+        this.subsection = subsection;
+    }
+}
 
+class Board {
+    constructor(boardDim, sectionNum, subSectionNum) {
+        this.boardDim = boardDim;
+        this.sectionNum = sectionNum;
+        this.subSectionNum = subSectionNum;
+
+        this.spaces = [];
         this.moves = [];
 
         this.init();
@@ -91,14 +101,62 @@ class Board {
         ];
     }
 
-}
+    // returns the section of the board
+    getSectionSubArray(section) {
+        
+        if (!section) { return this.spaces };
 
-class Goal {
-    constructor(assignedTo) {
-        this.assignedTo = assignedTo;
-        this.status = GOAL_STATUS.INCOMPLETE;
-        this.goal = null; // TODO: figure this out
+        var sectionSubArray = [];
+
+        var sectionSize = this.boardDim.w/this.sectionNum;
+        var subSectionSize = this.boardDim.w/this.sectionNum;
+
+        var sectionStart = section.section * sectionSize;
+
+        if (section.subsection != null) {
+            subSectionSize = subSectionSize/this.subSectionNum;
+            sectionStart = sectionStart + section.subsection * subSectionSize;
+        }
+
+        console.log('Section size ' + sectionSize);
+        console.log('Sub section size ' + subSectionSize);
+        console.log('Section start ' + sectionStart);
+
+        for(var y = 0; y < this.spaces.length; y++) {
+            sectionSubArray.push(this.spaces[y].slice(sectionStart, sectionStart + subSectionSize));
+        }
+        
+        return sectionSubArray;
     }
+
+    // returns the board with the section removed
+    getSectionMinusSubArray(section) {
+        if (!section) { return this.spaces };
+
+        // clone board
+        var spacesCopy = this.spaces.slice();
+
+        var sectionSize = this.boardDim.w/this.sectionNum;
+        var subSectionSize = this.boardDim.w/this.sectionNum;
+
+        var sectionStart = section.section * sectionSize;
+
+        if (section.subsection != null) {
+            subSectionSize = subSectionSize/this.subSectionNum;
+            sectionStart = sectionStart + section.subsection * subSectionSize;
+        }
+
+        console.log('Section size ' + sectionSize);
+        console.log('Sub section size ' + subSectionSize);
+        console.log('Section start ' + sectionStart);
+
+        for(var y = 0; y < spacesCopy.length; y++) {
+            spacesCopy[y].splice(sectionStart, subSectionSize);
+        }
+        
+        return spacesCopy;
+    }
+
 }
 
 class Round {
@@ -136,7 +194,7 @@ class Game {
     constructor () {
         this.mode = null,
         this.players = [];
-        this.board = new Board();
+        
         this.rounds = [];
         this.currentRound = 0;
 
@@ -160,6 +218,8 @@ class Game {
                 },
             ]
         };
+
+        this.board = new Board(this.settings.BOARD_DIM, this.settings.SECTION_NUM, this.settings.SUB_SECTION_NUM);
 
         this.initRounds();
 
@@ -277,5 +337,5 @@ class Game {
 }
 
 if (module && module.exports) {
-    module.exports = {Game, Player, Location, GAME_MODE};
+    module.exports = {Game, Player, Location, Section, GAME_MODE, BLOCK_TYPE, r, g, b, o};
 }
