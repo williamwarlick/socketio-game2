@@ -45,15 +45,15 @@ td.moveto {
     /*border: 1px solid;*/
 }
 
-.group-0 {
+.group-RED {
     background-color: red;
 }
 
-.group-1 {
+.group-GREEN {
     background-color: green;
 }
 
-.group-2 {
+.group-BLUE {
     background-color: blue;
 }
 

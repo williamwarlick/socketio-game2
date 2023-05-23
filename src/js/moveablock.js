@@ -1,9 +1,11 @@
 import socket from '../socket';
-import moveablock, { EVENTS, GAME_STATUS } from '../../moveablock-server';
+import { EVENTS } from '../../moveablock-server';
+import moveablock, {GAME_STATUS} from '../../moveablock2';
+import { BLOCK_TYPE, SPACE_STATUS, Space, Section } from '../../components';
 import '../moveablock/moveablock.css';
-import header from './header';
+import userInfo from './header';
 
-const mab = new moveablock.MoveABlock();
+const mab = new moveablock.Game();
 
 let pieceIdCounter = 0;
 
@@ -120,9 +122,9 @@ const buildCell = (x,y, section, subsection, prevSection, prevSubsection) => {
 }
 
 const addBlock = (cell, x, y) => {
-    var blockState = mab.state.board[y][x].block;
+    var blockState = mab.board.spaces[y][x].blockType;
 
-    if (blockState > -1) {
+    if (blockState !== BLOCK_TYPE.EMPTY) {
         var block = document.createElement('div');
         block.classList.add('block', 'group-' + blockState);
         block.setAttribute('draggable', 'true');
@@ -134,12 +136,12 @@ const addBlock = (cell, x, y) => {
     }
 };
 
-const updateBoardState = (newPos, currentPos) => {
+const updateBoardState = (playerId, newPos, currentPos) => {
     /*mab.state.board[newPos.y][newPos.x].block = mab.state.board[currentPos.y][currentPos.x].block;
     mab.state.board[newPos.y][newPos.x].state = moveablock.EVENTS.DROP;
     mab.state.board[currentPos.y][currentPos.x].block = -1;
     mab.state.board[currentPos.y][currentPos.x].state = moveablock.EVENTS.NONE;*/
-    mab.dropBlock(currentPos, newPos);
+    mab.moveBlock(playerId, currentPos, newPos);
 };
 
 const getBlockByPos = (pos) => {
@@ -183,7 +185,7 @@ const updateBoard = (move) => {
 
     if (move.event === EVENTS.DROP) {
         // update board state
-        updateBoardState(move.to.pos, move.from.pos);
+        updateBoardState(move.playerId, move.to.pos, move.from.pos);
         // get from block
         var block = getBlockByPos(move.from.pos);
         
@@ -266,13 +268,14 @@ const addDragListeners = (element) => {
             e.target.appendChild(block);
             updateBlockAttributes(block, newPos);
 
-            updateBoardState(newPos, currentPos);
+            // userInfo comes from header.js
+            updateBoardState(userInfo, newPos, currentPos);
 
             //socket.emit('moveablock', mab.state);
             socket.emit('moveablock', {
                 event: EVENTS.DROP, 
-                from: {pos: currentPos, state: mab.state.board[currentPos.y][currentPos.x]}, 
-                to: {pos: newPos, state: mab.state.board[newPos.y][newPos.x]}
+                from: {pos: currentPos, state: mab.board.spaces[currentPos.y][currentPos.x]}, 
+                to: {pos: newPos, state: mab.board.spaces[newPos.y][newPos.x]}
             });
         }
         
@@ -288,9 +291,12 @@ socket.on('moveablock', (event) => {
         if (event.status == GAME_STATUS.WAITING) {
             console.log('Game status: waiting');
             window.location.href = '/waiting.html';
+        } else if (event.status == GAME_STATUS.COMPLETE) {
+            console.log('Game status: complete');
+            window.location.href = '/game-complete.html';
         }
 
-        mab.state = event.state;
+        mab.board.spaces = event.state;
     }
 
     if (event.event === EVENTS.DROP || event.event === EVENTS.DRAGOVER

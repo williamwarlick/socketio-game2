@@ -1,6 +1,6 @@
 import loginTemplate from '../templates/login.mustache';
 import socket from '../socket';
-import {GAME_STATUS } from '../../moveablock-server';
+import {GAME_STATUS } from '../../moveablock2';
 import header from './header';
 
 socket.on('moveablock', (event) => {

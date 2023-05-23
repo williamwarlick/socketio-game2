@@ -8,6 +8,8 @@ const GAME_MODE = {
 
 const GAME_STATUS = {
     NEW: 'NEW',
+    WAITING: 'waiting',
+    JOINED: 'joined',
     STARTED: 'STARTED',
     COMPLETE: 'COMPLETE',
 }
@@ -144,7 +146,7 @@ class Game {
         
         this.rounds = [];
         this.currentRound = 0;
-        this.status = GAME_STATUS.NEW;
+        this.status = GAME_STATUS.WAITING;
 
         this.settings = {
             BOARD_DIM: {w: 18, h: 6},
@@ -292,5 +294,5 @@ class Game {
 }
 
 if (module && module.exports) {
-    module.exports = {Game, Player, Location, GAME_MODE};
+    module.exports = {Game, Player, Location, GAME_MODE, GAME_STATUS};
 }

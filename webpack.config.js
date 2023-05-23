@@ -6,6 +6,7 @@ module.exports = {
         index: './src/js/index.js',
         moveablock: './src/js/moveablock.js',
         waiting: './src/js/waiting.js',
+        gamecomplete: './src/js/game-complete.js',
     },
   output: {
     filename: '[name].js',
@@ -45,6 +46,12 @@ module.exports = {
       inject: true,
       chunks: ['waiting'],
       filename: 'waiting.html'
+  }),
+    new HtmlWebpackPlugin({
+      template: './src/game-complete.html',
+      inject: true,
+      chunks: ['gamecomplete'],
+      filename: 'game-complete.html'
   }),
     new HtmlWebpackPlugin({
       template: './src/moveablock/moveablock.html',
