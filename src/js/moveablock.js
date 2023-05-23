@@ -294,8 +294,12 @@ socket.on('moveablock', (event) => {
         } else if (event.status == GAME_STATUS.COMPLETE) {
             console.log('Game status: complete');
             window.location.href = '/game-complete.html';
+        } else if (event.status == GAME_STATUS.NEW_ROUND) {
+            console.log('Game status: new round');
+            window.location.href = '/round-acknowledge.html';
         }
 
+        console.log('updating board ...');
         mab.board.spaces = event.state;
     }
 

@@ -8,10 +8,12 @@ const GAME_MODE = {
 
 const GAME_STATUS = {
     NEW: 'NEW',
-    WAITING: 'waiting',
-    JOINED: 'joined',
-    STARTED: 'STARTED',
+    WAITING: 'WAITING',
+    JOINED: 'JOINED',
+    GAME_ACK: 'GAME_ACK',
+    ROUND_ACK: 'ROUND_ACK',
     COMPLETE: 'COMPLETE',
+    NEW_ROUND: 'NEW_ROUND',
 }
 
 const PLAYER_ROLE = {
@@ -37,6 +39,8 @@ class Player {
         this.blockType = BLOCK_TYPE.EMPTY;
         this.blockLocation = null;
         this.role = null;
+        this.gameAck = false;
+        this.roundAck = false;
     }
 
     // sets a copy
@@ -71,14 +75,14 @@ class Board {
     }
 
     init() {
-        this.spaces = [
+        /*this.spaces = [
             [r(),r(),g(),g(),r(),b(),r(),r(),g(),g(),r(),b(),b(),o(),g(),g(),r(),b()],
             [b(),b(),g(),g(),r(),b(),b(),r(),o(),b(),o(),b(),o(),o(),g(),g(),r(),o()],
             [o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o()],
             [o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o()],
             [o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o()],
             [o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o()],
-        ];
+        ];*/
     }
 
     // returns the section of the board
@@ -141,7 +145,7 @@ class Board {
 
 class Game {
     constructor () {
-        this.mode = null,
+        this.mode = GAME_MODE.TWO_PLAYER,
         this.players = [];
         
         this.rounds = [];
@@ -152,7 +156,7 @@ class Game {
             BOARD_DIM: {w: 18, h: 6},
             SECTION_NUM: 3,
             SUB_SECTION_NUM: 2,
-            ROUNDS_NUM: 1,
+            ROUNDS_NUM: 2,
             BLOCK_GROUPS: [
                 {
                     type: BLOCK_TYPE.RED,
@@ -185,6 +189,16 @@ class Game {
 
     getSubSectionWidth() { return this.getSectionWidth()/this.settings.SUB_SECTION_NUM; };
 
+    getState() {
+        return {
+            players: this.players, 
+            status: this.status, 
+            state: this.board.spaces,
+            roundNum: this.currentRound + 1,
+            round: this.rounds[this.currentRound],
+        }
+    }
+
     validDrop(from, to) {
         var fromNotEmpty = this.board.spaces[from.y][from.x].blockType != BLOCK_TYPE.EMPTY;
         var spaceIsEmpty = this.board.spaces[to.y][to.x].blockType == BLOCK_TYPE.EMPTY;
@@ -195,6 +209,12 @@ class Game {
 
         return (fromNotEmpty && spaceIsEmpty && spaceHasBlockBelowOrFloor && spaceBelowIsNotCurrentPos && noBlockAboveOrCeiling);
     };
+
+    resetGameAck() {
+        for (let player of this.players) {
+            player.gameAck = false;
+        }
+    }
 
     moveBlock(playerId, from, to) {
         if(this.validDrop(from, to)) {
@@ -213,8 +233,15 @@ class Game {
                 } else {
                     // increment the round
                     this.currentRound = this.currentRound + 1;
+
+                    // reset player acknowledgement
+                    this.resetGameAck();
+
                     // reset board space
-                    this.spaces = this.rounds[this.currentRound].initBoard;
+                    this.board.spaces = this.rounds[this.currentRound].initBoard;
+
+                    // reset status
+                    this.status = GAME_STATUS.NEW_ROUND;
                 }
 
             } else {
@@ -229,6 +256,25 @@ class Game {
 
     getPlayerById(playerId) {
         return this.players.find(player => {return player.id === playerId});
+    }
+
+    acknowledge(playerId) {
+        var countAck = 0;
+
+        if (GAME_STATUS.JOINED) {
+            for (let player of this.players) {
+                if (player.id === playerId) {
+                    player.gameAck = true;
+                    countAck++;
+                } else if (player.gameAck) {
+                    countAck++;
+                }
+            }
+
+            if (this.mode === GAME_MODE.ONE_PLAYER || countAck > 1) {
+                this.status = GAME_STATUS.GAME_ACK;
+            }
+        }
     }
 
     updateCursor(playerId, location) {

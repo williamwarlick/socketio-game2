@@ -52,7 +52,7 @@ class GameServer {
             let game = this.getGameByPlayerId(playerId);
             //game.updateSocketId(playerId, socket.id);
 
-            io.to(this.getPlayerSocketIds(game)).emit('moveablock', {playerId: playerId, status: game.status, state: game.board.spaces});
+            io.to(this.getPlayerSocketIds(game)).emit('moveablock', game.getState());
         } else {
 
             console.log('Player joining game: ' + playerId);
@@ -66,14 +66,14 @@ class GameServer {
                 this.playerGameIndexMap[game.players[0].id] = gameIndex;
                 this.playerGameIndexMap[game.players[1].id] = gameIndex;
                 
-                io.to(this.getPlayerSocketIds(game)).emit('moveablock', {playerId: playerId, status: game.status, state: game.board.spaces});
+                io.to(this.getPlayerSocketIds(game)).emit('moveablock', game.getState());
             } else {
                 console.log('Creating new game on-deck ...');
                 //let newGame = new MoveABlock(playerId, socket.id);
                 let newGame = new mab2.Game();
                 newGame.players[0] = new mab2.Player(playerId);
                 this.onDeck.push(newGame);
-                io.to(this.getPlayerSocketIds(newGame)).emit('moveablock', {playerId: playerId, status: newGame.status, state: newGame.board.spaces});
+                io.to(this.getPlayerSocketIds(newGame)).emit('moveablock', newGame.getState());
             }
         }
     }
@@ -134,7 +134,7 @@ class GameServer {
                     
                 // whether rejected or not, send game state back to socket to help
                 // keep the state synced properly
-                io.to(this.getPlayerSocketIds(game)).emit('moveablock', {playerId: playerId, status: game.status, state: game.board.spaces});
+                io.to(this.getPlayerSocketIds(game)).emit('moveablock', game.getState());
 
                 if (game.status === mab2.GAME_STATUS.COMPLETE) {
                     this.cleanUpGame(gameIndex, game);
@@ -145,6 +145,14 @@ class GameServer {
             console.log('Game not found for player id: ' + playerId);
             console.log(JSON.stringify(this.playerGameIndexMap));
         }
+    }
+
+    gameAck(io, playerId) {
+        var game = this.getGameByPlayerId(playerId);
+        game.acknowledge(playerId);
+
+        io.to(this.getPlayerSocketIds(game)).emit('moveablock', game.getState());
+
     }
 
     drag(io, playerId, msg) {

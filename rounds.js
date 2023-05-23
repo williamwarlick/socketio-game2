@@ -165,14 +165,14 @@ class Goal {
     }
 }
 
-const defaultStartingBoard = [
-    [r(),r(),g(),g(),r(),b(),r(),r(),g(),g(),r(),b(),b(),o(),g(),g(),r(),b()],
-    [b(),b(),g(),g(),r(),b(),b(),r(),o(),b(),o(),b(),o(),o(),g(),g(),r(),o()],
+const defaultStartingBoard = () => {return [
+    [r(),r(),g(),g(),r(),b(),r(),r(),g(),g(),r(),b(),b(),b(),g(),g(),r(),b()],
+    [b(),b(),g(),g(),r(),b(),b(),r(),o(),b(),o(),b(),r(),r(),g(),g(),r(),o()],
+    [o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),g(),g(),g(),o(),o(),o()],
+    [o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),r(),r(),g(),o(),o(),o()],
+    [o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),g(),g(),o(),o(),o(),o()],
     [o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o()],
-    [o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o()],
-    [o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o()],
-    [o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o(),o()],
-];
+]};
 
 const defaultGoalArray = [
     new Goal(GOAL_ACTION.FILL, null, new Section(SECTION.C, 0), "Fill Section C."),
@@ -186,7 +186,7 @@ function getDefaultRounds (numRounds) {
     var rounds = [];
 
     for (var i = 0; i < numRounds; i++) {
-        rounds.push(new Round(defaultStartingBoard, [defaultGoalArray[i]]));
+        rounds.push(new Round(defaultStartingBoard(), [defaultGoalArray[i]]));
     }
 
     return rounds;

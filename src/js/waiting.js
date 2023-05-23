@@ -4,6 +4,6 @@ import header from './header';
 
 socket.on('moveablock', (event) => {
     if (event.status && event.status == GAME_STATUS.JOINED) {
-        window.location.href = '/moveablock.html';
+        window.location.href = '/game-instructions.html';
     }
 });
