@@ -1,11 +1,11 @@
 import loginTemplate from '../templates/login.mustache';
 import socket from '../socket';
-import {GAME_STATUS } from '../../moveablock-server';
+import {GAME_STATUS } from '../../moveablock2';
 import header from './header';
 
 socket.on('moveablock', (event) => {
     if (event.status && event.status == GAME_STATUS.JOINED) {
-        window.location.href = '/moveablock.html';
+        window.location.href = '/consent.html';
     } else if (event.status && event.status == GAME_STATUS.WAITING) {
         window.location.href = '/waiting.html';
     }

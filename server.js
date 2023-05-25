@@ -57,15 +57,45 @@ const doLogin = (req, username, callback) => {
       })
 };
 
+const ackGame = (req, callback) => {
+    var user = req.session.user;
+
+    if (user) {
+        gameServer.gameAck(io, user);
+
+        if (callback) {
+            callback();
+        }
+    }
+};
+
 app.post('/login', express.urlencoded({ extended: false }), function (req, res) {
     doLogin(req, req.body.username, function() {
         res.redirect('/waiting.html');
     });
   })
 
+app.post('/gameack', express.urlencoded({ extended: false }), function (req, res) {
+    ackGame(req, function() {
+        res.redirect('/round-starting.html');
+    });
+})
+
 app.get('/user', (req, res) => {
     var username = req.session.user;
     res.json({user: username});
+})
+
+app.get('/gamestate', (req, res) => {
+    var username = req.session.user;
+
+    if (username) {
+        var game = gameServer.getGameByPlayerId(username);
+
+        res.json(game.getState());
+    } else {
+        res.status(404).send("Not found.");
+    }
 })
 
 io.on('connection', async (socket) => {  
@@ -89,12 +119,12 @@ io.on('connection', async (socket) => {
     socket.on('moveablock', (msg) => {
         // get the session from the socket
         const session = socket.request.session;
-        console.log(session);
+        //console.log(session);
 
         // get the username from the session
         const username = session.user;
 
-        console.log('moveablock: ' + JSON.stringify(msg));
+        //console.log('moveablock: ' + JSON.stringify(msg));
 
         var game = gameServer.getGameByPlayerId(username);
 

@@ -9,6 +9,6 @@
 After pulling the source code down:
 
 1. npm install
-2. npm start
+2. npm run start
 
 Launches on port 3000

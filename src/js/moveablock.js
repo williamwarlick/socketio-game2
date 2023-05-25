@@ -1,9 +1,11 @@
 import socket from '../socket';
-import moveablock, { EVENTS, GAME_STATUS } from '../../moveablock-server';
-import '../moveablock/moveablock.css';
-import header from './header';
+import { EVENTS } from '../../moveablock-server';
+import moveablock, {GAME_STATUS, PLAYER_ROLE} from '../../moveablock2';
+import { BLOCK_TYPE, SPACE_STATUS, Space, Section } from '../../components';
+import '../moveablock.css';
+import getUser from './header';
 
-const mab = new moveablock.MoveABlock();
+const mab = new moveablock.Game();
 
 let pieceIdCounter = 0;
 
@@ -120,9 +122,9 @@ const buildCell = (x,y, section, subsection, prevSection, prevSubsection) => {
 }
 
 const addBlock = (cell, x, y) => {
-    var blockState = mab.state.board[y][x].block;
+    var blockState = mab.board.spaces[y][x].blockType;
 
-    if (blockState > -1) {
+    if (blockState !== BLOCK_TYPE.EMPTY) {
         var block = document.createElement('div');
         block.classList.add('block', 'group-' + blockState);
         block.setAttribute('draggable', 'true');
@@ -134,12 +136,12 @@ const addBlock = (cell, x, y) => {
     }
 };
 
-const updateBoardState = (newPos, currentPos) => {
+const updateBoardState = (playerId, newPos, currentPos) => {
     /*mab.state.board[newPos.y][newPos.x].block = mab.state.board[currentPos.y][currentPos.x].block;
     mab.state.board[newPos.y][newPos.x].state = moveablock.EVENTS.DROP;
     mab.state.board[currentPos.y][currentPos.x].block = -1;
     mab.state.board[currentPos.y][currentPos.x].state = moveablock.EVENTS.NONE;*/
-    mab.dropBlock(currentPos, newPos);
+    mab.moveBlock(playerId, currentPos, newPos);
 };
 
 const getBlockByPos = (pos) => {
@@ -183,7 +185,7 @@ const updateBoard = (move) => {
 
     if (move.event === EVENTS.DROP) {
         // update board state
-        updateBoardState(move.to.pos, move.from.pos);
+        updateBoardState(move.playerId, move.to.pos, move.from.pos);
         // get from block
         var block = getBlockByPos(move.from.pos);
         
@@ -216,6 +218,27 @@ const updateBoard = (move) => {
         updateCellClasses(move.event, null, cell);
     }
 };
+
+async function updateRoundInfo(gameState) {
+    var userInfo = await getUser();
+    var player = gameState.players.find((player) => player.id === userInfo.user);
+
+    var roleEl = document.getElementById("role");
+    var roundEl = document.getElementById("round-num");
+    var goalEl = document.getElementById("goal-description");
+
+    roleEl.innerText = player.role;
+    roundEl.innerText = gameState.roundNum + '/' + mab.settings.ROUNDS_NUM;
+
+    if (player.role === PLAYER_ROLE.ARCHITECT) {
+        //TODO: this assumes a single goal
+        goalEl.innerText = gameState.round.goals[0].description;
+    } else {
+        goalEl.innerText = "The Architect has been assigned their secret goal!";
+    }
+
+    
+}
 
 const getElementPosition = (element) => {
     var posX = parseInt(element.dataset.x);
@@ -254,7 +277,7 @@ const addDragListeners = (element) => {
         
     });
 
-    element.addEventListener('drop', (e) => {
+    element.addEventListener('drop', async (e) => {
         e.preventDefault();
     
         var data = e.dataTransfer.getData('text/plain');
@@ -266,13 +289,15 @@ const addDragListeners = (element) => {
             e.target.appendChild(block);
             updateBlockAttributes(block, newPos);
 
-            updateBoardState(newPos, currentPos);
+            // getUser comes from header.js
+            var player = await getUser();
+            updateBoardState(player.user, newPos, currentPos);
 
             //socket.emit('moveablock', mab.state);
             socket.emit('moveablock', {
                 event: EVENTS.DROP, 
-                from: {pos: currentPos, state: mab.state.board[currentPos.y][currentPos.x]}, 
-                to: {pos: newPos, state: mab.state.board[newPos.y][newPos.x]}
+                from: {pos: currentPos, state: mab.board.spaces[currentPos.y][currentPos.x]}, 
+                to: {pos: newPos, state: mab.board.spaces[newPos.y][newPos.x]}
             });
         }
         
@@ -282,21 +307,32 @@ const addDragListeners = (element) => {
 // Build the board
 buildBoard();
 
-socket.on('moveablock', (event) => {
+socket.on('moveablock', async (event) => {
 
     if (event.state) {
         if (event.status == GAME_STATUS.WAITING) {
             console.log('Game status: waiting');
             window.location.href = '/waiting.html';
+        } else if (event.status == GAME_STATUS.COMPLETE) {
+            console.log('Game status: complete');
+            window.location.href = '/game-complete.html';
+        } else if (event.status == GAME_STATUS.NEW_ROUND) {
+            console.log('Game status: new round');
+            window.location.href = '/round-acknowledge.html';
+        } else if (event.status == GAME_STATUS.JOINED) {
+            console.log('Game status: joined');
+            window.location.href = '/consent.html';
         }
 
-        mab.state = event.state;
+        console.log('updating board ...');
+        mab.board.spaces = event.state;
     }
 
     if (event.event === EVENTS.DROP || event.event === EVENTS.DRAGOVER
         || event.event === EVENTS.DRAGSTART) {
         updateBoard(event);
     } else {
+        await updateRoundInfo(event);
         syncBoard();
     }
 });
