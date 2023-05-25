@@ -58,7 +58,7 @@ module.exports = {
       filename: 'game-complete.html'
   }),
     new HtmlWebpackPlugin({
-      template: './src/moveablock/moveablock.html',
+      template: './src/moveablock.html',
       inject: true,
       chunks: ['moveablock'],
       filename: 'moveablock.html'

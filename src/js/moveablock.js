@@ -2,7 +2,7 @@ import socket from '../socket';
 import { EVENTS } from '../../moveablock-server';
 import moveablock, {GAME_STATUS, PLAYER_ROLE} from '../../moveablock2';
 import { BLOCK_TYPE, SPACE_STATUS, Space, Section } from '../../components';
-import '../moveablock/moveablock.css';
+import '../moveablock.css';
 import getUser from './header';
 
 const mab = new moveablock.Game();
@@ -228,7 +228,7 @@ async function updateRoundInfo(gameState) {
     var goalEl = document.getElementById("goal-description");
 
     roleEl.innerText = player.role;
-    roundEl.innerText = gameState.roundNum;
+    roundEl.innerText = gameState.roundNum + '/' + mab.settings.ROUNDS_NUM;
 
     if (player.role === PLAYER_ROLE.ARCHITECT) {
         //TODO: this assumes a single goal
