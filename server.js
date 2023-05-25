@@ -86,6 +86,18 @@ app.get('/user', (req, res) => {
     res.json({user: username});
 })
 
+app.get('/gamestate', (req, res) => {
+    var username = req.session.user;
+
+    if (username) {
+        var game = gameServer.getGameByPlayerId(username);
+
+        res.json(game.getState());
+    } else {
+        res.status(404).send("Not found.");
+    }
+})
+
 io.on('connection', async (socket) => {  
     const session = socket.request.session;
 

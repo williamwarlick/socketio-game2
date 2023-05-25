@@ -175,7 +175,7 @@ const defaultStartingBoard = () => {return [
 ]};
 
 const defaultGoalArray = [
-    new Goal(GOAL_ACTION.FILL, null, new Section(SECTION.C, 0), "Fill Section C."),
+    new Goal(GOAL_ACTION.FILL, null, new Section(SECTION.C, 0), "Fill Section C1."),
     new Goal(GOAL_ACTION.COVER, BLOCK_TYPE.RED, null, "Cover all red blocks."),
     new Goal(GOAL_ACTION.CLEAR, null, new Section(SECTION.A, null), "Clear all blocks in section A."),
     new Goal(GOAL_ACTION.MOVE, BLOCK_TYPE.BLUE, new Section(SECTION.B, null), "Move all blue blocks to section B."),

@@ -33,12 +33,12 @@ class Location {
 }
 
 class Player {
-    constructor(id) {
+    constructor(id, role) {
         this.id = id;
         this.location = new Location(0,0); // start at 0,0
         this.blockType = BLOCK_TYPE.EMPTY;
         this.blockLocation = null;
-        this.role = null;
+        this.role = role;
         this.gameAck = false;
         this.roundAck = false;
     }
@@ -340,5 +340,5 @@ class Game {
 }
 
 if (module && module.exports) {
-    module.exports = {Game, Player, Location, GAME_MODE, GAME_STATUS};
+    module.exports = {Game, Player, Location, GAME_MODE, GAME_STATUS, PLAYER_ROLE};
 }

@@ -1,9 +1,9 @@
 import socket from '../socket';
 import { EVENTS } from '../../moveablock-server';
-import moveablock, {GAME_STATUS} from '../../moveablock2';
+import moveablock, {GAME_STATUS, PLAYER_ROLE} from '../../moveablock2';
 import { BLOCK_TYPE, SPACE_STATUS, Space, Section } from '../../components';
 import '../moveablock/moveablock.css';
-import userInfo from './header';
+import getUser from './header';
 
 const mab = new moveablock.Game();
 
@@ -219,6 +219,27 @@ const updateBoard = (move) => {
     }
 };
 
+async function updateRoundInfo(gameState) {
+    var userInfo = await getUser();
+    var player = gameState.players.find((player) => player.id === userInfo.user);
+
+    var roleEl = document.getElementById("role");
+    var roundEl = document.getElementById("round-num");
+    var goalEl = document.getElementById("goal-description");
+
+    roleEl.innerText = player.role;
+    roundEl.innerText = gameState.roundNum;
+
+    if (player.role === PLAYER_ROLE.ARCHITECT) {
+        //TODO: this assumes a single goal
+        goalEl.innerText = gameState.round.goals[0].description;
+    } else {
+        goalEl.innerText = "The Architect has been assigned their secret goal!";
+    }
+
+    
+}
+
 const getElementPosition = (element) => {
     var posX = parseInt(element.dataset.x);
     var posY = parseInt(element.dataset.y);
@@ -256,7 +277,7 @@ const addDragListeners = (element) => {
         
     });
 
-    element.addEventListener('drop', (e) => {
+    element.addEventListener('drop', async (e) => {
         e.preventDefault();
     
         var data = e.dataTransfer.getData('text/plain');
@@ -268,8 +289,9 @@ const addDragListeners = (element) => {
             e.target.appendChild(block);
             updateBlockAttributes(block, newPos);
 
-            // userInfo comes from header.js
-            updateBoardState(userInfo, newPos, currentPos);
+            // getUser comes from header.js
+            var player = await getUser();
+            updateBoardState(player.user, newPos, currentPos);
 
             //socket.emit('moveablock', mab.state);
             socket.emit('moveablock', {
@@ -285,7 +307,7 @@ const addDragListeners = (element) => {
 // Build the board
 buildBoard();
 
-socket.on('moveablock', (event) => {
+socket.on('moveablock', async (event) => {
 
     if (event.state) {
         if (event.status == GAME_STATUS.WAITING) {
@@ -301,6 +323,8 @@ socket.on('moveablock', (event) => {
 
         console.log('updating board ...');
         mab.board.spaces = event.state;
+
+        await updateRoundInfo(event);
     }
 
     if (event.event === EVENTS.DROP || event.event === EVENTS.DRAGOVER

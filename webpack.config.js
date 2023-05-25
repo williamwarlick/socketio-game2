@@ -10,6 +10,7 @@ module.exports = {
         roundack: './src/js/round-acknowledge.js',
         gameinstructions: './src/js/game-instructions.js',
         roundstarting: './src/js/round-starting.js',
+        consent: './src/js/header.js',
     },
   output: {
     filename: '[name].js',
@@ -79,6 +80,12 @@ module.exports = {
       inject: true,
       chunks: ['roundstarting'],
       filename: 'round-starting.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/consent.html',
+      inject: true,
+      chunks: ['consent'],
+      filename: 'consent.html'
     }),
   ]
 };

@@ -61,7 +61,7 @@ class GameServer {
                 console.log('2nd player joined, starting game ...');
                 var game = this.onDeck.pop();
                 game.status = mab2.GAME_STATUS.JOINED;
-                game.players[1] = new mab2.Player(playerId);
+                game.players[1] = new mab2.Player(playerId, mab2.PLAYER_ROLE.HELPER);
                 var gameIndex = this.inProgress.push(game) - 1;
                 this.playerGameIndexMap[game.players[0].id] = gameIndex;
                 this.playerGameIndexMap[game.players[1].id] = gameIndex;
@@ -71,7 +71,7 @@ class GameServer {
                 console.log('Creating new game on-deck ...');
                 //let newGame = new MoveABlock(playerId, socket.id);
                 let newGame = new mab2.Game();
-                newGame.players[0] = new mab2.Player(playerId);
+                newGame.players[0] = new mab2.Player(playerId, mab2.PLAYER_ROLE.ARCHITECT);
                 this.onDeck.push(newGame);
                 io.to(this.getPlayerSocketIds(newGame)).emit('moveablock', newGame.getState());
             }
