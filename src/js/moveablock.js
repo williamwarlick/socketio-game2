@@ -319,18 +319,20 @@ socket.on('moveablock', async (event) => {
         } else if (event.status == GAME_STATUS.NEW_ROUND) {
             console.log('Game status: new round');
             window.location.href = '/round-acknowledge.html';
+        } else if (event.status == GAME_STATUS.JOINED) {
+            console.log('Game status: joined');
+            window.location.href = '/consent.html';
         }
 
         console.log('updating board ...');
         mab.board.spaces = event.state;
-
-        await updateRoundInfo(event);
     }
 
     if (event.event === EVENTS.DROP || event.event === EVENTS.DRAGOVER
         || event.event === EVENTS.DRAGSTART) {
         updateBoard(event);
     } else {
+        await updateRoundInfo(event);
         syncBoard();
     }
 });

@@ -100,6 +100,7 @@ class GameServer {
     cleanUpGame(gameIndex, game) {
         // clean up player game index map
         for (let player of game.players) {
+            console.log(`Clearing player game index for ${player.id}`);
             this.playerGameIndexMap[player.id] = null;
         }
 
@@ -107,6 +108,7 @@ class GameServer {
         // setting to null for now so it doesn't mess up the playerGameIndexMap,
         // need to re-think how we keep track of the games so we don't fill
         // memory up
+        console.log(`Setting inProcess game to null ${gameIndex}`);
         this.inProgress[gameIndex] = null;
     }
 
@@ -137,6 +139,7 @@ class GameServer {
                 io.to(this.getPlayerSocketIds(game)).emit('moveablock', game.getState());
 
                 if (game.status === mab2.GAME_STATUS.COMPLETE) {
+                    console.log(`Game complete ${gameIndex}, cleaning up game ...`);
                     this.cleanUpGame(gameIndex, game);
                 }
                 

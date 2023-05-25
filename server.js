@@ -119,12 +119,12 @@ io.on('connection', async (socket) => {
     socket.on('moveablock', (msg) => {
         // get the session from the socket
         const session = socket.request.session;
-        console.log(session);
+        //console.log(session);
 
         // get the username from the session
         const username = session.user;
 
-        console.log('moveablock: ' + JSON.stringify(msg));
+        //console.log('moveablock: ' + JSON.stringify(msg));
 
         var game = gameServer.getGameByPlayerId(username);
 
