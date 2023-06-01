@@ -104,6 +104,10 @@ app.get('/gamestate', (req, res) => {
     }
 })
 
+app.get('/gameinfo', (req, res) => {
+    res.json({onDeck: gameServer.onDeck, inProgress: gameServer.inProgress});
+})
+
 io.on('connection', async (socket) => {  
     const session = socket.request.session;
 
