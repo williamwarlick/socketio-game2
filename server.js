@@ -13,7 +13,7 @@ const cookieParser = require('cookie-parser');
 const socketIOSession = require('socket.io-session');
 
 const sessionStore = new InMemorySessionStore();
-const gameServer = new mab.GameServer();
+var gameServer = new mab.GameServer();
 
 
 // configure session middleware
@@ -74,6 +74,12 @@ app.post('/login', express.urlencoded({ extended: false }), function (req, res) 
         res.redirect('/waiting.html');
     });
   })
+
+app.post('/reset', express.urlencoded({ extended: false }), function (req, res) {
+    gameServer = new mab.GameServer();
+    console.log("Reset game server ...");
+    res.redirect('/index.html');
+})
 
 app.post('/gameack', express.urlencoded({ extended: false }), function (req, res) {
     ackGame(req, function() {
