@@ -11,6 +11,7 @@ module.exports = {
         gameinstructions: './src/js/game-instructions.js',
         roundstarting: './src/js/round-starting.js',
         consent: './src/js/header.js',
+        admin: './src/js/header.js',
     },
   output: {
     filename: '[name].js',
@@ -86,6 +87,12 @@ module.exports = {
       inject: true,
       chunks: ['consent'],
       filename: 'consent.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/admin.html',
+      inject: true,
+      chunks: ['admin'],
+      filename: 'admin.html'
     }),
   ]
 };
