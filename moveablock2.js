@@ -1,5 +1,6 @@
 const {BLOCK_TYPE, Section, Space, SPACE_STATUS, r, o, g, b} = require('./components');
 const rnds = require('./rounds');
+const {v4: uuid} = require('uuid');
 
 const GAME_MODE = {
     ONE_PLAYER: 'ONE_PLAYER',
@@ -51,10 +52,12 @@ class Player {
 }
 
 class Move {
-    constructor(playerId, from, to) {
+    constructor(playerId, from, to, spaces) {
+        this.timestamp = Date.now();
         this.playerId = playerId;
         this.from = from;
         this.to = to;
+        this.spaces = JSON.parse(JSON.stringify(spaces)); // deep clone
     }
 
     toString() {
@@ -145,7 +148,8 @@ class Board {
 
 class Game {
     constructor () {
-        this.mode = GAME_MODE.TWO_PLAYER,
+        this.id = uuid(),
+        this.mode = GAME_MODE.ONE_PLAYER,
         this.players = [];
         
         this.rounds = [];
@@ -199,6 +203,16 @@ class Game {
         }
     }
 
+    getSaveState() {
+        return {
+            id: this.id,
+            players: this.players, 
+            status: this.status,
+            rounds: this.rounds,
+            roundNum: this.currentRound + 1,
+        }
+    }
+
     validDrop(from, to) {
         var fromNotEmpty = this.board.spaces[from.y][from.x].blockType != BLOCK_TYPE.EMPTY;
         var spaceIsEmpty = this.board.spaces[to.y][to.x].blockType == BLOCK_TYPE.EMPTY;
@@ -221,7 +235,8 @@ class Game {
             this.board.spaces[to.y][to.x] = this.board.spaces[from.y][from.x];
             this.board.spaces[from.y][from.x] = o();
 
-            this.board.moves.push(new Move(playerId, from, to));
+            //this.board.moves.push(new Move(playerId, from, to, this.board.spaces));
+            this.rounds[this.currentRound].moves.push(new Move(playerId, from, to, this.board.spaces));
 
             // check for Round goal met
             if (this.rounds[this.currentRound].isComplete(this.board)) {

@@ -18,6 +18,7 @@ class Round {
     constructor(initBoard, goals) {
         this.initBoard = initBoard,
         this.goals = goals;
+        this.moves = [];
     }
 
     isComplete(board) {
