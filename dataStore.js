@@ -3,6 +3,7 @@ AWS.config.update({ region: "us-east-1" });
 
 // Create DynamoDB document client
 const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
+const MAB_TABLE = 'mabGame';
 
 const updateItem = async (item, tableName) => {
     var result = await docClient
@@ -29,7 +30,7 @@ async function scanTable(tableName) {
 const save = (data) => {
     console.log('Saving game data id: ' + data.id + ', round num: ' + data.roundNum);
     
-    updateItem(data, 'mabGame2');
+    updateItem(data, MAB_TABLE);
 }
 
 const getAll = async (tableName) => {
