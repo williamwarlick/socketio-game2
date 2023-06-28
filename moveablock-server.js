@@ -1,5 +1,6 @@
 //const { default: socket } = require("./src/socket");
 const mab2 = require('./moveablock2');
+const dataStore = require('./dataStore');
 
 const EVENTS = {
     DRAGSTART: 'dragstart',
@@ -69,10 +70,20 @@ class GameServer {
                 io.to(this.getPlayerSocketIds(game)).emit('moveablock', game.getState());
             } else {
                 console.log('Creating new game on-deck ...');
-                //let newGame = new MoveABlock(playerId, socket.id);
+                
                 let newGame = new mab2.Game();
                 newGame.players[0] = new mab2.Player(playerId, mab2.PLAYER_ROLE.ARCHITECT);
-                this.onDeck.push(newGame);
+                
+                if (newGame.mode == mab2.GAME_MODE.ONE_PLAYER) {
+                    console.log('Player joined single player game, starting game ...');
+                    newGame.status = mab2.GAME_STATUS.JOINED;
+                    
+                    var gameIndex = this.inProgress.push(newGame) - 1;
+                    this.playerGameIndexMap[newGame.players[0].id] = gameIndex;
+                } else {
+                    this.onDeck.push(newGame);
+                }
+                
                 io.to(this.getPlayerSocketIds(newGame)).emit('moveablock', newGame.getState());
             }
         }
@@ -125,6 +136,8 @@ class GameServer {
 
                 if (accepted) {
                     console.log('Move accepted ...');
+
+                    dataStore.save(game.getSaveState());
 
                     var otherPlayerSocketId = this.getOtherPlayerSocketId(game, playerId);
 

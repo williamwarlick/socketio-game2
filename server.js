@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const session = require('express-session');
@@ -11,6 +12,7 @@ const randomId = () => crypto.randomBytes(8).toString("hex");
 const mab = require('./moveablock-server');
 const cookieParser = require('cookie-parser');
 const socketIOSession = require('socket.io-session');
+const dataStore = require('./dataStore');
 
 const sessionStore = new InMemorySessionStore();
 var gameServer = new mab.GameServer();
@@ -106,6 +108,18 @@ app.get('/gamestate', (req, res) => {
 
 app.get('/gameinfo', (req, res) => {
     res.json({onDeck: gameServer.onDeck, inProgress: gameServer.inProgress});
+})
+
+app.get('/gamedata', async (req, res) => {
+    var data = await dataStore.getAll('mabGame2');
+
+    res.json(data);
+})
+
+app.get('/gamedataf1', async (req, res) => {
+    var data = await dataStore.getAllFormat1('mabGame2');
+
+    res.json(data);
 })
 
 io.on('connection', async (socket) => {  
