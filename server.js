@@ -15,6 +15,9 @@ const socketIOSession = require('socket.io-session');
 const dataStore = require('./dataStore');
 
 const sessionStore = new InMemorySessionStore();
+
+const MAB_TABLE = 'mabGame';
+
 var gameServer = new mab.GameServer();
 
 
@@ -111,13 +114,13 @@ app.get('/gameinfo', (req, res) => {
 })
 
 app.get('/gamedata', async (req, res) => {
-    var data = await dataStore.getAll('mabGame2');
+    var data = await dataStore.getAll(MAB_TABLE);
 
     res.json(data);
 })
 
 app.get('/gamedataf1', async (req, res) => {
-    var data = await dataStore.getAllFormat1('mabGame2');
+    var data = await dataStore.getAllFormat1(MAB_TABLE);
 
     res.json(data);
 })
