@@ -30,7 +30,7 @@ async function scanTable(tableName) {
 const save = (data) => {
     console.log('Saving game data id: ' + data.id + ', round num: ' + data.roundNum);
     
-    updateItem(data, MAB_TABLE);
+    //updateItem(data, MAB_TABLE);
 }
 
 const getAll = async (tableName) => {

@@ -121,7 +121,7 @@ class Board {
         if (!section) { return this.spaces };
 
         // clone board
-        var spacesCopy = this.spaces.slice();
+        var spacesCopy = this.spaces.map((item) => item.slice());
 
         var sectionSize = this.boardDim.w/this.sectionNum;
         var subSectionSize = this.boardDim.w/this.sectionNum;
@@ -200,6 +200,7 @@ class Game {
             state: this.board.spaces,
             roundNum: this.currentRound + 1,
             round: this.rounds[this.currentRound],
+            previousRound: this.currentRound > 0 ? this.rounds[this.currentRound - 1] : null,
         }
     }
 

@@ -10,6 +10,13 @@ const SPACE_STATUS = {
     CLOSED: 'CLOSED',
 }
 
+const EVENTS = {
+    DRAGSTART: 'dragstart',
+    DRAGOVER: 'dragover',
+    DROP: 'drop',
+    NONE: 'none',
+};
+
 class Space {
     constructor(blockType) {
         this.blockType = blockType;
@@ -34,5 +41,5 @@ class Section {
 }
 
 if (module && module.exports) {
-    module.exports = {SPACE_STATUS,BLOCK_TYPE, o, r, b, g, Section, Space};
+    module.exports = {SPACE_STATUS,BLOCK_TYPE, o, r, b, g, Section, Space, EVENTS};
 }

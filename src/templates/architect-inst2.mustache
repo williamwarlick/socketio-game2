@@ -1,8 +1,18 @@
 <div>
-<p>Here are the rules of the collaborative game for both you 
+
+{{#previousRound}}
+<div class="round-results text-bg-primary p-3 row mt-4">
+  <p>Round completed!</p>
+  <p>Number of moves: {{previousRound.moves.length}}</p>
+  <p>Optimal moves: {{# previousRound.goals}}{{minMoves}}{{/previousRound.goals}}</p>
+</div>
+{{/previousRound}}
+
+{{^previousRound}}
+<p class="row mt-4">Here are the rules of the collaborative game for both you 
 and the Helper:</p>
 
-<p>
+<p class="row mt-4">
 <ol>
 <li>You as an Architect will be given a set of goals, which will be unknown 
 to the Helper.</li>
@@ -15,11 +25,12 @@ secret goal.</li>
 </ol>
 </p>
 
-<p>Goals can be of many forms. You may be asked to move a specific type of 
+<p class="row mt-4">Goals can be of many forms. You may be asked to move a specific type of 
 block (e.g., red) to a specific room (e.g., A). You may be asked to clear or 
 fill up a particular room (e.g., A1 or B2). You may also be asked to cover or 
 uncover a particular type of block (e.g., red). Covering a block means making 
 sure there is another block on top of it. Uncovering a block means making sure 
 there is no other block on top of it.</p>
+{{/previousRound}}
 
 </div>

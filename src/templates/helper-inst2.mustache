@@ -1,8 +1,17 @@
 <div>
-<p>Here are the rules of the collaborative game for both you 
+{{#previousRound}}
+<div class="round-results text-bg-primary p-3 row mt-4">
+  <p>Round completed!</p>
+  <p>Number of moves: {{previousRound.moves.length}}</p>
+  <p>Optimal moves: {{# previousRound.goals}}{{minMoves}}{{/previousRound.goals}}</p>
+</div>
+{{/previousRound}}
+
+{{^previousRound}}
+<p class="row mt-4">Here are the rules of the collaborative game for both you 
 and the Architect:</p>
 
-<p>
+<p class="row mt-4">
 <ol>
 <li>The Architect will be given a set of goals, which will be unknown to you.</li>
 <li>Remember, this is a collaborative game. Do whatever it takes to help each 
@@ -13,4 +22,5 @@ other.</li>
 secret goal.</li>
 <ol>
 <p>
+{{/previousRound}}
 </div>

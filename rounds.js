@@ -19,6 +19,7 @@ class Round {
         this.initBoard = initBoard,
         this.goals = goals;
         this.moves = [];
+        this.importId = null; // used to track when round is loaded from a file
     }
 
     isComplete(board) {
@@ -134,11 +135,12 @@ function checkMove(blockType, section, board) {
 }
 
 class Goal {
-    constructor(action, blockType, section, description) {
+    constructor(action, blockType, section, description, minMoves) {
         this.action = action;
         this.blockType = blockType;
         this.section = section;
         this.description = description;
+        this.minMoves = minMoves;
     }
 
     isMet(board) { // board.spaces is 2D array
