@@ -1,7 +1,7 @@
 import socket from '../socket';
-import { EVENTS } from '../../moveablock-server';
+//import { EVENTS } from '../../moveablock-server';
 import moveablock, {GAME_STATUS, PLAYER_ROLE} from '../../moveablock2';
-import { BLOCK_TYPE, SPACE_STATUS, Space, Section } from '../../components';
+import { BLOCK_TYPE, SPACE_STATUS, Space, Section, EVENTS } from '../../components';
 import '../moveablock.css';
 import getUser from './header';
 

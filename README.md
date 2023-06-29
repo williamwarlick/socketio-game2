@@ -19,5 +19,13 @@ Uses dotenv
 
 Create .env file
 
+For local testing only:
+
 AWS_ACCESS_KEY_ID=""
 AWS_SECRET_ACCESS_KEY=""
+
+## Unit Tests
+
+Uses Jest framework
+
+npm run test

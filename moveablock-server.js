@@ -1,13 +1,15 @@
 //const { default: socket } = require("./src/socket");
 const mab2 = require('./moveablock2');
 const dataStore = require('./dataStore');
+const loader = require('./round-loader');
+const {EVENTS} = require('./components');
 
-const EVENTS = {
+/*const EVENTS = {
     DRAGSTART: 'dragstart',
     DRAGOVER: 'dragover',
     DROP: 'drop',
     NONE: 'none',
-};
+};*/
 
 class GameServer {
     constructor() {
@@ -43,7 +45,19 @@ class GameServer {
         return socketId;
     }
 
-    joinMoveABlock(io, socket, playerId) {
+    async generateSinglePlayerRounds(numRounds) {
+        var theRounds = [];
+        var singlePlayerRoundPool = await loader.loadRoundsFromFile('./final_move_df.csv');
+
+
+        for (let i=0; i < numRounds; i++) {
+            theRounds.push(singlePlayerRoundPool[i]);
+        }
+
+        return theRounds;
+    }
+
+    async joinMoveABlock(io, socket, playerId) {
         // keep track of player's socket id
         this.playerIdSocketMap[playerId] = socket.id;
 
@@ -77,6 +91,8 @@ class GameServer {
                 if (newGame.mode == mab2.GAME_MODE.ONE_PLAYER) {
                     console.log('Player joined single player game, starting game ...');
                     newGame.status = mab2.GAME_STATUS.JOINED;
+                    newGame.rounds = await this.generateSinglePlayerRounds(newGame.settings.ROUNDS_NUM);
+                    newGame.board.spaces = newGame.rounds[newGame.currentRound].initBoard;
                     
                     var gameIndex = this.inProgress.push(newGame) - 1;
                     this.playerGameIndexMap[newGame.players[0].id] = gameIndex;

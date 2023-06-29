@@ -136,7 +136,7 @@ io.on('connection', async (socket) => {
     console.log('A user connected ...' + username);
 
     if (username) {
-        gameServer.joinMoveABlock(io, socket, username);
+        await gameServer.joinMoveABlock(io, socket, username);
     }
 
     socket.on('lobby', (msg) => {

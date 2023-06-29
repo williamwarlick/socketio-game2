@@ -94,5 +94,5 @@ module.exports = {
       chunks: ['admin'],
       filename: 'admin.html'
     }),
-  ]
+  ],
 };
