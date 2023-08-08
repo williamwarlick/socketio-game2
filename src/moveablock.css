@@ -65,7 +65,10 @@ td.moveto {
     border-left: 1px solid black;
 }
 
-.round-results {
-    
+.can-drop::before {
+    content: "✔️";
 }
   
+.no-drop::before {
+    content: "❌";
+}
