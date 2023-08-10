@@ -19,7 +19,7 @@ class Round {
         this.initBoard = initBoard,
         this.goals = goals;
         this.moves = [];
-        this.importId = null; // used to track when round is loaded from a file
+        this.importId = ''; // used to track when round is loaded from a file
         this.isPractice = false;
     }
 
