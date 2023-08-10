@@ -198,7 +198,7 @@ class Game {
             players: this.players, 
             status: this.status, 
             state: this.board.spaces,
-            roundNum: this.currentRound + 1,
+            roundNum: this.currentRound, // assume practice round is 0
             round: this.rounds[this.currentRound],
             previousRound: this.currentRound > 0 ? this.rounds[this.currentRound - 1] : null,
         }

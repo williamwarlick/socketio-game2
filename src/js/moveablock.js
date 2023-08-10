@@ -229,9 +229,11 @@ async function updateRoundInfo(gameState) {
     var roleEl = document.getElementById("role");
     var roundEl = document.getElementById("round-num");
     var goalEl = document.getElementById("goal-description");
+    var movesEl = document.getElementById("moves");
 
     roleEl.innerText = player.role;
     roundEl.innerText = gameState.roundNum + '/' + mab.settings.ROUNDS_NUM;
+    movesEl.innerText = gameState.round.moves.length;
 
     if (player.role === PLAYER_ROLE.ARCHITECT) {
         //TODO: this assumes a single goal
@@ -284,6 +286,10 @@ const addDragListeners = (element) => {
         //e.preventDefault();
         e.dataTransfer.setData('text/plain', e.target.id);
         dragstartid = e.target.id;
+
+        var block = document.getElementById(dragstartid);
+        block.classList.add('dragging');
+
         var pos = getElementPosition(e.target);
 
         socket.emit('moveablock', {
@@ -291,6 +297,11 @@ const addDragListeners = (element) => {
             from: {pos: pos, state: null}
         });
         
+    });
+
+    element.addEventListener('dragend', (e) => {
+        var block = document.getElementById(dragstartid);
+        block.classList.remove('dragging');
     });
 
     element.addEventListener('drop', async (e) => {

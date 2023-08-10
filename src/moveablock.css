@@ -72,3 +72,14 @@ td.moveto {
 .no-drop::before {
     content: "❌";
 }
+
+.header-container {
+    min-height: 56px;
+    background-color: black;
+}
+
+.dragging {
+    border-color: yellow;
+    border-style: solid;
+    border-width: thin;
+}
