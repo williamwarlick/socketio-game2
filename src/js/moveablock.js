@@ -9,6 +9,9 @@ const mab = new moveablock.Game();
 
 let pieceIdCounter = 0;
 
+// for keeping track of the element id of the dragged block
+let dragstartid = null;
+
 const generatePieceId = () => {
     pieceIdCounter = pieceIdCounter + 1;
 
@@ -226,9 +229,11 @@ async function updateRoundInfo(gameState) {
     var roleEl = document.getElementById("role");
     var roundEl = document.getElementById("round-num");
     var goalEl = document.getElementById("goal-description");
+    var movesEl = document.getElementById("moves");
 
     roleEl.innerText = player.role;
     roundEl.innerText = gameState.roundNum + '/' + mab.settings.ROUNDS_NUM;
+    movesEl.innerText = gameState.round.moves.length;
 
     if (player.role === PLAYER_ROLE.ARCHITECT) {
         //TODO: this assumes a single goal
@@ -252,10 +257,15 @@ const addDragListeners = (element) => {
         e.preventDefault();
 
         if (e.target.tagName === 'TD') {
-            //var data = e.dataTransfer.getData('text/plain');
-           // var block = document.getElementById(data);
+            var block = document.getElementById(dragstartid);
             var newPos = getElementPosition(e.target);
-            //var currentPos = getElementPosition(block);
+            var currentPos = getElementPosition(block);
+    
+            if (mab.validDrop(currentPos, newPos)) {
+                e.target.classList.add('can-drop');
+            } else {
+                e.target.classList.add('no-drop');
+            }
 
             socket.emit('moveablock', {
                 event: EVENTS.DRAGOVER, 
@@ -265,9 +275,21 @@ const addDragListeners = (element) => {
         }
     });
 
+    element.addEventListener('dragleave', (e) => {
+        e.preventDefault();
+        
+        e.target.classList.remove('can-drop');
+        e.target.classList.remove('no-drop');
+    });
+
     element.addEventListener('dragstart', (e) => {
         //e.preventDefault();
         e.dataTransfer.setData('text/plain', e.target.id);
+        dragstartid = e.target.id;
+
+        var block = document.getElementById(dragstartid);
+        block.classList.add('dragging');
+
         var pos = getElementPosition(e.target);
 
         socket.emit('moveablock', {
@@ -277,10 +299,18 @@ const addDragListeners = (element) => {
         
     });
 
+    element.addEventListener('dragend', (e) => {
+        var block = document.getElementById(dragstartid);
+        block.classList.remove('dragging');
+    });
+
     element.addEventListener('drop', async (e) => {
         e.preventDefault();
+        e.target.classList.remove('can-drop');
+        e.target.classList.remove('no-drop');
     
         var data = e.dataTransfer.getData('text/plain');
+        console.log('drop event: data ' + data);
         var block = document.getElementById(data);
         var newPos = getElementPosition(e.target);
         var currentPos = getElementPosition(block);

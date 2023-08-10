@@ -2,6 +2,7 @@
 const mab2 = require('./moveablock2');
 const dataStore = require('./dataStore');
 const loader = require('./round-loader');
+const roundsLib = require('./rounds');
 const {EVENTS} = require('./components');
 
 /*const EVENTS = {
@@ -49,6 +50,10 @@ class GameServer {
         var theRounds = [];
         var singlePlayerRoundPool = await loader.loadRoundsFromFile('./final_move_df.csv');
 
+        var practiceRound = roundsLib.getDefaultRounds(1)[0];
+        practiceRound.isPractice = true;
+        
+        theRounds.push(practiceRound);
 
         for (let i=0; i < numRounds; i++) {
             theRounds.push(singlePlayerRoundPool[i]);

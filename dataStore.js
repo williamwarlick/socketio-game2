@@ -30,7 +30,7 @@ async function scanTable(tableName) {
 const save = (data) => {
     console.log('Saving game data id: ' + data.id + ', round num: ' + data.roundNum);
     
-    //updateItem(data, MAB_TABLE);
+    updateItem(data, MAB_TABLE);
 }
 
 const getAll = async (tableName) => {
@@ -50,6 +50,7 @@ const getAllFormat1 = async (tableName) => {
             for (move of round.moves) {
                 formatted.push({
                     gameId: game.id,
+                    importId: round.importId, // ID from file
                     playerId: move.playerId,
                     playerRole: game.players.find(player => player.id == move.playerId).role,
                     config: round.initBoard.map((row) => {

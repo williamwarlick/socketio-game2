@@ -2,7 +2,7 @@ const BLOCK_TYPE = {
     RED: 'RED',
     GREEN: 'GREEN',
     BLUE: 'BLUE',
-    EMPTY: 'EMPTY',
+    EMPTY: 'WHITE',
 }
 
 const SPACE_STATUS = {
