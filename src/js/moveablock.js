@@ -360,9 +360,11 @@ socket.on('moveablock', async (event) => {
 
     if (event.event === EVENTS.DROP || event.event === EVENTS.DRAGOVER
         || event.event === EVENTS.DRAGSTART) {
-        updateBoard(event);
+            console.log('Updating board for event ' + event.event);
+            updateBoard(event);
     } else {
         await updateRoundInfo(event);
+        console.log('Syncing board ...');
         syncBoard();
     }
 });
