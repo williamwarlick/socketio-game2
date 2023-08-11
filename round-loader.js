@@ -98,9 +98,14 @@ const loadRoundsFromFile = async (filePath) => {
         var sectionString = parseGoal[2];
         var theSection = sectionString[0].toUpperCase();
         var theSubSection = null;
+        
+        if (sectionString.toUpperCase() !== 'ALL' && sectionString.length > 1) {
 
-        if (sectionString.length > 1) {
-            theSubSection = parseInt(sectionString[1] - 1);
+            if(Number.isNaN(Number(sectionString[1]))) {
+                console.log('Warning, section string not a number: ' + sectionString[1] + ' from ' + sectionString);
+            } else {
+                theSubSection = parseInt(sectionString[1]) - 1;
+            }
         }
 
         goal.section = new components.Section(rounds.SECTION[theSection], 
