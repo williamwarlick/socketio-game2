@@ -245,6 +245,11 @@ async function updateRoundInfo(gameState) {
     
 }
 
+function updateMoves() {
+    var movesEl = document.getElementById("moves");
+    movesEl.innerText = mab.rounds[mab.currentRound].moves.length;
+}
+
 const getElementPosition = (element) => {
     var posX = parseInt(element.dataset.x);
     var posY = parseInt(element.dataset.y);
@@ -323,6 +328,8 @@ const addDragListeners = (element) => {
             var player = await getUser();
             updateBoardState(player.user, newPos, currentPos);
 
+            updateMoves();
+
             //socket.emit('moveablock', mab.state);
             socket.emit('moveablock', {
                 event: EVENTS.DROP, 
@@ -364,7 +371,7 @@ socket.on('moveablock', async (event) => {
             updateBoard(event);
     } else {
         await updateRoundInfo(event);
-        console.log('Syncing board ...');
+        console.log('Syncing board ... ' + event.event);
         syncBoard();
     }
 });

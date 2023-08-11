@@ -52,7 +52,7 @@ class GameServer {
 
         var practiceRound = roundsLib.getDefaultRounds(1)[0];
         practiceRound.isPractice = true;
-        
+
         theRounds.push(practiceRound);
 
         for (let i=0; i < numRounds; i++) {
@@ -166,15 +166,23 @@ class GameServer {
                         io.to(otherPlayerSocketId).emit('moveablock', {event: aMove.event, playerId: playerId, 
                             from: aMove.from, to: aMove.to, state: game.board.spaces});
                     }
+                } else {
+                    console.log('Syncing game state with clients ...');
+                    io.to(this.getPlayerSocketIds(game)).emit('moveablock', game.getState());
                 }
-                    
-                // whether rejected or not, send game state back to socket to help
-                // keep the state synced properly
-                io.to(this.getPlayerSocketIds(game)).emit('moveablock', game.getState());
-
-                if (game.status === mab2.GAME_STATUS.COMPLETE) {
+                
+                if (game.status === mab2.GAME_STATUS.NEW_ROUND) {
+                    // if new round sync game
+                    console.log('Syncing game state with clients ...');
+                    io.to(this.getPlayerSocketIds(game)).emit('moveablock', game.getState());
+                } 
+                
+                else if (game.status === mab2.GAME_STATUS.COMPLETE) {
                     console.log(`Game complete ${gameIndex}, cleaning up game ...`);
                     this.cleanUpGame(gameIndex, game);
+
+                    console.log('Syncing game state with clients ...');
+                    io.to(this.getPlayerSocketIds(game)).emit('moveablock', game.getState());
                 }
                 
             }
