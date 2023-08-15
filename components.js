@@ -38,6 +38,10 @@ class Section {
         this.section = section;
         this.subsection = subsection;
     }
+
+    toString() {
+        return this.section + (this.subsection ? this.subsection + 1 : '');
+    }
 }
 
 if (module && module.exports) {
