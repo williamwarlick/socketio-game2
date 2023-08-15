@@ -27,7 +27,7 @@ const loadFromFile = async (filePath) => {
             csvData.push(row);
             }
 
-            shuffleArray(csvData);
+            //shuffleArray(csvData);
         
             //console.log(csvData[0]);
         } catch (error) {
@@ -79,11 +79,16 @@ function convertBoardConfig(array, rows, columns) {
 
 const loadRoundsFromFile = async (filePath) => {
     const csvData = await loadFromFile(filePath);
-    const theRounds = [];
+    const roundIdMap = {};
+    //const theRounds = [];
 
     for (csvRow of csvData) {
         let round = new rounds.Round();
         let goal = new rounds.Goal();
+
+        if (!roundIdMap[csvRow.ID]) {
+            roundIdMap[csvRow.ID] = [];
+        }
 
         round.importId = csvRow.ID;
         round.initBoard = convertBoardConfig(JSON.parse(csvRow.config.replaceAll("'",'"')), 6, 18);
@@ -115,10 +120,10 @@ const loadRoundsFromFile = async (filePath) => {
         goal.description = csvRow.goal;
 
         round.goals = [goal];
-        theRounds.push(round);
+        roundIdMap[csvRow.ID].push(round);
     }
 
-    return theRounds;
+    return roundIdMap;
 
 };
 
