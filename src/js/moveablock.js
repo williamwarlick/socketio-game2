@@ -4,6 +4,7 @@ import moveablock, {GAME_STATUS, PLAYER_ROLE} from '../../moveablock2';
 import { BLOCK_TYPE, SPACE_STATUS, Space, Section, EVENTS } from '../../components';
 import '../moveablock.css';
 import getUser from './header';
+import roundLib from '../../rounds';
 
 const mab = new moveablock.Game();
 
@@ -237,7 +238,7 @@ async function updateRoundInfo(gameState) {
 
     if (player.role === PLAYER_ROLE.ARCHITECT) {
         //TODO: this assumes a single goal
-        goalEl.innerText = gameState.round.goals[0].description;
+        goalEl.innerText = roundLib.buildGoalDescription(gameState.round.goals[0]);
     } else {
         goalEl.innerText = "The Architect has been assigned their secret goal!";
     }

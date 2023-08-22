@@ -14,12 +14,14 @@ const SECTION = {
     C: 2,
 }
 
+const SECTION_MAP = ['A', 'B', 'C'];
+
 class Round {
-    constructor(initBoard, goals) {
+    constructor(initBoard, goals, importId) {
         this.initBoard = initBoard,
         this.goals = goals;
         this.moves = [];
-        this.importId = ''; // used to track when round is loaded from a file
+        this.importId = importId ? importId : ''; // used to track when round is loaded from a file
         this.isPractice = false;
     }
 
@@ -135,6 +137,41 @@ function checkMove(blockType, section, board) {
     return true;
 }
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function buildSectionString(section) {
+    return SECTION_MAP[section.section] + (section.subsection || section.subsection == 0 ? section.subsection + 1 : '');
+}
+
+function buildGoalDescription(goal) {
+    var friendly = '';
+
+    switch (goal.action.toLowerCase()) {
+        case 'fill':
+            friendly = 'Fill section ' + buildSectionString(goal.section);
+            break;
+        case 'cover':
+            friendly = 'Cover all ' + goal.blockType.toLowerCase() + ' blocks';
+            break;
+        case 'uncover':
+            friendly = 'Uncover all ' + goal.blockType.toLowerCase() + ' blocks';
+            break;
+        case 'move':
+            friendly = 'Move all ' + goal.blockType.toLowerCase() + 
+                ' blocks to section ' + buildSectionString(goal.section);
+            break;
+        case 'clear':
+            friendly = 'Clear section ' + buildSectionString(goal.section);
+            break;
+        default:
+            // ignore for now or throw an exception
+    }
+
+    return friendly;
+}
+
 class Goal {
     constructor(action, blockType, section, description, minMoves) {
         this.action = action;
@@ -179,7 +216,7 @@ const defaultStartingBoard = () => {return [
 ]};
 
 const defaultGoalArray = [
-    new Goal(GOAL_ACTION.FILL, null, new Section(SECTION.C, 0), "fill nocolor C1."),
+    new Goal(GOAL_ACTION.FILL, null, new Section(SECTION.C, 0), "fill nocolor C1.", 4),
     new Goal(GOAL_ACTION.COVER, BLOCK_TYPE.RED, null, "Cover all red blocks."),
     new Goal(GOAL_ACTION.CLEAR, null, new Section(SECTION.A, null), "Clear all blocks in section A."),
     new Goal(GOAL_ACTION.MOVE, BLOCK_TYPE.BLUE, new Section(SECTION.B, null), "Move all blue blocks to section B."),
@@ -197,5 +234,5 @@ function getDefaultRounds (numRounds) {
 }
 
 if (module && module.exports) {
-    module.exports = {Round, Goal, getDefaultRounds, GOAL_ACTION, SECTION};
+    module.exports = {Round, Goal, getDefaultRounds, GOAL_ACTION, SECTION, buildGoalDescription};
 }

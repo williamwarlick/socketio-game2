@@ -1,0 +1,33 @@
+{{#previousRound}}
+<div class="round-results text-bg-primary p-3 row mt-4">
+  <p>Round completed!</p>
+  <p>Number of moves: {{previousRound.moves.length}}</p>
+  <p>Optimal moves: {{# previousRound.goals}}{{minMoves}}{{/previousRound.goals}}</p>
+</div>
+{{/previousRound}}
+<div class="row mt-4">
+    <p>Game complete! Thank you!</p>
+    <p>Results:</p>
+</div>
+<div class="row mt-4">
+<table class="table table-striped">
+    <thead>
+        <tr>
+        <th>Round</th>
+        <th>Moves</th>
+        <th>Optimal</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#rounds}}
+            {{^isPractice}}
+            <tr>
+            <td>{{roundNum}}</td>
+            <td>{{moves.length}}</td>
+            <td>{{# goals}}{{minMoves}}{{/goals}}</td>
+            </tr>
+            {{/isPractice}}
+        {{/rounds}}
+    </tbody>
+    </table>
+</div>

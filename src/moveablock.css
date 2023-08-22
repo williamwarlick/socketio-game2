@@ -79,7 +79,19 @@ td.moveto {
 }
 
 .dragging {
-    border-color: yellow;
-    border-style: solid;
-    border-width: thin;
+    border-style: dashed;
+    border-width: medium;
+    border-color: dimgray;
+}
+
+.dragging.group-RED {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+.dragging.group-GREEN {
+    background-color: rgba(0, 255, 0, 0.5);
+}
+
+.dragging.group-BLUE {
+    background-color: rgba(0, 0, 255, 0.5);
 }

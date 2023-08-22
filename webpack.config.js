@@ -10,7 +10,7 @@ module.exports = {
         roundack: './src/js/round-acknowledge.js',
         gameinstructions: './src/js/game-instructions.js',
         roundstarting: './src/js/round-starting.js',
-        consent: './src/js/header.js',
+        consent: './src/js/user.js',
         admin: './src/js/header.js',
     },
   output: {

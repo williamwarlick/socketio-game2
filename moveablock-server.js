@@ -18,6 +18,7 @@ class GameServer {
         this.onDeck = [];
         this.playerGameIndexMap = {};
         this.playerIdSocketMap = {};
+        this.singlePlayerRoundPoolIndex = 0;
     }
 
     getPlayerSocketIds(game) {
@@ -56,7 +57,13 @@ class GameServer {
         theRounds.push(practiceRound);
 
         for (let i=0; i < numRounds; i++) {
-            theRounds.push(singlePlayerRoundPool[i]);
+            theRounds.push(singlePlayerRoundPool[Object.keys(singlePlayerRoundPool)[this.singlePlayerRoundPoolIndex]][i]);
+        }
+
+        this.singlePlayerRoundPoolIndex = this.singlePlayerRoundPoolIndex + 1;
+
+        if(Object.keys(singlePlayerRoundPool).length <= this.singlePlayerRoundPoolIndex) {
+            this.singlePlayerRoundPoolIndex = 0;
         }
 
         return theRounds;
@@ -178,8 +185,10 @@ class GameServer {
                 } 
                 
                 else if (game.status === mab2.GAME_STATUS.COMPLETE) {
-                    console.log(`Game complete ${gameIndex}, cleaning up game ...`);
-                    this.cleanUpGame(gameIndex, game);
+                    console.log(`Game complete ${gameIndex}`);
+                    //this.cleanUpGame(gameIndex, game);
+
+                    game.gameCompleteTime = Date.now();
 
                     console.log('Syncing game state with clients ...');
                     io.to(this.getPlayerSocketIds(game)).emit('moveablock', game.getState());

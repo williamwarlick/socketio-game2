@@ -1,4 +1,4 @@
-import userInfo from './header';
+//import userInfo from './header';
 
 import socket from '../socket';
 import {GAME_STATUS} from '../../moveablock2';

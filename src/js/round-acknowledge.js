@@ -1,4 +1,4 @@
-import getUser from './header';
+import getUser from './user';
 import mab from '../../moveablock2';
 import architectTemplate from '../templates/architect-inst2.mustache';
 import helperTemplate from '../templates/helper-inst2.mustache';
