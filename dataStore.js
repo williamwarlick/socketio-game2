@@ -51,7 +51,7 @@ const getAllFormat1 = async (tableName) => {
                 formatted.push({
                     gameId: game.id,
                     importId: round.importId,
-                    roundNum: index + 1,
+                    roundNum: index,
                     playerId: move.playerId,
                     playerRole: game.players.find(player => player.id == move.playerId).role,
                     config: round.initBoard.map((row) => {
