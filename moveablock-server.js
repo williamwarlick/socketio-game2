@@ -185,8 +185,10 @@ class GameServer {
                 } 
                 
                 else if (game.status === mab2.GAME_STATUS.COMPLETE) {
-                    console.log(`Game complete ${gameIndex}, cleaning up game ...`);
-                    this.cleanUpGame(gameIndex, game);
+                    console.log(`Game complete ${gameIndex}`);
+                    //this.cleanUpGame(gameIndex, game);
+
+                    game.gameCompleteTime = Date.now();
 
                     console.log('Syncing game state with clients ...');
                     io.to(this.getPlayerSocketIds(game)).emit('moveablock', game.getState());

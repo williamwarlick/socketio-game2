@@ -155,6 +155,7 @@ class Game {
         this.rounds = [];
         this.currentRound = 0;
         this.status = GAME_STATUS.WAITING;
+        this.gameCompleteTime = null;
 
         this.settings = {
             BOARD_DIM: {w: 18, h: 6},
@@ -201,6 +202,7 @@ class Game {
             roundNum: this.currentRound, // assume practice round is 0
             round: this.rounds[this.currentRound],
             previousRound: this.currentRound > 0 ? this.rounds[this.currentRound - 1] : null,
+            rounds: this.rounds
         }
     }
 
@@ -236,7 +238,6 @@ class Game {
             this.board.spaces[to.y][to.x] = this.board.spaces[from.y][from.x];
             this.board.spaces[from.y][from.x] = o();
 
-            //this.board.moves.push(new Move(playerId, from, to, this.board.spaces));
             this.rounds[this.currentRound].moves.push(new Move(playerId, from, to, this.board.spaces));
 
             // check for Round goal met
@@ -245,6 +246,9 @@ class Game {
 
                 // if last round, change game status to complete
                 if (this.currentRound === this.rounds.length - 1) {
+                    // increment the round for display purposes (so previous round is accurate)
+                    this.currentRound = this.currentRound + 1;
+
                     this.status = GAME_STATUS.COMPLETE;
                 } else {
                     // increment the round

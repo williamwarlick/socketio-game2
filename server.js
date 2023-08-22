@@ -13,6 +13,8 @@ const mab = require('./moveablock-server');
 const cookieParser = require('cookie-parser');
 const socketIOSession = require('socket.io-session');
 const dataStore = require('./dataStore');
+const cron = require('node-cron');
+const { Console } = require('console');
 
 const sessionStore = new InMemorySessionStore();
 
@@ -20,6 +22,19 @@ const MAB_TABLE = 'mabGame';
 
 var gameServer = new mab.GameServer();
 
+cron.schedule('*/1 * * * *', () => {
+    console.log('Running game cleanup task ...');
+
+    for (var i = gameServer.inProgress.length - 1; i >= 0; i--) {
+        var game = gameServer.inProgress[i];
+        // clean game up a few minutes after completion time, enough time to display
+        // game complete results to the front end
+        if (game.status === 'COMPLETE' && Date.now() < (game.gameCompleteTime + 60000)) {
+            console.log('Cleaning up game ' + game.id);
+            gameServer.cleanUpGame(i, game);
+        }
+    }
+});
 
 // configure session middleware
 const sessionMiddleware = session({
@@ -103,7 +118,11 @@ app.get('/gamestate', (req, res) => {
     if (username) {
         var game = gameServer.getGameByPlayerId(username);
 
-        res.json(game.getState());
+        if (game) {
+            res.json(game.getState());
+        } else {
+            res.status(404).send("Not found.");
+        }
     } else {
         res.status(404).send("Not found.");
     }
