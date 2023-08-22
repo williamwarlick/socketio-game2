@@ -45,13 +45,13 @@ const getAllFormat1 = async (tableName) => {
     // loop through each game
     for (game of raw) {
         // loop through each round
-        for (round of game.rounds) {
+        for (let [index, round] of game.rounds.entries()) {
 
             for (move of round.moves) {
                 formatted.push({
                     gameId: game.id,
                     importId: round.importId,
-                    roundNum: game.roundNum,
+                    roundNum: index + 1,
                     playerId: move.playerId,
                     playerRole: game.players.find(player => player.id == move.playerId).role,
                     config: round.initBoard.map((row) => {
