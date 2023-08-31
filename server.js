@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express');
+const basicAuth = require('express-basic-auth');
 const app = express();
 const session = require('express-session');
 const http = require('http');
@@ -42,7 +43,17 @@ const sessionMiddleware = session({
     resave: false,
     saveUninitialized: true,
   });
-  
+
+app.use('/admin', basicAuth({
+    users: { 'admin': 'password' },
+    challenge: true,
+}));
+
+app.use('/admin.html', basicAuth({
+    users: { 'admin': 'password' },
+    challenge: true,
+}));
+
 // use session middleware for Express app
 app.use(sessionMiddleware);
 
@@ -95,7 +106,7 @@ app.post('/login', express.urlencoded({ extended: false }), function (req, res) 
     });
   })
 
-app.post('/reset', express.urlencoded({ extended: false }), function (req, res) {
+app.post('/admin/reset', express.urlencoded({ extended: false }), function (req, res) {
     gameServer = new mab.GameServer();
     console.log("Reset game server ...");
     res.redirect('/index.html');
@@ -128,23 +139,23 @@ app.get('/gamestate', (req, res) => {
     }
 })
 
-app.get('/gameinfo', (req, res) => {
+app.get('/admin/gameinfo', (req, res) => {
     res.json({onDeck: gameServer.onDeck, inProgress: gameServer.inProgress});
 })
 
-app.get('/gamedata', async (req, res) => {
+app.get('/admin/gamedata', async (req, res) => {
     var data = await dataStore.getAll(MAB_TABLE);
 
     res.json(data);
 })
 
-app.get('/gamedataf1', async (req, res) => {
+app.get('/admin/gamedataf1', async (req, res) => {
     var data = await dataStore.getAllFormat1(MAB_TABLE);
 
     res.json(data);
 })
 
-app.get('/gamedatacsv', async (req, res) => {
+app.get('/admin/gamedatacsv', async (req, res) => {
     var data = await dataStore.getAllCsv(MAB_TABLE);
     res.type('text/csv')
     res.send(data);
