@@ -144,6 +144,12 @@ app.get('/gamedataf1', async (req, res) => {
     res.json(data);
 })
 
+app.get('/gamedatacsv', async (req, res) => {
+    var data = await dataStore.getAllCsv(MAB_TABLE);
+    res.type('text/csv')
+    res.send(data);
+})
+
 io.on('connection', async (socket) => {  
     const session = socket.request.session;
 
