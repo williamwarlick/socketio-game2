@@ -233,7 +233,14 @@ async function updateRoundInfo(gameState) {
     var movesEl = document.getElementById("moves");
 
     roleEl.innerText = player.role;
-    roundEl.innerText = gameState.roundNum + '/' + mab.settings.ROUNDS_NUM;
+
+    if (gameState.roundNum == 0) {
+        roundEl.innerText = 'Practice';
+    } else {
+        roundEl.innerText = gameState.roundNum + '/' + mab.settings.ROUNDS_NUM;
+    }
+    
+    
     movesEl.innerText = gameState.round.moves.length;
 
     if (player.role === PLAYER_ROLE.ARCHITECT) {
