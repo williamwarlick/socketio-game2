@@ -12,6 +12,18 @@ table {
     border: 1px solid;
 }
 
+#goal-text{
+    font-size: 20px;
+    font-weight: bold;
+    color: #2544cd;
+}
+
+#move-text{
+    font-size: 20px;
+    font-weight: bold;
+    color: #c07f10;
+}
+
 td {
     height: 50px;
     border: 1px dotted #999;
