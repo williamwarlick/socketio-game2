@@ -50,6 +50,8 @@ const getAllFormat1 = async (tableName) => {
             for (move of round.moves) {
                 formatted.push({
                     gameId: game.id,
+                    gameStart: game.gameStart,
+                    gameComplete: game.gameComplete,
                     importId: round.importId,
                     roundNum: index,
                     playerId: move.playerId,
@@ -63,6 +65,7 @@ const getAllFormat1 = async (tableName) => {
                     //"goal_optimal": null,
                     //"goal_type": round.goals[0].action,
                     //"total_moves": round.moves.length,
+                    moveTimestamp: move.timestamp,
                     move: `[(${move.from.x},${move.from.y}),(${move.to.x},${move.to.y})]`,
                     dimensions: `${round.initBoard.length}, ${round.initBoard[0].length}`
                 });
@@ -74,6 +77,63 @@ const getAllFormat1 = async (tableName) => {
 
 }
 
+const convertToCSV = (arr) => {
+    const arrayKeys = Object.keys(arr[0]);
+    const csvHeader = arrayKeys.join(',');
+    const csvRows = arr.map(row => {
+        const values = arrayKeys.map(key => {
+            const cellValue = row[key] === null || row[key] === undefined ? '' : row[key];
+            return JSON.stringify(cellValue);
+        });
+        return values.join(',');
+    });
+    return [csvHeader, ...csvRows].join('\n');
+}
+
+const combine2DArray = (arr2d) => {
+    return arr2d.reduce((reduced, currentVal) => {
+        return reduced + currentVal.join(',');
+    }, "[") + "]";
+}
+
+
+const getAllCsv = async (tableName) => {
+    var raw = await getAll(tableName);
+
+    var formatted = [];
+
+    // loop through each game
+    for (game of raw) {
+        // loop through each round
+        for (let [index, round] of game.rounds.entries()) {
+
+            for (move of round.moves) {
+                formatted.push({
+                    gameId: game.id,
+                    gameStart: game.gameStart,
+                    gameComplete: game.gameComplete,
+                    importId: round.importId,
+                    roundNum: index,
+                    playerId: move.playerId,
+                    playerRole: game.players.find(player => player.id == move.playerId).role,
+                    goal: round.goals[0].description,
+                    moveTimestamp: move.timestamp,
+                    move: `[(${move.from.x},${move.from.y}),(${move.to.x},${move.to.y})]`,
+                    dimensions: `${round.initBoard.length}, ${round.initBoard[0].length}`,
+                    config: combine2DArray(round.initBoard.map((row) => {
+                        return row.map((block) => {
+                            return block.blockType;
+                        });
+                    }).reverse()),
+                });
+            }
+        }
+    }
+
+    return convertToCSV(formatted);
+
+}
+
 if (module && module.exports) {
-    module.exports = {save, getAll, getAllFormat1};
+    module.exports = {save, getAll, getAllFormat1, getAllCsv};
 }

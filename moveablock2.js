@@ -155,6 +155,7 @@ class Game {
         this.rounds = [];
         this.currentRound = 0;
         this.status = GAME_STATUS.WAITING;
+        this.gameStartTime = null;
         this.gameCompleteTime = null;
 
         this.settings = {
@@ -209,6 +210,8 @@ class Game {
     getSaveState() {
         return {
             id: this.id,
+            gameStart: this.gameStartTime,
+            gameComplete: this.gameCompleteTime,
             players: this.players, 
             status: this.status,
             rounds: this.rounds,
@@ -235,6 +238,7 @@ class Game {
 
     moveBlock(playerId, from, to) {
         if(this.validDrop(from, to)) {
+
             this.board.spaces[to.y][to.x] = this.board.spaces[from.y][from.x];
             this.board.spaces[from.y][from.x] = o();
 
