@@ -13,9 +13,22 @@
     <div id="header-container"></div>
     <div class="container">
         <div row>
-            <div class="mb-3 col-4">
+            <div class="mt-3 col-4">
+            <ul class="">
+                <li class="">
+                  <a class="" href="/gameinfo">Games Status</a>
+                </li>
+                <li class="">
+                  <a class="" href="/gamedataf1">Game Data Export (JSON)</a>
+                </li>
+                <li class="">
+                    <a class="" href="/gamedatacsv">Game Data Export (CSV)</a>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-3 col-4">
                 <form action="/reset" method="post">
-                    <button class="btn btn-primary" id="resetBtn" type="submit">Reset</button>
+                    <button class="btn btn-danger" id="resetBtn" type="submit">Reset</button>
                 </form>
             </div>
         </div>
