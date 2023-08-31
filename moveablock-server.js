@@ -92,6 +92,7 @@ class GameServer {
                 var gameIndex = this.inProgress.push(game) - 1;
                 this.playerGameIndexMap[game.players[0].id] = gameIndex;
                 this.playerGameIndexMap[game.players[1].id] = gameIndex;
+                game.gameStartTime = Date.now();
                 
                 io.to(this.getPlayerSocketIds(game)).emit('moveablock', game.getState());
             } else {
@@ -108,6 +109,7 @@ class GameServer {
                     
                     var gameIndex = this.inProgress.push(newGame) - 1;
                     this.playerGameIndexMap[newGame.players[0].id] = gameIndex;
+                    newGame.gameStartTime = Date.now();
                 } else {
                     this.onDeck.push(newGame);
                 }
@@ -164,7 +166,7 @@ class GameServer {
 
                 if (accepted) {
                     console.log('Move accepted ...');
-
+                    
                     dataStore.save(game.getSaveState());
 
                     var otherPlayerSocketId = this.getOtherPlayerSocketId(game, playerId);
@@ -189,6 +191,7 @@ class GameServer {
                     //this.cleanUpGame(gameIndex, game);
 
                     game.gameCompleteTime = Date.now();
+                    dataStore.save(game.getSaveState());
 
                     console.log('Syncing game state with clients ...');
                     io.to(this.getPlayerSocketIds(game)).emit('moveablock', game.getState());

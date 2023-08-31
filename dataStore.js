@@ -50,6 +50,8 @@ const getAllFormat1 = async (tableName) => {
             for (move of round.moves) {
                 formatted.push({
                     gameId: game.id,
+                    gameStart: game.gameStart,
+                    gameComplete: game.gameComplete,
                     importId: round.importId,
                     roundNum: index,
                     playerId: move.playerId,
@@ -63,6 +65,7 @@ const getAllFormat1 = async (tableName) => {
                     //"goal_optimal": null,
                     //"goal_type": round.goals[0].action,
                     //"total_moves": round.moves.length,
+                    moveTimestamp: move.timestamp,
                     move: `[(${move.from.x},${move.from.y}),(${move.to.x},${move.to.y})]`,
                     dimensions: `${round.initBoard.length}, ${round.initBoard[0].length}`
                 });
