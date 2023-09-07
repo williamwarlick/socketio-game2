@@ -77,7 +77,6 @@ class GameServer {
             console.log('Player already in game ' + playerId);
 
             let game = this.getGameByPlayerId(playerId);
-            //game.updateSocketId(playerId, socket.id);
 
             io.to(this.getPlayerSocketIds(game)).emit('moveablock', game.getState());
         } else {
