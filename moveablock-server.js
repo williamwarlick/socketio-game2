@@ -69,7 +69,7 @@ class GameServer {
         return theRounds;
     }
 
-    async joinMoveABlock(io, socket, playerId) {
+    async joinMoveABlock(io, socket, playerId, sonaId) {
         // keep track of player's socket id
         this.playerIdSocketMap[playerId] = socket.id;
 
@@ -88,7 +88,7 @@ class GameServer {
                 console.log('2nd player joined, starting game ...');
                 var game = this.onDeck.pop();
                 game.status = mab2.GAME_STATUS.JOINED;
-                game.players[1] = new mab2.Player(playerId, mab2.PLAYER_ROLE.HELPER);
+                game.players[1] = new mab2.Player(playerId, mab2.PLAYER_ROLE.HELPER, sonaId);
                 var gameIndex = this.inProgress.push(game) - 1;
                 this.playerGameIndexMap[game.players[0].id] = gameIndex;
                 this.playerGameIndexMap[game.players[1].id] = gameIndex;
@@ -99,7 +99,7 @@ class GameServer {
                 console.log('Creating new game on-deck ...');
                 
                 let newGame = new mab2.Game();
-                newGame.players[0] = new mab2.Player(playerId, mab2.PLAYER_ROLE.ARCHITECT);
+                newGame.players[0] = new mab2.Player(playerId, mab2.PLAYER_ROLE.ARCHITECT, sonaId);
                 
                 if (newGame.mode == mab2.GAME_MODE.ONE_PLAYER) {
                     console.log('Player joined single player game, starting game ...');

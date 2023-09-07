@@ -1,4 +1,4 @@
-import getUser from './user';
+/*import getUser from './user';
 import mab from '../../moveablock2';
 import architectTemplate from '../templates/architect-inst1.mustache';
 import helperTemplate from '../templates/helper-inst1.mustache';
@@ -22,4 +22,4 @@ import helperTemplate from '../templates/helper-inst1.mustache';
     }
 
     element.insertAdjacentHTML('beforeend', template(data));
-})();
+})();*/

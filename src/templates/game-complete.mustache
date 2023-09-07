@@ -34,5 +34,17 @@
 </div>
 <div class="row mt-4">
 <p>If you would like to know more about the study and its motivations, you can view <a href="https://drive.google.com/file/d/1X1yqC0wroOgM9Rq8Q9QWWvt2RywJrn5h/view?usp=sharing" target="_blank">this debriefing form</a>.</p>
-<p>You may close this tab when you are done. </p>
+
+{{#hasSonaId}}
+    <p>For credit, click the button below when you are done.</p>
+    <div class="col-2">
+    <a class="btn btn-primary" href="https://bowdoin.sona-systems.com/webstudy_credit.aspx?experiment_id=217&credit_token=cd89e63ffd4e4a5d9e970dcb2350a92c&survey_code={{user.sonaId}}">Return to Sona</a>
+    </div>
+{{/hasSonaId}}
+
+{{^hasSonaId}}
+    <p>You may close this tab when you are done. </p>
+{{/hasSonaId}}
+
+
 </div>

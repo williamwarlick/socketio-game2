@@ -34,7 +34,7 @@ class Location {
 }
 
 class Player {
-    constructor(id, role) {
+    constructor(id, role, sonaId) {
         this.id = id;
         this.location = new Location(0,0); // start at 0,0
         this.blockType = BLOCK_TYPE.EMPTY;
@@ -42,6 +42,7 @@ class Player {
         this.role = role;
         this.gameAck = false;
         this.roundAck = false;
+        this.sonaId = sonaId;
     }
 
     // sets a copy
@@ -162,7 +163,7 @@ class Game {
             BOARD_DIM: {w: 18, h: 6},
             SECTION_NUM: 3,
             SUB_SECTION_NUM: 2,
-            ROUNDS_NUM: 10,
+            ROUNDS_NUM: 2,
             BLOCK_GROUPS: [
                 {
                     type: BLOCK_TYPE.RED,
