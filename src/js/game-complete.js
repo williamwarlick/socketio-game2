@@ -17,4 +17,9 @@ import template from '../templates/game-complete.mustache';
     const element = document.getElementById('game-results');
 
     element.insertAdjacentHTML('beforeend', template(data));
+
+    // log out user
+    fetch('/logout', {
+        method: "POST"
+    });
 })();

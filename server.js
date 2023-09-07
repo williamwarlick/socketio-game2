@@ -50,7 +50,7 @@ app.use('/admin', basicAuth({
 }));
 
 app.use('/admin.html', basicAuth({
-    users: { 'admin': 'password' },
+    users: { 'admin': process.env.ADMIN_PASSWORD },
     challenge: true,
 }));
 
@@ -105,6 +105,11 @@ app.post('/login', express.urlencoded({ extended: false }), function (req, res) 
     doLogin(req, req.body.username, req.body.sona, function() {
         res.redirect('/waiting.html');
     });
+  })
+
+  app.post('/logout', express.urlencoded({ extended: false }), function (req, res) {
+    console.log('Destroying user session: ' + req.session.user);
+    req.session.destroy();
   })
 
 app.post('/admin/reset', express.urlencoded({ extended: false }), function (req, res) {
