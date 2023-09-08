@@ -152,7 +152,7 @@ class GameServer {
         this.inProgress[gameIndex] = null;
     }
 
-    move(io, playerId, aMove) {
+    async move(io, playerId, aMove) {
         console.log('Processing move ' + playerId + ', ' + JSON.stringify(aMove));
         var gameIndex = this.playerGameIndexMap[playerId];
 
@@ -166,7 +166,7 @@ class GameServer {
                 if (accepted) {
                     console.log('Move accepted ...');
                     
-                    dataStore.save(game.getSaveState());
+                    await dataStore.save(game.getSaveState());
 
                     var otherPlayerSocketId = this.getOtherPlayerSocketId(game, playerId);
 
@@ -190,7 +190,7 @@ class GameServer {
                     //this.cleanUpGame(gameIndex, game);
 
                     game.gameCompleteTime = Date.now();
-                    dataStore.save(game.getSaveState());
+                    await dataStore.save(game.getSaveState());
 
                     console.log('Syncing game state with clients ...');
                     io.to(this.getPlayerSocketIds(game)).emit('moveablock', game.getState());

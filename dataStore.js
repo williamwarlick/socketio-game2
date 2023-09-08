@@ -27,10 +27,10 @@ async function scanTable(tableName) {
     return data.Items;
 }
 
-const save = (data) => {
+const save = async (data) => {
     console.log('Saving game data id: ' + data.id + ', round num: ' + data.roundNum);
     
-    updateItem(data, MAB_TABLE);
+    await updateItem(data, MAB_TABLE);
 }
 
 const getAll = async (tableName) => {
@@ -123,6 +123,8 @@ const getAllCsv = async (tableName) => {
         for (let [index, round] of game.rounds.entries()) {
 
             for (move of round.moves) {
+                var from = coordinatesToInteger(move.from.x, move.from.y, round.initBoard[0].length, round.initBoard.length);
+                var to = coordinatesToInteger(move.to.x, move.to.y, round.initBoard[0].length, round.initBoard.length);
                 formatted.push({
                     gameId: game.id,
                     gameStart: game.gameStart,
@@ -133,7 +135,8 @@ const getAllCsv = async (tableName) => {
                     playerRole: game.players.find(player => player.id == move.playerId).role,
                     goal: round.goals[0].description,
                     moveTimestamp: move.timestamp,
-                    move: `[(${move.from.x},${move.from.y}),(${move.to.x},${move.to.y})]`,
+                    //moveC: `[(${move.from.x},${move.from.y}),(${move.to.x},${move.to.y})]`,
+                    move: `(${from},${to})`,
                     dimensions: `${round.initBoard.length}, ${round.initBoard[0].length}`,
                     config: combine2DArray(round.initBoard.map((row) => {
                         return row.map((block) => {
@@ -147,6 +150,14 @@ const getAllCsv = async (tableName) => {
 
     return convertToCSV(formatted);
 
+}
+
+function coordinatesToInteger(x, y, width, height) {
+    var num;
+
+    num = ((height-1) - y)*width + x;
+
+    return num;
 }
 
 if (module && module.exports) {
