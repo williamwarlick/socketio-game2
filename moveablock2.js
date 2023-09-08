@@ -163,7 +163,7 @@ class Game {
             BOARD_DIM: {w: 18, h: 6},
             SECTION_NUM: 3,
             SUB_SECTION_NUM: 2,
-            ROUNDS_NUM: 2,
+            ROUNDS_NUM: 10,
             BLOCK_GROUPS: [
                 {
                     type: BLOCK_TYPE.RED,
