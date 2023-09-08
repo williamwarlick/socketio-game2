@@ -49,20 +49,25 @@ class GameServer {
 
     async generateSinglePlayerRounds(numRounds) {
         var theRounds = [];
-        var singlePlayerRoundPool = await loader.loadRoundsFromFile('./final_move_df.csv');
+        var singlePlayerRoundPool = await loader.loadMapRoundsFromFile('./final_move_df.csv');
 
         var practiceRound = roundsLib.getDefaultRounds(1)[0];
         practiceRound.isPractice = true;
 
         theRounds.push(practiceRound);
 
+        console.log('Round pool index ' + this.singlePlayerRoundPoolIndex);
+        
+        var roundPoolKeysArr = Array.from(singlePlayerRoundPool.keys());
+        var roundPool = singlePlayerRoundPool.get(roundPoolKeysArr[this.singlePlayerRoundPoolIndex]);
+
         for (let i=0; i < numRounds; i++) {
-            theRounds.push(singlePlayerRoundPool[Object.keys(singlePlayerRoundPool)[this.singlePlayerRoundPoolIndex]][i]);
+            theRounds.push(roundPool[i]);
         }
 
         this.singlePlayerRoundPoolIndex = this.singlePlayerRoundPoolIndex + 1;
 
-        if(Object.keys(singlePlayerRoundPool).length <= this.singlePlayerRoundPoolIndex) {
+        if(roundPoolKeysArr.length <= this.singlePlayerRoundPoolIndex) {
             this.singlePlayerRoundPoolIndex = 0;
         }
 
