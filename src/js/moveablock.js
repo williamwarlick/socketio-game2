@@ -358,15 +358,19 @@ socket.on('moveablock', async (event) => {
         if (event.status == GAME_STATUS.WAITING) {
             console.log('Game status: waiting');
             window.location.href = '/waiting.html';
+            return;
         } else if (event.status == GAME_STATUS.COMPLETE) {
             console.log('Game status: complete');
             window.location.href = '/game-complete.html';
+            return;
         } else if (event.status == GAME_STATUS.NEW_ROUND) {
             console.log('Game status: new round');
             window.location.href = '/round-acknowledge.html';
+            return;
         } else if (event.status == GAME_STATUS.JOINED) {
             console.log('Game status: joined');
             window.location.href = '/consent.html';
+            return;
         }
 
         console.log('updating board ...');

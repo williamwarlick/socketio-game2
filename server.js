@@ -50,7 +50,7 @@ app.use('/admin', basicAuth({
 }));
 
 app.use('/admin.html', basicAuth({
-    users: { 'admin': 'password' },
+    users: { 'admin': process.env.ADMIN_PWD },
     challenge: true,
 }));
 
@@ -63,7 +63,7 @@ io.use((socket, next) => {
     sessionMiddleware(socket.request, socket.request.res || {}, next);
 });
 
-const doLogin = (req, username, callback) => {
+const doLogin = (req, username, sonaId, callback) => {
     // login logic to validate req.body.user and req.body.pass
     // would be implemented here. for this example any combo works
   
@@ -74,6 +74,7 @@ const doLogin = (req, username, callback) => {
     
         // store user information in session, typically a user id
         req.session.user = username;
+        req.session.sonaId = sonaId ? sonaId : null;
         console.log(req.session.user);
     
         // save the session before redirection to ensure page
@@ -101,9 +102,14 @@ const ackGame = (req, callback) => {
 };
 
 app.post('/login', express.urlencoded({ extended: false }), function (req, res) {
-    doLogin(req, req.body.username, function() {
+    doLogin(req, req.body.username, req.body.sona, function() {
         res.redirect('/waiting.html');
     });
+  })
+
+  app.post('/logout', express.urlencoded({ extended: false }), function (req, res) {
+    console.log('Destroying user session: ' + req.session.user);
+    req.session.destroy();
   })
 
 app.post('/admin/reset', express.urlencoded({ extended: false }), function (req, res) {
@@ -120,17 +126,21 @@ app.post('/gameack', express.urlencoded({ extended: false }), function (req, res
 
 app.get('/user', (req, res) => {
     var username = req.session.user;
-    res.json({user: username});
+    var sonaId = req.session.sonaId;
+    res.json({user: username, sonaId: sonaId});
 })
 
 app.get('/gamestate', (req, res) => {
     var username = req.session.user;
+    var sonaId = req.session.sonaId;
 
     if (username) {
         var game = gameServer.getGameByPlayerId(username);
 
         if (game) {
-            res.json(game.getState());
+            var gameState = game.getState();
+            gameState.user = {user: username, sonaId: sonaId};
+            res.json(gameState);
         } else {
             res.status(404).send("Not found.");
         }
@@ -145,6 +155,13 @@ app.get('/admin/gameinfo', (req, res) => {
 
 app.get('/admin/gamedata', async (req, res) => {
     var data = await dataStore.getAll(MAB_TABLE);
+
+    res.json(data);
+})
+
+app.get('/admin/usergamedata', async (req, res) => {
+    var userId = req.query.id;
+    var data = await dataStore.getDataByUserId(userId, MAB_TABLE);
 
     res.json(data);
 })
@@ -165,6 +182,7 @@ io.on('connection', async (socket) => {
     const session = socket.request.session;
 
     let username = session.user;
+    let sonaId = session.sonaId;
 
     // Access session data
     console.log(session);
@@ -172,7 +190,15 @@ io.on('connection', async (socket) => {
     console.log('A user connected ...' + username);
 
     if (username) {
-        await gameServer.joinMoveABlock(io, socket, username);
+        // check if already completed a game
+        userGameData = await dataStore.getDataByUserId(username, MAB_TABLE);
+
+        if (userGameData && userGameData.length > 0) {
+            console.log('User already completed a game: ' + username);
+            socket.emit('MESSAGE', 'COMPLETE');
+        } else {
+            await gameServer.joinMoveABlock(io, socket, username, sonaId);
+        }
     }
 
     socket.on('lobby', (msg) => {

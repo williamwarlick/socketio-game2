@@ -94,5 +94,11 @@ module.exports = {
       chunks: ['admin'],
       filename: 'admin.html'
     }),
+    new HtmlWebpackPlugin({
+      template: './src/completed.html',
+      inject: false,
+      //chunks: ['admin'],
+      filename: 'completed.html'
+    }),
   ],
 };

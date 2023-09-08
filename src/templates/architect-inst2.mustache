@@ -7,8 +7,6 @@
 {{#previousRound}}
 <div class="round-results text-bg-primary p-3 row mt-4">
   <p>Round completed!</p>
-  <p>Number of moves: {{previousRound.moves.length}}</p>
-  <p>Optimal moves: {{# previousRound.goals}}{{minMoves}}{{/previousRound.goals}}</p>
 </div>
 {{/previousRound}}
 
@@ -31,5 +29,12 @@ uncover a particular type of block (e.g., red). Covering a block means making
 sure there is another block on top of it. Uncovering a block means making sure 
 there is no other block on top of it.</p>
 {{/previousRound}}
+
+{{#round.isPractice}}
+  <p class="row mt-4">Click to continue to practice round</p>
+{{/round.isPractice}}
+{{^round.isPractice}}
+  <p class="row mt-4">Click to continue to round {{roundNum}} of 10</p>
+{{/round.isPractice}}
 
 </div>

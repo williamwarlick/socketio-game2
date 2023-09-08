@@ -127,6 +127,56 @@ const loadRoundsFromFile = async (filePath) => {
 
 };
 
+const loadMapRoundsFromFile = async (filePath) => {
+    const csvData = await loadFromFile(filePath);
+    const roundIdMap = new Map();
+    //const theRounds = [];
+
+    for (csvRow of csvData) {
+        let round = new rounds.Round();
+        let goal = new rounds.Goal();
+
+        if (!roundIdMap.get(csvRow.ID)) {
+            roundIdMap.set(csvRow.ID, []);
+        }
+
+        round.importId = csvRow.ID;
+        round.initBoard = convertBoardConfig(JSON.parse(csvRow.config.replaceAll("'",'"')), 6, 18);
+
+        var parseGoal = csvRow.goal.trim().split(' ');
+        goal.action = parseGoal[0].toUpperCase();
+
+        if (goal.action !== rounds.GOAL_ACTION.FILL) {
+            goal.blockType = parseGoal[1].trim().toUpperCase();
+        }
+
+        var sectionString = parseGoal[2];
+        var theSection = sectionString[0].toUpperCase();
+        var theSubSection = null;
+        
+        if (sectionString.toUpperCase() !== 'ALL' && sectionString.length > 1) {
+
+            if(Number.isNaN(Number(sectionString[1]))) {
+                console.log('Warning, section string not a number: ' + sectionString[1] + ' from ' + sectionString);
+            } else {
+                theSubSection = parseInt(sectionString[1]) - 1;
+            }
+        }
+
+        goal.section = new components.Section(rounds.SECTION[theSection], 
+            theSubSection);
+        goal.minMoves = csvRow['goal_optimal'];
+
+        goal.description = csvRow.goal;
+
+        round.goals = [goal];
+        roundIdMap.get(csvRow.ID).push(round);
+    }
+
+    return roundIdMap;
+
+};
+
 if (module && module.exports) {
-    module.exports = {loadFromFile, loadRoundsFromFile};
+    module.exports = {loadFromFile, loadRoundsFromFile, loadMapRoundsFromFile};
 }

@@ -34,7 +34,7 @@ class Location {
 }
 
 class Player {
-    constructor(id, role) {
+    constructor(id, role, sonaId) {
         this.id = id;
         this.location = new Location(0,0); // start at 0,0
         this.blockType = BLOCK_TYPE.EMPTY;
@@ -42,6 +42,7 @@ class Player {
         this.role = role;
         this.gameAck = false;
         this.roundAck = false;
+        this.sonaId = sonaId;
     }
 
     // sets a copy
@@ -213,6 +214,8 @@ class Game {
             gameStart: this.gameStartTime,
             gameComplete: this.gameCompleteTime,
             players: this.players, 
+            player1: this.players[0].id,
+            player2: this.players.length > 1 ? this.players[1].id : null,
             status: this.status,
             rounds: this.rounds,
             roundNum: this.currentRound + 1,
