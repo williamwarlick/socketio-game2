@@ -30,4 +30,11 @@ sure there is another block on top of it. Uncovering a block means making sure
 there is no other block on top of it.</p>
 {{/previousRound}}
 
+{{#round.isPractice}}
+  <p class="row mt-4">Click to continue to practice round</p>
+{{/round.isPractice}}
+{{^round.isPractice}}
+  <p class="row mt-4">Click to continue to round {{roundNum}} of 10</p>
+{{/round.isPractice}}
+
 </div>

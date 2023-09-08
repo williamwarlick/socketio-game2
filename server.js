@@ -50,7 +50,7 @@ app.use('/admin', basicAuth({
 }));
 
 app.use('/admin.html', basicAuth({
-    users: { 'admin': process.env.ADMIN_PASSWORD },
+    users: { 'admin': process.env.ADMIN_PWD },
     challenge: true,
 }));
 
@@ -159,6 +159,13 @@ app.get('/admin/gamedata', async (req, res) => {
     res.json(data);
 })
 
+app.get('/admin/usergamedata', async (req, res) => {
+    var userId = req.query.id;
+    var data = await dataStore.getDataByUserId(userId, MAB_TABLE);
+
+    res.json(data);
+})
+
 app.get('/admin/gamedataf1', async (req, res) => {
     var data = await dataStore.getAllFormat1(MAB_TABLE);
 
@@ -183,7 +190,15 @@ io.on('connection', async (socket) => {
     console.log('A user connected ...' + username);
 
     if (username) {
-        await gameServer.joinMoveABlock(io, socket, username, sonaId);
+        // check if already completed a game
+        userGameData = await dataStore.getDataByUserId(username, MAB_TABLE);
+
+        if (userGameData && userGameData.length > 0) {
+            console.log('User already completed a game: ' + username);
+            socket.emit('MESSAGE', 'COMPLETE');
+        } else {
+            await gameServer.joinMoveABlock(io, socket, username, sonaId);
+        }
     }
 
     socket.on('lobby', (msg) => {

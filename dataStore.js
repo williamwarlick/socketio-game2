@@ -37,6 +37,21 @@ const getAll = async (tableName) => {
     return await scanTable(tableName);
 }
 
+const getDataByUserId = async (userId, tableName) => {
+    const params = {
+        TableName : tableName,
+        FilterExpression : 'player1 = :player1 and #stat = :stat',
+        ExpressionAttributeNames: {
+            '#stat': 'status'
+        },
+        ExpressionAttributeValues : {':player1' : userId, ':stat': 'COMPLETE'}
+      };
+
+    const data = await docClient.scan(params).promise();
+
+    return data.Items;
+}
+
 const getAllFormat1 = async (tableName) => {
     var raw = await getAll(tableName);
 
@@ -135,5 +150,5 @@ const getAllCsv = async (tableName) => {
 }
 
 if (module && module.exports) {
-    module.exports = {save, getAll, getAllFormat1, getAllCsv};
+    module.exports = {save, getAll, getAllFormat1, getAllCsv, getDataByUserId};
 }
