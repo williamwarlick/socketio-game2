@@ -4,8 +4,6 @@ build:
   commands:
     build:
       - npm install
-    env:
-      - ADMIN_PWD: change_me
 run:
   command: npm start
   network:
