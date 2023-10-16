@@ -30,7 +30,7 @@ cron.schedule('*/1 * * * *', () => {
         var game = gameServer.inProgress[i];
         // clean game up a few minutes after completion time, enough time to display
         // game complete results to the front end
-        if (game.status === 'COMPLETE' && Date.now() < (game.gameCompleteTime + 60000)) {
+        if (!game.demographicDetails && game.status === 'COMPLETE' && Date.now() < (game.gameCompleteTime + 60000)) {
             console.log('Cleaning up game ' + game.id);
             gameServer.cleanUpGame(i, game);
         }
@@ -104,10 +104,11 @@ const ackGame = (req, callback) => {
 const doPostDemographicDetails = async (req, demographicDetails, callback) => {
 	const userName = req.session.user
 	const game = gameServer.getGameByPlayerId(userName)
-	game.demographicDetails = demographicDetails
+    if(game) {
+        game.demographicDetails = demographicDetails
 
-	await dataStore.save(game.getSaveState())
-
+        await dataStore.save(game.getSaveState())
+    }
 	callback()
 }
 
