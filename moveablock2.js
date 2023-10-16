@@ -91,7 +91,7 @@ class Board {
 
     // returns the section of the board
     getSectionSubArray(section) {
-        
+
         if (!section) { return this.spaces };
 
         var sectionSubArray = [];
@@ -113,7 +113,7 @@ class Board {
         for(var y = 0; y < this.spaces.length; y++) {
             sectionSubArray.push(this.spaces[y].slice(sectionStart, sectionStart + subSectionSize));
         }
-        
+
         return sectionSubArray;
     }
 
@@ -141,7 +141,7 @@ class Board {
         for(var y = 0; y < spacesCopy.length; y++) {
             spacesCopy[y].splice(sectionStart, subSectionSize);
         }
-        
+
         return spacesCopy;
     }
 
@@ -152,7 +152,7 @@ class Game {
         this.id = uuid(),
         this.mode = GAME_MODE.ONE_PLAYER,
         this.players = [];
-        
+
         this.rounds = [];
         this.currentRound = 0;
         this.status = GAME_STATUS.WAITING;
@@ -182,6 +182,8 @@ class Game {
 
         this.board = new Board(this.settings.BOARD_DIM, this.settings.SECTION_NUM, this.settings.SUB_SECTION_NUM);
 
+        this.demographicDetails = null
+
         this.initRounds();
 
         this.board.spaces = this.rounds[this.currentRound].initBoard;
@@ -198,8 +200,8 @@ class Game {
 
     getState() {
         return {
-            players: this.players, 
-            status: this.status, 
+            players: this.players,
+            status: this.status,
             state: this.board.spaces,
             roundNum: this.currentRound, // assume practice round is 0
             round: this.rounds[this.currentRound],
@@ -213,12 +215,13 @@ class Game {
             id: this.id,
             gameStart: this.gameStartTime,
             gameComplete: this.gameCompleteTime,
-            players: this.players, 
+            players: this.players,
             player1: this.players[0].id,
             player2: this.players.length > 1 ? this.players[1].id : null,
             status: this.status,
             rounds: this.rounds,
             roundNum: this.currentRound + 1,
+            demographicDetails: this.demographicDetails,
         }
     }
 
@@ -363,7 +366,7 @@ class Game {
 
         console.log('');
     }
-    
+
 }
 
 if (module && module.exports) {
