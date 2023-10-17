@@ -30,7 +30,7 @@ cron.schedule('*/1 * * * *', () => {
         var game = gameServer.inProgress[i];
         // clean game up a few minutes after completion time, enough time to display
         // game complete results to the front end
-        if (game.status === 'COMPLETE' && Date.now() < (game.gameCompleteTime + 60000)) {
+        if (game.demographicDetails && game.status === 'COMPLETE' && Date.now() < (game.gameCompleteTime + 60000)) {
             console.log('Cleaning up game ' + game.id);
             gameServer.cleanUpGame(i, game);
         }
@@ -66,22 +66,22 @@ io.use((socket, next) => {
 const doLogin = (req, username, sonaId, callback) => {
     // login logic to validate req.body.user and req.body.pass
     // would be implemented here. for this example any combo works
-  
+
     // regenerate the session, which is good practice to help
     // guard against forms of session fixation
     req.session.regenerate(function (err) {
         if (err) next(err)
-    
+
         // store user information in session, typically a user id
         req.session.user = username;
         req.session.sonaId = sonaId ? sonaId : null;
         console.log(req.session.user);
-    
+
         // save the session before redirection to ensure page
         // load does not happen before session is saved
         req.session.save(function (err) {
           if (err) return next(err)
-          
+
           if (callback) {
             callback();
           }
@@ -101,11 +101,33 @@ const ackGame = (req, callback) => {
     }
 };
 
+const doPostDemographicDetails = async (req, demographicDetails, callback) => {
+	const userName = req.session.user
+	const game = gameServer.getGameByPlayerId(userName)
+    if(game) {
+        game.demographicDetails = demographicDetails
+
+        await dataStore.save(game.getSaveState())
+    }
+	callback()
+}
+
+
 app.post('/login', express.urlencoded({ extended: false }), function (req, res) {
     doLogin(req, req.body.username, req.body.sona, function() {
         res.redirect('/waiting.html');
     });
   })
+
+app.post(
+	'/demographic-details',
+	express.urlencoded({ extended: false }),
+	function (req, res) {
+		doPostDemographicDetails(req, req.body, function () {
+			res.redirect('/game-complete.html')
+		})
+	}
+)
 
   app.post('/logout', express.urlencoded({ extended: false }), function (req, res) {
     console.log('Destroying user session: ' + req.session.user);
@@ -178,7 +200,7 @@ app.get('/admin/gamedatacsv', async (req, res) => {
     res.send(data);
 })
 
-io.on('connection', async (socket) => {  
+io.on('connection', async (socket) => {
     const session = socket.request.session;
 
     let username = session.user;
@@ -186,7 +208,7 @@ io.on('connection', async (socket) => {
 
     // Access session data
     console.log(session);
-    
+
     console.log('A user connected ...' + username);
 
     if (username) {

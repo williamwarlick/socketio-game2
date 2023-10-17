@@ -1,0 +1,70 @@
+<form action="/demographic-details" method="post" id="demographicForm">
+    <div row class="mb-3 mt-3">
+        <div class="col-6">
+            <br>
+            <label for="age" class="form-label">Current Age</label>
+            <input class="form-control" type="number" id="age" name="age">
+            <input type="hidden" type="number" value="">
+        </div>
+        <div class="col-6">
+            <br>
+            <label for="gender" class="form-label">What is your gender?</label>
+            <input class="form-control" type="text" id="gender" name="gender">
+            <input type="hidden"" type="text" value="">
+        </div>
+        <div class="col-6">
+            <br>
+            <label for="yearsOfFormalEducation" class="form-label">Years of Formal Education</label><br>
+            <input class="form-control" type="number" id="yearsOfFormalEducation" name="yearsOfFormalEducation">
+            <input type="hidden" type="number" value="">
+        </div>
+        <div class="col-6">
+            <br>
+            <label for="racialCategories" class="form-label">Please select all the racial categories that apply to you:</label><br>
+            <input type="checkbox" id="racialCategories" name="racialCategories" value="americanIndianOrAlaskanNative">
+            <label for="racialCategories"> American Indian / Alaskan Native</label><br>
+            <input type="checkbox" id="racialCategories" name="racialCategories" value="asian">
+            <label for="racialCategories"> Asian</label><br>
+            <input type="checkbox" id="racialCategories" name="racialCategories" value="nativeHawaiianOrOtherPacificIslander">
+            <label for="racialCategories"> Native Hawaiian or Other Pacific Islander</label><br>
+            <input type="checkbox" id="racialCategories" name="racialCategories" value="whiteCaucasian">
+            <label for="racialCategories"> White / Caucasian</label><br>
+            <input type="checkbox" id="racialCategories" name="racialCategories" value="other">
+            <label for="racialCategories"> Other</label><br>
+        </div>
+        <div class="col-6">
+            <br>
+            <label for="hispanicOrLatinoOrLatinaOrLatinXOrSpanishOrigin" class="form-label">Are you of Hispanic, Latino/a/x or of Spanish origin?</label><br>
+            <select id="hispanicOrLatinoOrLatinaOrLatinXOrSpanishOrigin" name="hispanicOrLatinoOrLatinaOrLatinXOrSpanishOrigin">
+                <option value="true">Yes</option>
+                <option value="false" selected="selected">No</option>
+            </select>
+        </div>
+         <div class="col-6">
+            <br>
+            <label for="handedness" class="form-label">Are you right or left handed or Ambidextrous?</label><br>
+            <select id="handedness" name="handedness">
+                <option value="rightHanded">Right Handed</option>
+                <option value="leftHanded">Left Handed</option>
+                <option value="ambidextrous">Ambidextrous</option>
+            </select>
+        </div>
+        <div class="col-6">
+            <br>
+            <label for="timeOfDayPreference" class="form-label">Please indicate what time of the day you feel most alert</label><br>
+            <select id="timeOfDayPreference" name="timeOfDayPreference">
+                <option value="morning">Morning</option>
+                <option value="afternoon">Afternoon</option>
+                <option value="evening">Evening</option>
+                 <option value="noPreference">No Preference</option>
+            </select>
+        </div>
+        <div class="col-6">
+            <br>
+            <label for="additionalInformation" class="form-label">Is there anything else we should know about which may affect your performance during the experiment?</label><br>
+            <input class="form-control" type="text" id="additionalInformation" name="additionalInformation">
+            <input type="hidden" type="text" value="">
+        </div>
+    </div>
+    <button class="btn btn-primary" id="submissionButton" type="submit">SUBMIT</button>
+</form>
