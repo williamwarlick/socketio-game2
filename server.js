@@ -17,6 +17,9 @@ const dataStore = require('./dataStore');
 const cron = require('node-cron');
 const { Console } = require('console');
 
+
+app.use(express.json())
+
 const sessionStore = new InMemorySessionStore();
 
 const MAB_TABLE = 'mabGame';
@@ -124,7 +127,7 @@ app.post(
 	express.urlencoded({ extended: false }),
 	function (req, res) {
 		doPostDemographicDetails(req, req.body, function () {
-			res.redirect('/game-complete.html')
+			res.json({message: "Data received successfully", data: req.body})
 		})
 	}
 )
