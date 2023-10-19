@@ -29,7 +29,7 @@ async function scanTable(tableName) {
 
 const save = async (data) => {
     console.log('Saving game data id: ' + data.id + ', round num: ' + data.roundNum);
-    
+
     await updateItem(data, MAB_TABLE);
 }
 
@@ -82,7 +82,8 @@ const getAllFormat1 = async (tableName) => {
                     //"total_moves": round.moves.length,
                     moveTimestamp: move.timestamp,
                     move: `[(${move.from.x},${move.from.y}),(${move.to.x},${move.to.y})]`,
-                    dimensions: `${round.initBoard.length}, ${round.initBoard[0].length}`
+                    dimensions: `${round.initBoard.length}, ${round.initBoard[0].length}`,
+                    demographicDetails: game.demographicDetails
                 });
             }
         }
@@ -122,6 +123,7 @@ const getAllCsv = async (tableName) => {
         // loop through each round
         for (let [index, round] of game.rounds.entries()) {
 
+
             for (move of round.moves) {
                 var from = coordinatesToInteger(move.from.x, move.from.y, round.initBoard[0].length, round.initBoard.length);
                 var to = coordinatesToInteger(move.to.x, move.to.y, round.initBoard[0].length, round.initBoard.length);
@@ -138,6 +140,7 @@ const getAllCsv = async (tableName) => {
                     //moveC: `[(${move.from.x},${move.from.y}),(${move.to.x},${move.to.y})]`,
                     move: `(${from},${to})`,
                     dimensions: `${round.initBoard.length}, ${round.initBoard[0].length}`,
+                    demographicDetails: game.demographicDetails ? `{${Object.keys(game.demographicDetails).map(key => `${key}: ${game.demographicDetails[key]}`).join(', ')}}` : null,
                     config: combine2DArray(round.initBoard.map((row) => {
                         return row.map((block) => {
                             return block.blockType;
