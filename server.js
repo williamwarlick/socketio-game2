@@ -203,6 +203,18 @@ app.get('/admin/gamedatacsv', async (req, res) => {
     res.send(data);
 })
 
+app.get('/admin/demographicDetailsf1', async (req, res) => {
+    var data = await dataStore.getDemographicDetailsFormat1(MAB_TABLE);
+
+    res.json(data);
+})
+
+app.get('/admin/demographicDetailscsv', async (req, res) => {
+    var data = await dataStore.getDemographicDetailsCsv(MAB_TABLE);
+    res.type('text/csv')
+    res.send(data);
+})
+
 io.on('connection', async (socket) => {
     const session = socket.request.session;
 
