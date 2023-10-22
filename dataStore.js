@@ -83,7 +83,6 @@ const getAllFormat1 = async (tableName) => {
                     moveTimestamp: move.timestamp,
                     move: `[(${move.from.x},${move.from.y}),(${move.to.x},${move.to.y})]`,
                     dimensions: `${round.initBoard.length}, ${round.initBoard[0].length}`,
-                    demographicDetails: game.demographicDetails
                 });
             }
         }
@@ -110,6 +109,61 @@ const combine2DArray = (arr2d) => {
     return arr2d.reduce((reduced, currentVal) => {
         return reduced + currentVal.join(',');
     }, "[") + "]";
+}
+
+const getDemographicDetailsFormat1 = async(tableName) => {
+    var raw = await getAll(tableName);
+
+    var formatted = [];
+
+    // loop through each game
+    for (game of raw) {
+        if (game.demographicDetails) {
+            formatted.push({
+                playerId: game.player1,
+                gameId: game.id,
+                additionalInformation: game.demographicDetails.additionalInformation,
+                age: game.demographicDetails.age,
+                gender: game.demographicDetails.gender,
+                handedness: game.demographicDetails.handedness,
+                hispanicOrLatinoOrLatinaOrLatinXOrSpanishOrigin: game.demographicDetails.hispanicOrLatinoOrLatinaOrLatinXOrSpanishOrigin,
+                racialCategories: game.demographicDetails.racialCategories,
+                timeOfDayPreference: game.demographicDetails.timeOfDayPreference,
+                yearsOfFormalEducation: game.demographicDetails.yearsOfFormalEducation,
+            })
+        }
+    }
+
+    return formatted;
+
+}
+
+
+const getDemographicDetailsCsv = async(tableName) => {
+    var raw = await getAll(tableName);
+
+    var formatted = [];
+
+    // loop through each game
+    for (game of raw) {
+        if (game.demographicDetails) {
+            formatted.push({
+                playerId: game.player1,
+                gameId: game.id,
+                additionalInformation: game.demographicDetails.additionalInformation,
+                age: game.demographicDetails.age,
+                gender: game.demographicDetails.gender,
+                handedness: game.demographicDetails.handedness,
+                hispanicOrLatinoOrLatinaOrLatinXOrSpanishOrigin: game.demographicDetails.hispanicOrLatinoOrLatinaOrLatinXOrSpanishOrigin,
+                racialCategories: game.demographicDetails.racialCategories.join(', '),
+                timeOfDayPreference: game.demographicDetails.timeOfDayPreference,
+                yearsOfFormalEducation: game.demographicDetails.yearsOfFormalEducation,
+            })
+        }
+    }
+
+    return convertToCSV(formatted);
+
 }
 
 
@@ -140,7 +194,6 @@ const getAllCsv = async (tableName) => {
                     //moveC: `[(${move.from.x},${move.from.y}),(${move.to.x},${move.to.y})]`,
                     move: `(${from},${to})`,
                     dimensions: `${round.initBoard.length}, ${round.initBoard[0].length}`,
-                    demographicDetails: game.demographicDetails ? `{${Object.keys(game.demographicDetails).map(key => `${key}: ${game.demographicDetails[key]}`).join(', ')}}` : null,
                     config: combine2DArray(round.initBoard.map((row) => {
                         return row.map((block) => {
                             return block.blockType;
@@ -164,5 +217,5 @@ function coordinatesToInteger(x, y, width, height) {
 }
 
 if (module && module.exports) {
-    module.exports = {save, getAll, getAllFormat1, getAllCsv, getDataByUserId};
+    module.exports = {save, getAll, getAllFormat1, getAllCsv, getDataByUserId, getDemographicDetailsCsv, getDemographicDetailsFormat1};
 }
