@@ -49,27 +49,32 @@ class GameServer {
 
     async generateSinglePlayerRounds(numRounds) {
         var theRounds = [];
-        var singlePlayerRoundPool = await loader.loadRoundsFromFile('./final_move_df.csv');
+        var singlePlayerRoundPool = await loader.loadMapRoundsFromFile('./final_move_df.csv');
 
         var practiceRound = roundsLib.getDefaultRounds(1)[0];
         practiceRound.isPractice = true;
 
         theRounds.push(practiceRound);
 
+        console.log('Round pool index ' + this.singlePlayerRoundPoolIndex);
+        
+        var roundPoolKeysArr = Array.from(singlePlayerRoundPool.keys());
+        var roundPool = singlePlayerRoundPool.get(roundPoolKeysArr[this.singlePlayerRoundPoolIndex]);
+
         for (let i=0; i < numRounds; i++) {
-            theRounds.push(singlePlayerRoundPool[Object.keys(singlePlayerRoundPool)[this.singlePlayerRoundPoolIndex]][i]);
+            theRounds.push(roundPool[i]);
         }
 
         this.singlePlayerRoundPoolIndex = this.singlePlayerRoundPoolIndex + 1;
 
-        if(Object.keys(singlePlayerRoundPool).length <= this.singlePlayerRoundPoolIndex) {
+        if(roundPoolKeysArr.length <= this.singlePlayerRoundPoolIndex) {
             this.singlePlayerRoundPoolIndex = 0;
         }
 
         return theRounds;
     }
 
-    async joinMoveABlock(io, socket, playerId) {
+    async joinMoveABlock(io, socket, playerId, sonaId) {
         // keep track of player's socket id
         this.playerIdSocketMap[playerId] = socket.id;
 
@@ -77,7 +82,6 @@ class GameServer {
             console.log('Player already in game ' + playerId);
 
             let game = this.getGameByPlayerId(playerId);
-            //game.updateSocketId(playerId, socket.id);
 
             io.to(this.getPlayerSocketIds(game)).emit('moveablock', game.getState());
         } else {
@@ -88,17 +92,18 @@ class GameServer {
                 console.log('2nd player joined, starting game ...');
                 var game = this.onDeck.pop();
                 game.status = mab2.GAME_STATUS.JOINED;
-                game.players[1] = new mab2.Player(playerId, mab2.PLAYER_ROLE.HELPER);
+                game.players[1] = new mab2.Player(playerId, mab2.PLAYER_ROLE.HELPER, sonaId);
                 var gameIndex = this.inProgress.push(game) - 1;
                 this.playerGameIndexMap[game.players[0].id] = gameIndex;
                 this.playerGameIndexMap[game.players[1].id] = gameIndex;
+                game.gameStartTime = Date.now();
                 
                 io.to(this.getPlayerSocketIds(game)).emit('moveablock', game.getState());
             } else {
                 console.log('Creating new game on-deck ...');
                 
                 let newGame = new mab2.Game();
-                newGame.players[0] = new mab2.Player(playerId, mab2.PLAYER_ROLE.ARCHITECT);
+                newGame.players[0] = new mab2.Player(playerId, mab2.PLAYER_ROLE.ARCHITECT, sonaId);
                 
                 if (newGame.mode == mab2.GAME_MODE.ONE_PLAYER) {
                     console.log('Player joined single player game, starting game ...');
@@ -108,6 +113,7 @@ class GameServer {
                     
                     var gameIndex = this.inProgress.push(newGame) - 1;
                     this.playerGameIndexMap[newGame.players[0].id] = gameIndex;
+                    newGame.gameStartTime = Date.now();
                 } else {
                     this.onDeck.push(newGame);
                 }
@@ -151,7 +157,7 @@ class GameServer {
         this.inProgress[gameIndex] = null;
     }
 
-    move(io, playerId, aMove) {
+    async move(io, playerId, aMove) {
         console.log('Processing move ' + playerId + ', ' + JSON.stringify(aMove));
         var gameIndex = this.playerGameIndexMap[playerId];
 
@@ -164,8 +170,8 @@ class GameServer {
 
                 if (accepted) {
                     console.log('Move accepted ...');
-
-                    dataStore.save(game.getSaveState());
+                    
+                    await dataStore.save(game.getSaveState());
 
                     var otherPlayerSocketId = this.getOtherPlayerSocketId(game, playerId);
 
@@ -189,6 +195,7 @@ class GameServer {
                     //this.cleanUpGame(gameIndex, game);
 
                     game.gameCompleteTime = Date.now();
+                    await dataStore.save(game.getSaveState());
 
                     console.log('Syncing game state with clients ...');
                     io.to(this.getPlayerSocketIds(game)).emit('moveablock', game.getState());

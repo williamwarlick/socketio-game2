@@ -1,10 +1,10 @@
 import socket from '../socket';
 //import { EVENTS } from '../../moveablock-server';
-import moveablock, {GAME_STATUS, PLAYER_ROLE} from '../../moveablock2';
-import { BLOCK_TYPE, SPACE_STATUS, Space, Section, EVENTS } from '../../components';
+import { BLOCK_TYPE, EVENTS } from '../../components';
+import moveablock, { GAME_STATUS, PLAYER_ROLE } from '../../moveablock2';
+import roundLib from '../../rounds';
 import '../moveablock.css';
 import getUser from './header';
-import roundLib from '../../rounds';
 
 const mab = new moveablock.Game();
 
@@ -60,7 +60,7 @@ const buildBoard = () => {
         }
         sectionLabelRow.appendChild(buildSectionCell(section));
     }
-    
+
 };
 
 const buildSubSectionCell = (section, subsection) => {
@@ -107,13 +107,13 @@ const buildCell = (x,y, section, subsection, prevSection, prevSubsection) => {
     cell.setAttribute('id', 'cell-' + x.toString() + (flipY(y, mab.settings.BOARD_DIM.h)).toString());
     cell.setAttribute('data-x', x.toString());
     cell.setAttribute('data-y', (flipY(y, mab.settings.BOARD_DIM.h)).toString());
-    
+
     var isSectionLeftEdge = section - prevSection > 0;
     var isSubSectionLeftEdge = subsection - prevSubsection > 0;
 
     cell.setAttribute('data-section', section.toString());
     cell.setAttribute('data-subsection', subsection.toString());
-    
+
     if (isSectionLeftEdge) {
         cell.classList.add('section-left-edge');
     }
@@ -171,7 +171,7 @@ const clearCellClasses = () => {
 };
 
 const updateCellClasses = (moveEvent, fromCell, toCell) => {
-    
+
     if (moveEvent === EVENTS.DROP) {
         clearCellClasses();
         fromCell.classList.add("movefrom");
@@ -192,7 +192,7 @@ const updateBoard = (move) => {
         updateBoardState(move.playerId, move.to.pos, move.from.pos);
         // get from block
         var block = getBlockByPos(move.from.pos);
-        
+
         // get from cell
         var fromCell = getCellByPos(move.from.pos);
 
@@ -233,7 +233,14 @@ async function updateRoundInfo(gameState) {
     var movesEl = document.getElementById("moves");
 
     roleEl.innerText = player.role;
-    roundEl.innerText = gameState.roundNum + '/' + mab.settings.ROUNDS_NUM;
+
+    if (gameState.roundNum == 0) {
+        roundEl.innerText = 'Practice';
+    } else {
+        roundEl.innerText = gameState.roundNum + '/' + mab.settings.ROUNDS_NUM;
+    }
+
+
     movesEl.innerText = gameState.round.moves.length;
 
     if (player.role === PLAYER_ROLE.ARCHITECT) {
@@ -243,7 +250,7 @@ async function updateRoundInfo(gameState) {
         goalEl.innerText = "The Architect has been assigned their secret goal!";
     }
 
-    
+
 }
 
 function updateMoves() {
@@ -266,7 +273,7 @@ const addDragListeners = (element) => {
             var block = document.getElementById(dragstartid);
             var newPos = getElementPosition(e.target);
             var currentPos = getElementPosition(block);
-    
+
             if (mab.validDrop(currentPos, newPos)) {
                 e.target.classList.add('can-drop');
             } else {
@@ -274,8 +281,8 @@ const addDragListeners = (element) => {
             }
 
             socket.emit('moveablock', {
-                event: EVENTS.DRAGOVER, 
-                //from: {pos: currentPos, state: mab.state.board[newPos.y][newPos.x]}, 
+                event: EVENTS.DRAGOVER,
+                //from: {pos: currentPos, state: mab.state.board[newPos.y][newPos.x]},
                 to: {pos: newPos, state: null}
             });
         }
@@ -283,7 +290,7 @@ const addDragListeners = (element) => {
 
     element.addEventListener('dragleave', (e) => {
         e.preventDefault();
-        
+
         e.target.classList.remove('can-drop');
         e.target.classList.remove('no-drop');
     });
@@ -299,10 +306,10 @@ const addDragListeners = (element) => {
         var pos = getElementPosition(e.target);
 
         socket.emit('moveablock', {
-            event: EVENTS.DRAGSTART, 
+            event: EVENTS.DRAGSTART,
             from: {pos: pos, state: null}
         });
-        
+
     });
 
     element.addEventListener('dragend', (e) => {
@@ -314,7 +321,7 @@ const addDragListeners = (element) => {
         e.preventDefault();
         e.target.classList.remove('can-drop');
         e.target.classList.remove('no-drop');
-    
+
         var data = e.dataTransfer.getData('text/plain');
         console.log('drop event: data ' + data);
         var block = document.getElementById(data);
@@ -333,12 +340,12 @@ const addDragListeners = (element) => {
 
             //socket.emit('moveablock', mab.state);
             socket.emit('moveablock', {
-                event: EVENTS.DROP, 
-                from: {pos: currentPos, state: mab.board.spaces[currentPos.y][currentPos.x]}, 
+                event: EVENTS.DROP,
+                from: {pos: currentPos, state: mab.board.spaces[currentPos.y][currentPos.x]},
                 to: {pos: newPos, state: mab.board.spaces[newPos.y][newPos.x]}
             });
         }
-        
+
     });
 };
 
@@ -351,15 +358,19 @@ socket.on('moveablock', async (event) => {
         if (event.status == GAME_STATUS.WAITING) {
             console.log('Game status: waiting');
             window.location.href = '/waiting.html';
+            return;
         } else if (event.status == GAME_STATUS.COMPLETE) {
             console.log('Game status: complete');
-            window.location.href = '/game-complete.html';
+            window.location.href = '/demographic-details.html';
+            return;
         } else if (event.status == GAME_STATUS.NEW_ROUND) {
             console.log('Game status: new round');
             window.location.href = '/round-acknowledge.html';
+            return;
         } else if (event.status == GAME_STATUS.JOINED) {
             console.log('Game status: joined');
             window.location.href = '/consent.html';
+            return;
         }
 
         console.log('updating board ...');

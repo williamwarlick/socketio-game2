@@ -34,7 +34,7 @@ class Location {
 }
 
 class Player {
-    constructor(id, role) {
+    constructor(id, role, sonaId) {
         this.id = id;
         this.location = new Location(0,0); // start at 0,0
         this.blockType = BLOCK_TYPE.EMPTY;
@@ -42,6 +42,7 @@ class Player {
         this.role = role;
         this.gameAck = false;
         this.roundAck = false;
+        this.sonaId = sonaId;
     }
 
     // sets a copy
@@ -90,7 +91,7 @@ class Board {
 
     // returns the section of the board
     getSectionSubArray(section) {
-        
+
         if (!section) { return this.spaces };
 
         var sectionSubArray = [];
@@ -112,7 +113,7 @@ class Board {
         for(var y = 0; y < this.spaces.length; y++) {
             sectionSubArray.push(this.spaces[y].slice(sectionStart, sectionStart + subSectionSize));
         }
-        
+
         return sectionSubArray;
     }
 
@@ -140,7 +141,7 @@ class Board {
         for(var y = 0; y < spacesCopy.length; y++) {
             spacesCopy[y].splice(sectionStart, subSectionSize);
         }
-        
+
         return spacesCopy;
     }
 
@@ -151,17 +152,18 @@ class Game {
         this.id = uuid(),
         this.mode = GAME_MODE.ONE_PLAYER,
         this.players = [];
-        
+
         this.rounds = [];
         this.currentRound = 0;
         this.status = GAME_STATUS.WAITING;
+        this.gameStartTime = null;
         this.gameCompleteTime = null;
 
         this.settings = {
             BOARD_DIM: {w: 18, h: 6},
             SECTION_NUM: 3,
             SUB_SECTION_NUM: 2,
-            ROUNDS_NUM: 2,
+            ROUNDS_NUM: 10,
             BLOCK_GROUPS: [
                 {
                     type: BLOCK_TYPE.RED,
@@ -180,6 +182,8 @@ class Game {
 
         this.board = new Board(this.settings.BOARD_DIM, this.settings.SECTION_NUM, this.settings.SUB_SECTION_NUM);
 
+        this.demographicDetails = null
+
         this.initRounds();
 
         this.board.spaces = this.rounds[this.currentRound].initBoard;
@@ -196,8 +200,8 @@ class Game {
 
     getState() {
         return {
-            players: this.players, 
-            status: this.status, 
+            players: this.players,
+            status: this.status,
             state: this.board.spaces,
             roundNum: this.currentRound, // assume practice round is 0
             round: this.rounds[this.currentRound],
@@ -209,10 +213,15 @@ class Game {
     getSaveState() {
         return {
             id: this.id,
-            players: this.players, 
+            gameStart: this.gameStartTime,
+            gameComplete: this.gameCompleteTime,
+            players: this.players,
+            player1: this.players[0].id,
+            player2: this.players.length > 1 ? this.players[1].id : null,
             status: this.status,
             rounds: this.rounds,
             roundNum: this.currentRound + 1,
+            demographicDetails: this.demographicDetails,
         }
     }
 
@@ -235,6 +244,7 @@ class Game {
 
     moveBlock(playerId, from, to) {
         if(this.validDrop(from, to)) {
+
             this.board.spaces[to.y][to.x] = this.board.spaces[from.y][from.x];
             this.board.spaces[from.y][from.x] = o();
 
@@ -356,7 +366,7 @@ class Game {
 
         console.log('');
     }
-    
+
 }
 
 if (module && module.exports) {

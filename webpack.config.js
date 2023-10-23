@@ -12,6 +12,7 @@ module.exports = {
         roundstarting: './src/js/round-starting.js',
         consent: './src/js/user.js',
         admin: './src/js/header.js',
+        demographicDetails: './src/js/demographic-details.js',
     },
   output: {
     filename: '[name].js',
@@ -94,5 +95,17 @@ module.exports = {
       chunks: ['admin'],
       filename: 'admin.html'
     }),
+    new HtmlWebpackPlugin({
+      template: './src/completed.html',
+      inject: false,
+      //chunks: ['admin'],
+      filename: 'completed.html'
+    }),
+    new HtmlWebpackPlugin({
+			template: './src/demographic-details.html',
+			inject: true,
+			chunks: ['demographicDetails'],
+			filename: 'demographic-details.html',
+		}),
   ],
 };

@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express');
+const basicAuth = require('express-basic-auth');
 const app = express();
 const session = require('express-session');
 const http = require('http');
@@ -16,6 +17,9 @@ const dataStore = require('./dataStore');
 const cron = require('node-cron');
 const { Console } = require('console');
 
+
+app.use(express.json())
+
 const sessionStore = new InMemorySessionStore();
 
 const MAB_TABLE = 'mabGame';
@@ -29,7 +33,7 @@ cron.schedule('*/1 * * * *', () => {
         var game = gameServer.inProgress[i];
         // clean game up a few minutes after completion time, enough time to display
         // game complete results to the front end
-        if (game.status === 'COMPLETE' && Date.now() < (game.gameCompleteTime + 60000)) {
+        if (game.demographicDetails && game.status === 'COMPLETE' && Date.now() < (game.gameCompleteTime + 60000)) {
             console.log('Cleaning up game ' + game.id);
             gameServer.cleanUpGame(i, game);
         }
@@ -42,7 +46,17 @@ const sessionMiddleware = session({
     resave: false,
     saveUninitialized: true,
   });
-  
+
+app.use('/admin', basicAuth({
+    users: { 'admin': 'password' },
+    challenge: true,
+}));
+
+app.use('/admin.html', basicAuth({
+    users: { 'admin': process.env.ADMIN_PWD },
+    challenge: true,
+}));
+
 // use session middleware for Express app
 app.use(sessionMiddleware);
 
@@ -52,24 +66,25 @@ io.use((socket, next) => {
     sessionMiddleware(socket.request, socket.request.res || {}, next);
 });
 
-const doLogin = (req, username, callback) => {
+const doLogin = (req, username, sonaId, callback) => {
     // login logic to validate req.body.user and req.body.pass
     // would be implemented here. for this example any combo works
-  
+
     // regenerate the session, which is good practice to help
     // guard against forms of session fixation
     req.session.regenerate(function (err) {
         if (err) next(err)
-    
+
         // store user information in session, typically a user id
         req.session.user = username;
+        req.session.sonaId = sonaId ? sonaId : null;
         console.log(req.session.user);
-    
+
         // save the session before redirection to ensure page
         // load does not happen before session is saved
         req.session.save(function (err) {
           if (err) return next(err)
-          
+
           if (callback) {
             callback();
           }
@@ -89,13 +104,40 @@ const ackGame = (req, callback) => {
     }
 };
 
+const doPostDemographicDetails = async (req, demographicDetails, callback) => {
+	const userName = req.session.user
+	const game = gameServer.getGameByPlayerId(userName)
+    if(game) {
+        game.demographicDetails = demographicDetails
+
+        await dataStore.save(game.getSaveState())
+    }
+	callback()
+}
+
+
 app.post('/login', express.urlencoded({ extended: false }), function (req, res) {
-    doLogin(req, req.body.username, function() {
+    doLogin(req, req.body.username, req.body.sona, function() {
         res.redirect('/waiting.html');
     });
   })
 
-app.post('/reset', express.urlencoded({ extended: false }), function (req, res) {
+app.post(
+	'/demographic-details',
+	express.urlencoded({ extended: false }),
+	function (req, res) {
+		doPostDemographicDetails(req, req.body, function () {
+			res.json({message: "Data received successfully", data: req.body})
+		})
+	}
+)
+
+  app.post('/logout', express.urlencoded({ extended: false }), function (req, res) {
+    console.log('Destroying user session: ' + req.session.user);
+    req.session.destroy();
+  })
+
+app.post('/admin/reset', express.urlencoded({ extended: false }), function (req, res) {
     gameServer = new mab.GameServer();
     console.log("Reset game server ...");
     res.redirect('/index.html');
@@ -109,17 +151,21 @@ app.post('/gameack', express.urlencoded({ extended: false }), function (req, res
 
 app.get('/user', (req, res) => {
     var username = req.session.user;
-    res.json({user: username});
+    var sonaId = req.session.sonaId;
+    res.json({user: username, sonaId: sonaId});
 })
 
 app.get('/gamestate', (req, res) => {
     var username = req.session.user;
+    var sonaId = req.session.sonaId;
 
     if (username) {
         var game = gameServer.getGameByPlayerId(username);
 
         if (game) {
-            res.json(game.getState());
+            var gameState = game.getState();
+            gameState.user = {user: username, sonaId: sonaId};
+            res.json(gameState);
         } else {
             res.status(404).send("Not found.");
         }
@@ -128,34 +174,68 @@ app.get('/gamestate', (req, res) => {
     }
 })
 
-app.get('/gameinfo', (req, res) => {
+app.get('/admin/gameinfo', (req, res) => {
     res.json({onDeck: gameServer.onDeck, inProgress: gameServer.inProgress});
 })
 
-app.get('/gamedata', async (req, res) => {
+app.get('/admin/gamedata', async (req, res) => {
     var data = await dataStore.getAll(MAB_TABLE);
 
     res.json(data);
 })
 
-app.get('/gamedataf1', async (req, res) => {
+app.get('/admin/usergamedata', async (req, res) => {
+    var userId = req.query.id;
+    var data = await dataStore.getDataByUserId(userId, MAB_TABLE);
+
+    res.json(data);
+})
+
+app.get('/admin/gamedataf1', async (req, res) => {
     var data = await dataStore.getAllFormat1(MAB_TABLE);
 
     res.json(data);
 })
 
-io.on('connection', async (socket) => {  
+app.get('/admin/gamedatacsv', async (req, res) => {
+    var data = await dataStore.getAllCsv(MAB_TABLE);
+    res.type('text/csv')
+    res.send(data);
+})
+
+app.get('/admin/demographicDetailsf1', async (req, res) => {
+    var data = await dataStore.getDemographicDetailsFormat1(MAB_TABLE);
+
+    res.json(data);
+})
+
+app.get('/admin/demographicDetailscsv', async (req, res) => {
+    var data = await dataStore.getDemographicDetailsCsv(MAB_TABLE);
+    res.type('text/csv')
+    res.send(data);
+})
+
+io.on('connection', async (socket) => {
     const session = socket.request.session;
 
     let username = session.user;
+    let sonaId = session.sonaId;
 
     // Access session data
     console.log(session);
-    
+
     console.log('A user connected ...' + username);
 
     if (username) {
-        await gameServer.joinMoveABlock(io, socket, username);
+        // check if already completed a game
+        userGameData = await dataStore.getDataByUserId(username, MAB_TABLE);
+
+        if (userGameData && userGameData.length > 0) {
+            console.log('User already completed a game: ' + username);
+            socket.emit('MESSAGE', 'COMPLETE');
+        } else {
+            await gameServer.joinMoveABlock(io, socket, username, sonaId);
+        }
     }
 
     socket.on('lobby', (msg) => {
