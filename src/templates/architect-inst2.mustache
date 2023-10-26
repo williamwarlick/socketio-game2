@@ -15,26 +15,39 @@
 
 <p class="row mt-4">
 <ol>
-<li>You will be given a set of goals.</li>
-<li>You can only move one block on a turn.</li>
-<li>Blocks can be placed on top of other blocks or on the floor.</li>
+<li>You will be given a set of goals to achieve.</li>
+<li>You will move blocks to achieve each goal.</li>
+<li>Blocks can be placed on top of other blocks or on the floor of the grid.</li>
+<li>If a block has another block on top of it, it cannot be moved until the block on top of it (i.e., covering it) is moved.</li>
 <li>You will play 10 rounds of the game and each round will have a different goal.</li>
 </ol>
 </p>
 
-<p class="row mt-4">Goals can be of many forms. You may be asked to move a specific type of 
-block (e.g., red) to a specific room (e.g., A). You may be asked to clear or 
-fill up a particular room (e.g., A1 or B2). You may also be asked to cover or 
-uncover a particular type of block (e.g., red). Covering a block means making 
-sure there is another block on top of it. Uncovering a block means making sure 
-there is no other block on top of it.</p>
+<p class="row mt-4">Goals can be of many forms. 
+<ul>
+<li> You may be asked to <b>move</b> a specific type of block (e.g., red) to a specific room (e.g., A). </li>
+<li>You may be asked to <b>clear</b> or <b>fill up</b> a particular room (e.g., A1 or B2).</li>
+<li> You may also be asked to <b>cover</b> or <b>uncover</b> a particular type of block (e.g., red). <b>Covering</b> a block means making 
+sure there is another block (of any color) on top of it. <b>Uncovering</b> a block means making sure there is no block (of any color) on top of it.</li>
+</ul>
+
+As you are dragging and dropping blocks, a checkmark will appear on the screen at different locations to indicate whether a block can be dropped at a given location or not.
+If an X appears, it means either that the block cannot be moved (e.g., it may have another block on top of it) or it cannot be dropped at the specific location (e.g., you can only drop/move a block on top of other blocks or at the floor of the grid).
+</p>
+
+<p>
+
+The game will automatically advance to the next round once a goal is achieved. <br> <br> 
+If you think that you have achieved a given goal but the game is not advancing, please refresh the page. 
+
+</p>
 {{/previousRound}}
 
 {{#round.isPractice}}
-  <p class="row mt-4">Click to continue to practice round</p>
+  <p class="row mt-4">Click the button below to continue to the practice round.</p>
 {{/round.isPractice}}
 {{^round.isPractice}}
-  <p class="row mt-4">Click to continue to round {{roundNum}} of 10</p>
+  <p class="row mt-4">Click the button below to continue to round {{roundNum}} of 10.</p>
 {{/round.isPractice}}
 
 </div>
