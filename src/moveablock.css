@@ -80,7 +80,7 @@ td.moveto {
 .can-drop::before {
     content: "✔️";
 }
-  
+
 .no-drop::before {
     content: "❌";
 }
