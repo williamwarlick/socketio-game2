@@ -1,6 +1,9 @@
 const AWS = require('aws-sdk');
 AWS.config.update({ region: "us-east-1" });
 
+const { o } = require('./components');
+
+
 // Create DynamoDB document client
 const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 const MAB_TABLE = 'mabGame';
@@ -52,44 +55,43 @@ const getDataByUserId = async (userId, tableName) => {
     return data.Items;
 }
 
+const getCurrentBoardState = (moveBeginningBoardState, fromMove, toMove) => {
+    moveBeginningBoardState[toMove.y][toMove.x] = moveBeginningBoardState[fromMove.y][fromMove.x]
+    moveBeginningBoardState[fromMove.y][fromMove.x] = o()
+
+    return moveBeginningBoardState
+}
+
 const getAllFormat1 = async (tableName) => {
     var raw = await getAll(tableName);
 
-    var formatted = [];
+    return raw.map(game => {
+        const rounds = [...game.rounds.entries()].map(entry => entry[1])
+        return rounds.map((round, roundIndex) => {
+            let currentBoardState = round.initBoard
 
-    // loop through each game
-    for (game of raw) {
-        // loop through each round
-        for (let [index, round] of game.rounds.entries()) {
+            return round.moves.map((move) => {
+                currentBoardState = getCurrentBoardState(currentBoardState, move.from, move.to)
 
-            for (move of round.moves) {
-                formatted.push({
-                    gameId: game.id,
-                    gameStart: game.gameStart,
-                    gameComplete: game.gameComplete,
-                    importId: round.importId,
-                    roundNum: index,
-                    playerId: move.playerId,
-                    playerRole: game.players.find(player => player.id == move.playerId).role,
-                    config: round.initBoard.map((row) => {
-                        return row.map((block) => {
-                            return block.blockType;
-                        });
-                    }),
-                    goal: round.goals[0].description,
-                    //"goal_optimal": null,
-                    //"goal_type": round.goals[0].action,
-                    //"total_moves": round.moves.length,
-                    moveTimestamp: move.timestamp,
-                    move: `[(${move.from.x},${move.from.y}),(${move.to.x},${move.to.y})]`,
-                    dimensions: `${round.initBoard.length}, ${round.initBoard[0].length}`,
-                });
-            }
-        }
-    }
-
-    return formatted;
-
+                return (
+                    {
+                        gameId: game.id,
+                        gameStart: game.gameStart,
+                        gameComplete: game.gameComplete,
+                        importId: round.importId,
+                        roundNumber: roundIndex,
+                        playerId: move.playerId,
+                        playerRole: game.players.find(player => player.id == move.playerId).role,
+                        goal: round.goals[0].description,
+                        moveTimestamp: move.timestamp,
+                        move: `[(${move.from.x},${move.from.y}),(${move.to.x},${move.to.y})]`,
+                        dimensions: `${round.initBoard.length}, ${round.initBoard[0].length}`,
+                        moveBoardState: currentBoardState
+                    }
+                )
+            })
+        })
+    })
 }
 
 const convertToCSV = (arr) => {
@@ -175,32 +177,32 @@ const getAllCsv = async (tableName) => {
     // loop through each game
     for (game of raw) {
         // loop through each round
-        for (let [index, round] of game.rounds.entries()) {
+        for (let [roundIndex, round] of game.rounds.entries()) {
 
+            let currentBoardState = round.initBoard
 
-            for (move of round.moves) {
+            round.moves.forEach((move) => {
+
                 var from = coordinatesToInteger(move.from.x, move.from.y, round.initBoard[0].length, round.initBoard.length);
                 var to = coordinatesToInteger(move.to.x, move.to.y, round.initBoard[0].length, round.initBoard.length);
+
+                currentBoardState = getCurrentBoardState(currentBoardState, move.from, move.to)
+
                 formatted.push({
                     gameId: game.id,
                     gameStart: game.gameStart,
                     gameComplete: game.gameComplete,
                     importId: round.importId,
-                    roundNum: index,
+                    roundNumber: roundIndex,
                     playerId: move.playerId,
                     playerRole: game.players.find(player => player.id == move.playerId).role,
                     goal: round.goals[0].description,
                     moveTimestamp: move.timestamp,
-                    //moveC: `[(${move.from.x},${move.from.y}),(${move.to.x},${move.to.y})]`,
                     move: `(${from},${to})`,
                     dimensions: `${round.initBoard.length}, ${round.initBoard[0].length}`,
-                    config: combine2DArray(round.initBoard.map((row) => {
-                        return row.map((block) => {
-                            return block.blockType;
-                        });
-                    }).reverse()),
+                    moveBoardState: combine2DArray(currentBoardState.map(row => row.map(block => block ? block['blockType'] : null)).reverse())
                 });
-            }
+            })
         }
     }
 
