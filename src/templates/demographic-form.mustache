@@ -2,13 +2,19 @@
     <div row class="mb-3 mt-3">
         <div class="col-6">
             <br>
-            <label for="age" class="form-label">Current Age (in years)</label>
+            <div class="d-flex">
+                <label for="age" class="form-label">Current Age (in years)</label>
+                <div class="text-danger">*</div>
+            </div>
             <input class="form-control" type="number" id="age" name="age">
             <input type="hidden" type="number" value="">
         </div>
         <div class="col-6">
             <br>
-            <label for="gender" class="form-label">What is your gender?</label>
+             <div class="d-flex">
+                <label for="gender" class="form-label">What is your gender?</label>
+                <div class="text-danger">*</div>
+            </div>
             <input class="form-control" type="text" id="gender" name="gender">
             <input type="hidden"" type="text" value="">
         </div>
@@ -20,7 +26,10 @@
         </div>
         <div class="col-6">
             <br>
-            <label for="racialCategories" class="form-label">Please select all the racial categories that apply to you:</label><br>
+            <div class="d-flex">
+                <label for="racialCategories" class="form-label">Please select all the racial categories that apply to you:</label><br>
+                <div class="text-danger">*</div>
+            </div>
             <input type="checkbox" id="racialCategories" name="racialCategories" value="americanIndianOrAlaskanNative">
             <label for="racialCategories"> American Indian / Alaskan Native</label><br>
             <input type="checkbox" id="racialCategories" name="racialCategories" value="asian">
