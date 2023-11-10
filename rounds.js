@@ -74,14 +74,14 @@ function checkCover(blockType, section, board) {
     for (var row = 0; row < board.spaces.length; row++) {
         for (var col = 0; col < board.spaces[0].length; col++) {
             var space = board.spaces[row][col];
-            
+
             if (space.blockType === blockType) {
                 // top row and block type matches, return false
                 if (row === board.spaces.length - 1) {
                         return false;
                 } else {
                     var spaceAbove = board.spaces[row + 1][col];
-                    
+
                     // if block is uncovered, return false
                     if (spaceAbove.blockType === BLOCK_TYPE.EMPTY) {
                         return false;
@@ -106,10 +106,10 @@ function checkUnCover(blockType, section, board) {
     for (var row = 0; row < board.spaces.length - 1; row++) {
         for (var col = 0; col < board.spaces[0].length; col++) {
             var space = board.spaces[row][col];
-            
+
             if (space.blockType === blockType) {
                 var spaceAbove = board.spaces[row + 1][col];
-                    
+
                 // if block is covered, return false
                 if (spaceAbove.blockType !== BLOCK_TYPE.EMPTY) {
                     return false;
@@ -159,7 +159,7 @@ function buildGoalDescription(goal) {
             friendly = 'Uncover all ' + goal.blockType.toLowerCase() + ' blocks';
             break;
         case 'move':
-            friendly = 'Move all ' + goal.blockType.toLowerCase() + 
+            friendly = 'Move all ' + goal.blockType.toLowerCase() +
                 ' blocks to section ' + buildSectionString(goal.section);
             break;
         case 'clear':
@@ -173,7 +173,8 @@ function buildGoalDescription(goal) {
 }
 
 class Goal {
-    constructor(action, blockType, section, description, minMoves) {
+    constructor(action, blockType, section, description, minMoves, id) {
+        this.id = id
         this.action = action;
         this.blockType = blockType;
         this.section = section;
@@ -197,7 +198,7 @@ class Goal {
                 break;
             case GOAL_ACTION.UNCOVER:
                 return checkUnCover(this.blockType, this.section, board);
-                break;   
+                break;
             default:
                 console.log(`Action ${this.action} not implemented.`);
         }
@@ -216,11 +217,11 @@ const defaultStartingBoard = () => {return [
 ]};
 
 const defaultGoalArray = [
-    new Goal(GOAL_ACTION.FILL, null, new Section(SECTION.C, 0), "fill nocolor C1", 4),
-    new Goal(GOAL_ACTION.COVER, BLOCK_TYPE.RED, null, "Cover all red blocks."),
-    new Goal(GOAL_ACTION.CLEAR, null, new Section(SECTION.A, null), "Clear all blocks in section A."),
-    new Goal(GOAL_ACTION.MOVE, BLOCK_TYPE.BLUE, new Section(SECTION.B, null), "Move all blue blocks to section B."),
-    new Goal(GOAL_ACTION.UNCOVER, BLOCK_TYPE.BLUE, null, "Uncover all blue blocks."),
+    new Goal(GOAL_ACTION.FILL, null, new Section(SECTION.C, 0), "fill nocolor C1", 4, "Practice"),
+    new Goal(GOAL_ACTION.COVER, BLOCK_TYPE.RED, null, "Cover all red blocks.", "Practice"),
+    new Goal(GOAL_ACTION.CLEAR, null, new Section(SECTION.A, null), "Clear all blocks in section A.", "Practice"),
+    new Goal(GOAL_ACTION.MOVE, BLOCK_TYPE.BLUE, new Section(SECTION.B, null), "Move all blue blocks to section B.", "Practice"),
+    new Goal(GOAL_ACTION.UNCOVER, BLOCK_TYPE.BLUE, null, "Uncover all blue blocks.", "Practice"),
 ];
 
 function getDefaultRounds (numRounds) {
