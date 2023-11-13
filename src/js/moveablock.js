@@ -7,7 +7,6 @@ import '../moveablock.css';
 import getUser from './header';
 
 const mab = new moveablock.Game();
-const hideGoal = localStorage.getItem('hideGoal')
 
 let pieceIdCounter = 0;
 
@@ -230,7 +229,7 @@ async function updateRoundInfo(gameState) {
 
     var roleEl = document.getElementById("role");
     var roundEl = document.getElementById("round-num");
-    var goalEl = document.getElementById("goal-or-code-description");
+    var goalEl = document.getElementById("goal-description");
     var movesEl = document.getElementById("moves");
 
     roleEl.innerText = player.role;
@@ -245,8 +244,8 @@ async function updateRoundInfo(gameState) {
     movesEl.innerText = gameState.round.moves.length;
 
     if (player.role === PLAYER_ROLE.ARCHITECT) {
-        const isPracticeRound = gameState.round.goals[0].id === "Practice"
-        goalEl.innerText = (hideGoal && !isPracticeRound) ? `ID: ${gameState.round.goals[0].id}` : `Goal: ${roundLib.buildGoalDescription(gameState.round.goals[0])}`;
+        //TODO: this assumes a single goal
+        goalEl.innerText = roundLib.buildGoalDescription(gameState.round.goals[0]);
     } else {
         goalEl.innerText = "The Architect has been assigned their secret goal!";
     }

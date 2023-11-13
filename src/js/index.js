@@ -12,13 +12,6 @@ socket.on('moveablock', (event) => {
 });
 
 (async function doRender(){
-    localStorage.clear()
-    var urlString = window.location.href;
-    var url = new URL(urlString);
-    var sonaId = url.searchParams.get("sona_id");
-
-    const hideGoal = url.searchParams.get("hideGoal")
-
     // Set the rendered HTML as the content of the page
     const app = document.getElementById('app');
     app.insertAdjacentHTML('beforeend', loginTemplate());
@@ -31,13 +24,11 @@ socket.on('moveablock', (event) => {
     joinBtn.addEventListener('click', (e) => {
         var username = usernameInput.value;
         localStorage.setItem('mabUsername', username);
-
-        if(hideGoal === "true") {
-            localStorage.setItem('hideGoal', true);
-        }
     });
 
-
+    var urlString = window.location.href;
+    var url = new URL(urlString);
+    var sonaId = url.searchParams.get("sona_id");
 
     if (sonaId) {
         usernameInput.value = sonaId;
