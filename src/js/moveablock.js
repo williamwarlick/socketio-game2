@@ -250,12 +250,6 @@ async function updateRoundInfo(gameState) {
         goalEl.innerText = "The Architect has been assigned their secret goal!";
     }
 
-    const gameCodeEl = document.getElementById('game-code')
-
-    if(hideGoal) {
-        gameCodeEl.innerText = roundLib.buildGoalDescription(gameState.round.goals[0]).split(" ").map(string => string.length === 2 ? string : string[0]).join("")
-    }
-
 
 }
 
