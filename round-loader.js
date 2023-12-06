@@ -77,6 +77,8 @@ function convertBoardConfig(array, rows, columns) {
     return result;
 }
 
+const formatCsvRow = (csvRow) => JSON.stringify(convertBoardConfig(JSON.parse(csvRow.config.replaceAll("'",'"')), 6, 18).map(row => row.map(cell => cell.blockType)).reverse())
+
 const loadRoundsFromFile = async (filePath) => {
     const csvData = await loadFromFile(filePath);
     const roundIdMap = {};
@@ -92,6 +94,7 @@ const loadRoundsFromFile = async (filePath) => {
 
         round.importId = csvRow.ID;
         round.initBoard = convertBoardConfig(JSON.parse(csvRow.config.replaceAll("'",'"')), 6, 18);
+        round.initBoardRecord = formatCsvRow(csvRow);
 
         var parseGoal = csvRow.goal.trim().split(' ');
         goal.action = parseGoal[0].toUpperCase();
@@ -142,6 +145,7 @@ const loadMapRoundsFromFile = async (filePath) => {
 
         round.importId = csvRow.ID;
         round.initBoard = convertBoardConfig(JSON.parse(csvRow.config.replaceAll("'",'"')), 6, 18);
+        round.initBoardRecord = formatCsvRow(csvRow);
 
         var parseGoal = csvRow.goal.trim().split(' ');
         goal.action = parseGoal[0].toUpperCase();

@@ -219,7 +219,7 @@ class Game {
             player1: this.players[0].id,
             player2: this.players.length > 1 ? this.players[1].id : null,
             status: this.status,
-            rounds: this.rounds.map(({ goals, isPractice, moves, importId, initBoard}) => ({ initBoard, goals, isPractice, importId, moves: moves.map(({timestamp, playerId, from, to}) => ({timestamp, playerId, from, to})) })),
+            rounds: this.rounds.map(({ goals, isPractice, moves, importId, initBoard, initBoardRecord}) => ({ initBoardRecord, initBoard, goals, isPractice, importId, moves: moves.map(({timestamp, playerId, from, to}) => ({timestamp, playerId, from, to})) })),
             roundNum: this.currentRound + 1,
             demographicDetails: this.demographicDetails,
         }

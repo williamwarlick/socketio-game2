@@ -68,11 +68,7 @@ const getAllFormat1 = async (tableName) => {
     return raw.map(game => {
         const rounds = [...game.rounds.entries()].map(entry => entry[1])
         return rounds.map((round, roundIndex) => {
-            let currentBoardState = round.initBoard
-
             return round.moves.map((move) => {
-                currentBoardState = getCurrentBoardState(currentBoardState, move.from, move.to)
-
                 return (
                     {
                         gameId: game.id,
@@ -86,7 +82,7 @@ const getAllFormat1 = async (tableName) => {
                         moveTimestamp: move.timestamp,
                         move: `[(${move.from.x},${move.from.y}),(${move.to.x},${move.to.y})]`,
                         dimensions: `${round.initBoard.length}, ${round.initBoard[0].length}`,
-                        moveBoardState: currentBoardState
+                        initBoard: round.initBoard
                     }
                 )
             })
@@ -178,16 +174,9 @@ const getAllCsv = async (tableName) => {
     for (game of raw) {
         // loop through each round
         for (let [roundIndex, round] of game.rounds.entries()) {
-
-            let currentBoardState = round.initBoard
-
             round.moves.forEach((move) => {
-
                 var from = coordinatesToInteger(move.from.x, move.from.y, round.initBoard[0].length, round.initBoard.length);
                 var to = coordinatesToInteger(move.to.x, move.to.y, round.initBoard[0].length, round.initBoard.length);
-
-                currentBoardState = getCurrentBoardState(currentBoardState, move.from, move.to)
-
                 formatted.push({
                     gameId: game.id,
                     gameStart: game.gameStart,
@@ -200,7 +189,7 @@ const getAllCsv = async (tableName) => {
                     moveTimestamp: move.timestamp,
                     move: `(${from},${to})`,
                     dimensions: `${round.initBoard.length}, ${round.initBoard[0].length}`,
-                    moveBoardState: combine2DArray(currentBoardState.map(row => row.map(block => block ? block['blockType'] : null)).reverse())
+                    initBoard: round.initBoard
                 });
             })
         }
