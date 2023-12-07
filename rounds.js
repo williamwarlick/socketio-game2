@@ -23,6 +23,7 @@ class Round {
         this.moves = [];
         this.importId = importId ? importId : ''; // used to track when round is loaded from a file
         this.isPractice = false;
+        this.initBoardRecord = ''
     }
 
     isComplete(board) {
@@ -74,14 +75,14 @@ function checkCover(blockType, section, board) {
     for (var row = 0; row < board.spaces.length; row++) {
         for (var col = 0; col < board.spaces[0].length; col++) {
             var space = board.spaces[row][col];
-            
+
             if (space.blockType === blockType) {
                 // top row and block type matches, return false
                 if (row === board.spaces.length - 1) {
                         return false;
                 } else {
                     var spaceAbove = board.spaces[row + 1][col];
-                    
+
                     // if block is uncovered, return false
                     if (spaceAbove.blockType === BLOCK_TYPE.EMPTY) {
                         return false;
@@ -106,10 +107,10 @@ function checkUnCover(blockType, section, board) {
     for (var row = 0; row < board.spaces.length - 1; row++) {
         for (var col = 0; col < board.spaces[0].length; col++) {
             var space = board.spaces[row][col];
-            
+
             if (space.blockType === blockType) {
                 var spaceAbove = board.spaces[row + 1][col];
-                    
+
                 // if block is covered, return false
                 if (spaceAbove.blockType !== BLOCK_TYPE.EMPTY) {
                     return false;
@@ -159,7 +160,7 @@ function buildGoalDescription(goal) {
             friendly = 'Uncover all ' + goal.blockType.toLowerCase() + ' blocks';
             break;
         case 'move':
-            friendly = 'Move all ' + goal.blockType.toLowerCase() + 
+            friendly = 'Move all ' + goal.blockType.toLowerCase() +
                 ' blocks to section ' + buildSectionString(goal.section);
             break;
         case 'clear':
@@ -197,7 +198,7 @@ class Goal {
                 break;
             case GOAL_ACTION.UNCOVER:
                 return checkUnCover(this.blockType, this.section, board);
-                break;   
+                break;
             default:
                 console.log(`Action ${this.action} not implemented.`);
         }

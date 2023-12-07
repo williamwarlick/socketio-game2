@@ -21,14 +21,14 @@ const loadFromFile = async (filePath) => {
         try {
             const stream = fs.createReadStream(filePath)
             .pipe(csv());
-        
+
             for await (const row of stream) {
             // Process each row of the CSV file
             csvData.push(row);
             }
 
             //shuffleArray(csvData);
-        
+
             //console.log(csvData[0]);
         } catch (error) {
             console.error('Error parsing CSV:', error);
@@ -52,7 +52,7 @@ function convertColorToSpace(color) {
 
 function convertBoardConfig(array, rows, columns) {
     const result = [];
-  
+
     for (let i = rows - 1; i >= 0; i--) {
       const row = [];
       for (let j = 0; j < columns; j++) {
@@ -73,9 +73,11 @@ function convertBoardConfig(array, rows, columns) {
 
       result.push(row);
     }
-  
+
     return result;
 }
+
+const formatCsvRow = (csvRow) => JSON.stringify(convertBoardConfig(JSON.parse(csvRow.config.replaceAll("'",'"')), 6, 18).map(row => row.map(cell => cell.blockType)).reverse())
 
 const loadRoundsFromFile = async (filePath) => {
     const csvData = await loadFromFile(filePath);
@@ -92,6 +94,7 @@ const loadRoundsFromFile = async (filePath) => {
 
         round.importId = csvRow.ID;
         round.initBoard = convertBoardConfig(JSON.parse(csvRow.config.replaceAll("'",'"')), 6, 18);
+        round.initBoardRecord = formatCsvRow(csvRow);
 
         var parseGoal = csvRow.goal.trim().split(' ');
         goal.action = parseGoal[0].toUpperCase();
@@ -103,7 +106,7 @@ const loadRoundsFromFile = async (filePath) => {
         var sectionString = parseGoal[2];
         var theSection = sectionString[0].toUpperCase();
         var theSubSection = null;
-        
+
         if (sectionString.toUpperCase() !== 'ALL' && sectionString.length > 1) {
 
             if(Number.isNaN(Number(sectionString[1]))) {
@@ -113,7 +116,7 @@ const loadRoundsFromFile = async (filePath) => {
             }
         }
 
-        goal.section = new components.Section(rounds.SECTION[theSection], 
+        goal.section = new components.Section(rounds.SECTION[theSection],
             theSubSection);
         goal.minMoves = csvRow['goal_optimal'];
 
@@ -142,6 +145,7 @@ const loadMapRoundsFromFile = async (filePath) => {
 
         round.importId = csvRow.ID;
         round.initBoard = convertBoardConfig(JSON.parse(csvRow.config.replaceAll("'",'"')), 6, 18);
+        round.initBoardRecord = formatCsvRow(csvRow);
 
         var parseGoal = csvRow.goal.trim().split(' ');
         goal.action = parseGoal[0].toUpperCase();
@@ -153,7 +157,7 @@ const loadMapRoundsFromFile = async (filePath) => {
         var sectionString = parseGoal[2];
         var theSection = sectionString[0].toUpperCase();
         var theSubSection = null;
-        
+
         if (sectionString.toUpperCase() !== 'ALL' && sectionString.length > 1) {
 
             if(Number.isNaN(Number(sectionString[1]))) {
@@ -163,7 +167,7 @@ const loadMapRoundsFromFile = async (filePath) => {
             }
         }
 
-        goal.section = new components.Section(rounds.SECTION[theSection], 
+        goal.section = new components.Section(rounds.SECTION[theSection],
             theSubSection);
         goal.minMoves = csvRow['goal_optimal'];
 
@@ -178,5 +182,5 @@ const loadMapRoundsFromFile = async (filePath) => {
 };
 
 if (module && module.exports) {
-    module.exports = {loadFromFile, loadRoundsFromFile, loadMapRoundsFromFile};
+    module.exports = {convertBoardConfig, loadFromFile, loadRoundsFromFile, loadMapRoundsFromFile};
 }
