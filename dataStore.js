@@ -3,6 +3,47 @@ AWS.config.update({ region: "us-east-1" });
 
 const { o } = require('./components');
 
+// Local DynamoDB
+
+// Configure AWS to use local DynamoDB 
+
+AWS.config.update({
+    region: "local",
+    endpoint: "http://localhost:8000",
+    accessKeyId: 'fakeMyKeyId', // Dummy access key id
+    secretAccessKey: 'fakeSecretAccessKey'  // Dummy secret access key
+  });
+  
+const dynamodb = new AWS.DynamoDB();
+
+const params = {
+    TableName : "mabGame",
+    KeySchema: [       
+        { AttributeName: "id", KeyType: "HASH"},  // Partition key
+    ],
+    AttributeDefinitions: [       
+        { AttributeName: "id", AttributeType: "S" },
+        
+    ],
+    ProvisionedThroughput: {       
+        ReadCapacityUnits: 5, 
+        WriteCapacityUnits: 5
+    }
+};
+
+const createTable = () => { 
+    dynamodb.createTable(params, function(err, data) {
+        if (err) {
+            console.error("Error JSON.", JSON.stringify(err, null, 2));
+        } else {
+            console.log("Created table.", JSON.stringify(data, null, 2));
+        }
+    });
+}
+
+createTable(); 
+  
+
 
 // Create DynamoDB document client
 const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
