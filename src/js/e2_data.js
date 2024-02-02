@@ -1,218 +1,4 @@
 const data_exp2 = {
-    "12926": [
-        {
-            "id": "12926",
-            "importId": 91484,
-            "config": [
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "blue",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "white",
-                "red",
-                "white",
-                "green",
-                "white",
-                "white",
-                "white",
-                "blue",
-                "white",
-                "white",
-                "white",
-                "red",
-                "green",
-                "green",
-                "red",
-                "white",
-                "green",
-                "blue",
-                "red",
-                "green",
-                "red",
-                "red",
-                "red",
-                "blue",
-                "white",
-                "green",
-                "blue",
-                "blue",
-                "blue",
-                "red",
-                "green",
-                "blue",
-                "green",
-                "red",
-                "blue",
-                "green",
-                "green",
-                "red",
-                "blue"
-            ],
-            "goal_optimal": 13,
-            "goal": "fill nocolor C1",
-            "total_moves": 13,
-            "goal_type": "fill",
-            "move_ids": [
-                [
-                    87,
-                    32
-                ],
-                [
-                    88,
-                    12
-                ],
-                [
-                    105,
-                    13
-                ],
-                [
-                    106,
-                    14
-                ],
-                [
-                    87,
-                    32
-                ],
-                [
-                    88,
-                    12
-                ],
-                [
-                    105,
-                    13
-                ],
-                [
-                    106,
-                    14
-                ],
-                [
-                    87,
-                    32
-                ],
-                [
-                    88,
-                    12
-                ],
-                [
-                    105,
-                    13
-                ],
-                [
-                    106,
-                    14
-                ],
-                [
-                    88,
-                    32
-                ],
-                [
-                    83,
-                    12
-                ],
-                [
-                    87,
-                    13
-                ],
-                [
-                    105,
-                    14
-                ],
-                [
-                    92,
-                    73
-                ],
-                [
-                    81,
-                    62
-                ],
-                [
-                    82,
-                    65
-                ],
-                [
-                    85,
-                    84
-                ],
-                [
-                    86,
-                    69
-                ],
-                [
-                    104,
-                    52
-                ],
-                [
-                    103,
-                    71
-                ]
-            ]
-        }
-    ],
     "13056": [
         {
             "id": "13056",
@@ -327,9 +113,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -467,9 +253,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -619,9 +405,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -759,9 +545,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -903,9 +689,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -974,9 +760,9 @@ const data_exp2 = {
             "id": "13056",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -1110,9 +896,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -1286,7 +1072,7 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green B2",
             "total_moves": 13,
             "goal_type": "move",
@@ -1458,9 +1244,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -1610,9 +1396,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -1746,9 +1532,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -1884,9 +1670,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B1",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -2024,9 +1810,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -2168,9 +1954,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -2312,9 +2098,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -2472,7 +2258,7 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B1",
             "total_moves": 13,
             "goal_type": "fill",
@@ -2644,9 +2430,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 18,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -2836,9 +2622,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue C1",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -3016,9 +2802,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green A1",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -3172,9 +2958,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -3352,9 +3138,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -3494,9 +3280,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -3630,9 +3416,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -3786,9 +3572,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -3938,9 +3724,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -4082,7 +3868,7 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -4254,9 +4040,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 17,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -4442,9 +4228,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green A2",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -4610,7 +4396,7 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red B2",
             "total_moves": 13,
             "goal_type": "move",
@@ -4782,9 +4568,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -4922,9 +4708,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -5064,9 +4850,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -5228,9 +5014,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -5388,9 +5174,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -5524,7 +5310,7 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
             "total_moves": 13,
             "goal_type": "clear",
@@ -5696,9 +5482,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -5876,9 +5662,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -6020,9 +5806,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -6188,9 +5974,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -6356,7 +6142,7 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B1",
             "total_moves": 13,
             "goal_type": "fill",
@@ -6528,7 +6314,7 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -6700,9 +6486,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 23,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -6912,9 +6698,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue A2",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -7072,9 +6858,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green B2",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -7232,9 +7018,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -7384,9 +7170,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C1",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -7548,9 +7334,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -7712,9 +7498,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -7866,9 +7652,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B1",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -8010,9 +7796,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B2",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -8154,9 +7940,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -8310,9 +8096,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -8450,9 +8236,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -8505,9 +8291,9 @@ const data_exp2 = {
             "id": "13067",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -8649,9 +8435,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -8829,9 +8615,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red A2",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -8993,9 +8779,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red B1",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -9161,9 +8947,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -9305,9 +9091,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -9451,9 +9237,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -9615,9 +9401,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -9763,9 +9549,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -9911,9 +9697,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -10051,9 +9837,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -10227,9 +10013,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 17,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -10415,9 +10201,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red A1",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -10571,9 +10357,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -10723,9 +10509,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -10863,9 +10649,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -11013,9 +10799,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C1",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -11153,9 +10939,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C2",
-            "total_moves": 13,
+            "total_moves": 3,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -11285,9 +11071,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 3,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -11417,9 +11203,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -11557,9 +11343,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 17,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -11745,9 +11531,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -11925,9 +11711,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red A",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -12085,9 +11871,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -12241,9 +12027,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -12393,9 +12179,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -12535,9 +12321,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -12671,9 +12457,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C1",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -12815,9 +12601,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -12955,9 +12741,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -13095,7 +12881,7 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -13158,9 +12944,9 @@ const data_exp2 = {
             "id": "13072",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -13302,9 +13088,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
-            "total_moves": 13,
+            "total_moves": 17,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -13490,9 +13276,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red A1",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -13634,9 +13420,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C1",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -13786,9 +13572,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -13930,9 +13716,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -14072,9 +13858,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -14232,9 +14018,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A1",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -14380,9 +14166,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -14540,9 +14326,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 21,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -14744,9 +14530,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A1",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -14799,9 +14585,9 @@ const data_exp2 = {
             "id": "13073",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -14939,7 +14725,7 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -15111,9 +14897,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue A",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -15287,9 +15073,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red A",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -15463,9 +15249,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 22,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -15671,9 +15457,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -15837,9 +15623,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -15985,9 +15771,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C2",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -16129,9 +15915,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -16269,9 +16055,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -16413,7 +16199,7 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A1",
             "total_moves": 13,
             "goal_type": "fill",
@@ -16476,9 +16262,9 @@ const data_exp2 = {
             "id": "13075",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -16620,9 +16406,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -16788,9 +16574,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green A1",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -16952,9 +16738,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green B2",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -17116,9 +16902,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -17260,9 +17046,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -17406,9 +17192,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -17558,9 +17344,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -17718,9 +17504,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -17858,9 +17644,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -18006,9 +17792,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B1",
-            "total_moves": 13,
+            "total_moves": 16,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -18081,9 +17867,9 @@ const data_exp2 = {
             "id": "13076",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -18217,9 +18003,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -18393,9 +18179,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue C",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -18557,9 +18343,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red B",
-            "total_moves": 13,
+            "total_moves": 18,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -18749,9 +18535,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -18893,9 +18679,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -19035,9 +18821,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -19203,9 +18989,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B1",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -19351,9 +19137,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
-            "total_moves": 13,
+            "total_moves": 16,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -19535,9 +19321,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -19683,7 +19469,7 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
             "total_moves": 13,
             "goal_type": "cover",
@@ -19855,9 +19641,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -19991,9 +19777,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A1",
-            "total_moves": 13,
+            "total_moves": 24,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -20207,9 +19993,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B1",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -20274,9 +20060,9 @@ const data_exp2 = {
             "id": "13077",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -20426,9 +20212,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
-            "total_moves": 13,
+            "total_moves": 16,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -20610,9 +20396,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue B",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -20766,9 +20552,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue C",
-            "total_moves": 13,
+            "total_moves": 19,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -20962,9 +20748,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue C2",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -21122,9 +20908,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -21278,9 +21064,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -21456,9 +21242,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -21596,9 +21382,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B1",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -21740,9 +21526,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -21892,9 +21678,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -22052,7 +21838,7 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -22115,9 +21901,9 @@ const data_exp2 = {
             "id": "13078",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -22251,9 +22037,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -22427,9 +22213,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green C1",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -22595,9 +22381,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -22763,9 +22549,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -22903,9 +22689,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -23053,9 +22839,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -23189,9 +22975,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -23349,9 +23135,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -23489,9 +23275,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -23637,9 +23423,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -23813,7 +23599,7 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B1",
             "total_moves": 13,
             "goal_type": "fill",
@@ -23876,9 +23662,9 @@ const data_exp2 = {
             "id": "13079",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -24012,9 +23798,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue B",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -24176,9 +23962,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue B2",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -24340,9 +24126,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -24480,9 +24266,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -24618,9 +24404,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -24778,9 +24564,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A1",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -24926,9 +24712,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C1",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -25066,9 +24852,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C2",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -25202,9 +24988,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 28,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -25434,9 +25220,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 19,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -25630,9 +25416,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A1",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -25794,9 +25580,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -25845,9 +25631,9 @@ const data_exp2 = {
             "id": "13080",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -26005,9 +25791,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
-            "total_moves": 13,
+            "total_moves": 27,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -26233,9 +26019,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue A",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -26389,9 +26175,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green C",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -26549,9 +26335,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red A",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -26709,9 +26495,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red A1",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -26877,9 +26663,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -27057,9 +26843,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -27201,9 +26987,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 3,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -27335,9 +27121,9 @@ const data_exp2 = {
                 "green",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A1",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -27483,9 +27269,9 @@ const data_exp2 = {
                 "green",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -27619,9 +27405,9 @@ const data_exp2 = {
                 "green",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -27767,9 +27553,9 @@ const data_exp2 = {
                 "green",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -27911,9 +27697,9 @@ const data_exp2 = {
                 "green",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -28087,9 +27873,9 @@ const data_exp2 = {
                 "green",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 59,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -28443,9 +28229,9 @@ const data_exp2 = {
                 "green",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue C2",
-            "total_moves": 13,
+            "total_moves": 20,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -28643,9 +28429,9 @@ const data_exp2 = {
                 "green",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C2",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -28811,9 +28597,9 @@ const data_exp2 = {
                 "green",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -28951,9 +28737,9 @@ const data_exp2 = {
                 "green",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -29089,9 +28875,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -29225,9 +29011,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -29381,9 +29167,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -29529,9 +29315,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -29669,7 +29455,7 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -29841,9 +29627,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 17,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -30029,9 +29815,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green A2",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -30197,7 +29983,7 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red B2",
             "total_moves": 13,
             "goal_type": "move",
@@ -30369,9 +30155,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -30517,9 +30303,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -30659,9 +30445,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A1",
-            "total_moves": 13,
+            "total_moves": 3,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -30791,9 +30577,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -30959,9 +30745,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 17,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -31147,9 +30933,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -31287,9 +31073,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 17,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -31475,7 +31261,7 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -31647,9 +31433,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue A2",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -31815,9 +31601,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue C",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -31959,9 +31745,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -32095,9 +31881,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -32245,9 +32031,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -32385,9 +32171,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C1",
-            "total_moves": 13,
+            "total_moves": 20,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -32585,9 +32371,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -32733,9 +32519,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -32893,9 +32679,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -32964,9 +32750,9 @@ const data_exp2 = {
             "id": "13087",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -33108,9 +32894,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -33272,9 +33058,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue A2",
-            "total_moves": 13,
+            "total_moves": 24,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -33488,9 +33274,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue C",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -33640,9 +33426,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -33784,9 +33570,9 @@ const data_exp2 = {
                 "blue",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -33922,9 +33708,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -34074,9 +33860,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -34254,9 +34040,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -34402,9 +34188,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -34546,9 +34332,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B1",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -34710,9 +34496,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -34761,9 +34547,9 @@ const data_exp2 = {
             "id": "13091",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -34897,7 +34683,7 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green A",
             "total_moves": 13,
             "goal_type": "move",
@@ -35069,9 +34855,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C2",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -35225,9 +35011,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -35377,9 +35163,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -35527,7 +35313,7 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
             "total_moves": 13,
             "goal_type": "clear",
@@ -35699,9 +35485,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C2",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -35839,9 +35625,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -35979,9 +35765,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -36123,9 +35909,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
-            "total_moves": 13,
+            "total_moves": 16,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -36307,9 +36093,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -36487,9 +36273,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue C1",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -36651,9 +36437,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red A1",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -36819,9 +36605,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -36971,9 +36757,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -37113,9 +36899,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -37249,7 +37035,7 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
             "total_moves": 13,
             "goal_type": "clear",
@@ -37421,9 +37207,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -37577,9 +37363,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -37717,7 +37503,7 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -37889,9 +37675,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -38065,9 +37851,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue A",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -38225,9 +38011,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue B",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -38373,9 +38159,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -38513,9 +38299,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -38655,9 +38441,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -38823,9 +38609,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C1",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -38971,9 +38757,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -39151,9 +38937,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -39295,9 +39081,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
-            "total_moves": 13,
+            "total_moves": 16,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -39370,9 +39156,9 @@ const data_exp2 = {
             "id": "13096",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -39506,7 +39292,7 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -39678,9 +39464,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green C2",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -39838,9 +39624,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C2",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -39986,9 +39772,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -40134,9 +39920,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -40272,9 +40058,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 3,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -40404,9 +40190,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -40572,9 +40358,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -40712,9 +40498,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -40856,7 +40642,7 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -40919,9 +40705,9 @@ const data_exp2 = {
             "id": "13097",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -41055,7 +40841,7 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -41227,7 +41013,7 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue C1",
             "total_moves": 13,
             "goal_type": "move",
@@ -41399,9 +41185,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green B2",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -41567,9 +41353,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -41711,9 +41497,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -41853,9 +41639,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -42009,9 +41795,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C1",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -42157,9 +41943,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -42305,9 +42091,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -42449,7 +42235,7 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A1",
             "total_moves": 13,
             "goal_type": "fill",
@@ -42621,7 +42407,7 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -42684,9 +42470,9 @@ const data_exp2 = {
             "id": "13098",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -42820,9 +42606,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red A2",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -42984,9 +42770,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C1",
-            "total_moves": 13,
+            "total_moves": 65,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -43364,9 +43150,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -43520,9 +43306,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -43666,9 +43452,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 32,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -43914,9 +43700,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C2",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -44070,9 +43856,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -44234,9 +44020,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -44374,9 +44160,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -44550,9 +44336,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B1",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -44605,9 +44391,9 @@ const data_exp2 = {
             "id": "13099",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -44741,9 +44527,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green C",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -44909,9 +44695,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red A1",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -45077,9 +44863,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -45229,7 +45015,7 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
             "total_moves": 13,
             "goal_type": "uncover",
@@ -45403,9 +45189,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -45563,9 +45349,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A1",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -45711,9 +45497,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -45859,9 +45645,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -45995,9 +45781,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -46062,9 +45848,9 @@ const data_exp2 = {
             "id": "13105",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -46198,7 +45984,7 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -46370,9 +46156,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green C2",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -46526,9 +46312,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red B",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -46694,9 +46480,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -46834,9 +46620,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 3,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -46968,9 +46754,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -47132,9 +46918,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -47292,9 +47078,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -47432,9 +47218,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -47576,9 +47362,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -47752,7 +47538,7 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -47815,9 +47601,9 @@ const data_exp2 = {
             "id": "13107",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -47951,9 +47737,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue A1",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -48119,7 +47905,7 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green A2",
             "total_moves": 13,
             "goal_type": "move",
@@ -48291,9 +48077,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -48431,9 +48217,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -48581,9 +48367,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -48749,9 +48535,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -48901,9 +48687,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -49049,9 +48835,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -49197,9 +48983,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A1",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -49365,9 +49151,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B1",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -49432,9 +49218,9 @@ const data_exp2 = {
             "id": "13108",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -49568,9 +49354,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue C",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -49724,9 +49510,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue C2",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -49884,9 +49670,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -50020,9 +49806,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -50166,9 +49952,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -50322,9 +50108,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -50458,9 +50244,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -50602,9 +50388,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -50746,7 +50532,7 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -50809,9 +50595,9 @@ const data_exp2 = {
             "id": "13109",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -50985,7 +50771,7 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -51157,9 +50943,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green A",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -51321,9 +51107,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red B1",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -51489,9 +51275,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -51625,9 +51411,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -51771,9 +51557,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B2",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -51915,9 +51701,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -52071,9 +51857,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -52207,9 +51993,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -52355,9 +52141,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A1",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -52523,9 +52309,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B1",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -52594,9 +52380,9 @@ const data_exp2 = {
             "id": "13111",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -52730,9 +52516,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green C1",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -52886,9 +52672,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -53042,9 +52828,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -53186,9 +52972,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -53328,9 +53114,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -53484,9 +53270,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B1",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -53624,9 +53410,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -53780,9 +53566,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -53916,9 +53702,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -54096,9 +53882,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 16,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -54280,9 +54066,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue B",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -54440,7 +54226,7 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green A1",
             "total_moves": 13,
             "goal_type": "move",
@@ -54612,9 +54398,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -54752,9 +54538,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -54898,9 +54684,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -55058,9 +54844,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -55198,9 +54984,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -55338,9 +55124,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 18,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -55530,7 +55316,7 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -55702,9 +55488,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -55757,9 +55543,9 @@ const data_exp2 = {
             "id": "13116",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -55893,7 +55679,7 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green B1",
             "total_moves": 13,
             "goal_type": "move",
@@ -56065,9 +55851,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red A",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -56245,9 +56031,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -56397,9 +56183,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -56547,9 +56333,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -56703,9 +56489,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -56847,9 +56633,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B2",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -57007,9 +56793,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -57171,9 +56957,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -57315,9 +57101,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -57459,9 +57245,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A1",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -57627,9 +57413,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -57803,9 +57589,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 23,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -58015,9 +57801,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -58183,9 +57969,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue B",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -58339,9 +58125,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue B2",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -58503,9 +58289,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green A1",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -58655,9 +58441,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green C",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -58811,9 +58597,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -58967,9 +58753,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -59145,9 +58931,9 @@ const data_exp2 = {
                 "white",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -59285,9 +59071,9 @@ const data_exp2 = {
                 "white",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C2",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -59421,9 +59207,9 @@ const data_exp2 = {
                 "white",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -59569,9 +59355,9 @@ const data_exp2 = {
                 "white",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -59713,7 +59499,7 @@ const data_exp2 = {
                 "white",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -59885,9 +59671,9 @@ const data_exp2 = {
                 "white",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -59944,9 +59730,9 @@ const data_exp2 = {
             "id": "13118",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -60080,9 +59866,9 @@ const data_exp2 = {
                 "white",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C1",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -60260,9 +60046,9 @@ const data_exp2 = {
                 "white",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C2",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -60424,9 +60210,9 @@ const data_exp2 = {
                 "white",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -60580,9 +60366,9 @@ const data_exp2 = {
                 "white",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -60742,9 +60528,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -60878,9 +60664,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -61042,9 +60828,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -61186,9 +60972,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -61326,9 +61112,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -61494,7 +61280,7 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -61557,9 +61343,9 @@ const data_exp2 = {
             "id": "13119",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -61693,9 +61479,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green B2",
-            "total_moves": 13,
+            "total_moves": 25,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -61913,9 +61699,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C1",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -62077,9 +61863,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -62217,9 +62003,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -62359,9 +62145,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -62507,9 +62293,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B1",
-            "total_moves": 13,
+            "total_moves": 3,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -62639,9 +62425,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -62779,9 +62565,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -62919,9 +62705,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -63087,9 +62873,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -63154,9 +62940,9 @@ const data_exp2 = {
             "id": "13120",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -63290,9 +63076,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue B",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -63454,9 +63240,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green C",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -63606,9 +63392,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -63746,9 +63532,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -63888,9 +63674,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A1",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -64032,9 +63818,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B2",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -64176,9 +63962,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -64320,9 +64106,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 3,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -64452,9 +64238,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A1",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -64620,9 +64406,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 18,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -64812,9 +64598,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue A2",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -64972,9 +64758,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red A",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -65116,9 +64902,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -65256,9 +65042,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -65394,9 +65180,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -65534,9 +65320,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -65686,9 +65472,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C1",
-            "total_moves": 13,
+            "total_moves": 33,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -65938,9 +65724,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C2",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -66086,9 +65872,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -66246,9 +66032,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -66390,9 +66176,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -66534,9 +66320,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A1",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -66714,9 +66500,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B1",
-            "total_moves": 13,
+            "total_moves": 27,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -66833,9 +66619,9 @@ const data_exp2 = {
             "id": "13122",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -66985,9 +66771,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -67149,9 +66935,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue A2",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -67305,9 +67091,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue B",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -67481,9 +67267,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue C",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -67637,9 +67423,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red B1",
-            "total_moves": 13,
+            "total_moves": 18,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -67829,9 +67615,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -67965,9 +67751,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -68105,9 +67891,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -68263,9 +68049,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -68419,9 +68205,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -68555,9 +68341,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -68695,9 +68481,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -68843,9 +68629,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -69011,9 +68797,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 18,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -69203,9 +68989,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue B",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -69343,9 +69129,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red B2",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -69507,9 +69293,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -69643,9 +69429,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 3,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -69777,9 +69563,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -69925,9 +69711,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B2",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -70073,9 +69859,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -70213,9 +69999,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -70349,9 +70135,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -70416,9 +70202,9 @@ const data_exp2 = {
             "id": "13126",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -70552,9 +70338,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -70716,9 +70502,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green A",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -70876,9 +70662,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -71040,9 +70826,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -71216,9 +71002,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -71354,9 +71140,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -71494,9 +71280,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C1",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -71638,9 +71424,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -71778,9 +71564,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -71918,9 +71704,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A1",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -71969,9 +71755,9 @@ const data_exp2 = {
             "id": "13129",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -72105,9 +71891,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -72281,9 +72067,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue B2",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -72461,9 +72247,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red A2",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -72617,9 +72403,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -72785,9 +72571,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -72935,9 +72721,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -73079,9 +72865,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -73223,9 +73009,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -73359,9 +73145,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -73503,9 +73289,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A1",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -73671,9 +73457,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B1",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -73730,9 +73516,9 @@ const data_exp2 = {
             "id": "13130",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -73906,7 +73692,7 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green C",
             "total_moves": 13,
             "goal_type": "move",
@@ -74078,9 +73864,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -74254,9 +74040,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -74402,9 +74188,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -74544,9 +74330,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -74684,7 +74470,7 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
             "total_moves": 13,
             "goal_type": "clear",
@@ -74856,9 +74642,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -75008,9 +74794,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -75164,7 +74950,7 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -75227,9 +75013,9 @@ const data_exp2 = {
             "id": "13131",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -75363,7 +75149,7 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -75535,9 +75321,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green A1",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -75691,9 +75477,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red A",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -75839,9 +75625,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -75995,9 +75781,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -76133,9 +75919,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -76273,9 +76059,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B1",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -76417,9 +76203,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -76565,9 +76351,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -76709,7 +76495,7 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -76772,9 +76558,9 @@ const data_exp2 = {
             "id": "13132",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -76948,9 +76734,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -77124,7 +76910,7 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green C1",
             "total_moves": 13,
             "goal_type": "move",
@@ -77296,9 +77082,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -77464,9 +77250,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -77604,9 +77390,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -77750,9 +77536,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -77906,9 +77692,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -78042,9 +77828,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -78182,9 +77968,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -78330,9 +78116,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -78498,9 +78284,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 20,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -78698,9 +78484,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue B",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -78838,9 +78624,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red B2",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -79002,9 +78788,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -79138,9 +78924,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 3,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -79163,9 +78949,9 @@ const data_exp2 = {
             "id": "13135",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -79301,9 +79087,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -79437,9 +79223,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -79573,9 +79359,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -79709,9 +79495,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -79857,9 +79643,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -80033,9 +79819,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 17,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -80221,9 +80007,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue C",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -80373,9 +80159,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red A",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -80533,9 +80319,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -80689,9 +80475,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -80827,9 +80613,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -80963,9 +80749,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -81131,9 +80917,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C1",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -81279,9 +81065,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C2",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -81415,9 +81201,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -81583,9 +81369,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -81747,9 +81533,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -81923,9 +81709,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B1",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -82087,9 +81873,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -82158,9 +81944,9 @@ const data_exp2 = {
             "id": "13138",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -82310,7 +82096,7 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -82482,9 +82268,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green C",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -82642,9 +82428,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green C2",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -82802,9 +82588,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red A1",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -82970,9 +82756,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C2",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -83118,7 +82904,7 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
             "total_moves": 13,
             "goal_type": "uncover",
@@ -83290,9 +83076,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -83452,9 +83238,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A1",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -83592,9 +83378,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -83760,9 +83546,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -83908,9 +83694,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -84048,9 +83834,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -84224,9 +84010,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 17,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -84412,7 +84198,7 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue B2",
             "total_moves": 13,
             "goal_type": "move",
@@ -84584,9 +84370,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red B",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -84748,9 +84534,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -84888,9 +84674,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -85026,9 +84812,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -85166,9 +84952,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C1",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -85314,9 +85100,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -85454,9 +85240,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -85594,9 +85380,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A1",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -85645,9 +85431,9 @@ const data_exp2 = {
             "id": "13141",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -85785,9 +85571,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -85961,9 +85747,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue B2",
-            "total_moves": 13,
+            "total_moves": 17,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -86149,9 +85935,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red A2",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -86305,9 +86091,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -86453,9 +86239,9 @@ const data_exp2 = {
                 "red",
                 "white"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -86603,9 +86389,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -86751,7 +86537,7 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
             "total_moves": 13,
             "goal_type": "clear",
@@ -86923,7 +86709,7 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
             "total_moves": 13,
             "goal_type": "cover",
@@ -87095,9 +86881,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -87247,9 +87033,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A1",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -87427,9 +87213,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B1",
-            "total_moves": 13,
+            "total_moves": 17,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -87506,9 +87292,9 @@ const data_exp2 = {
             "id": "13145",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -87642,9 +87428,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue C1",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -87794,9 +87580,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -87958,9 +87744,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -88106,9 +87892,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 28,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -88340,9 +88126,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A",
-            "total_moves": 13,
+            "total_moves": 17,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -88528,9 +88314,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B1",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -88668,9 +88454,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -88804,9 +88590,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -88948,7 +88734,7 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B1",
             "total_moves": 13,
             "goal_type": "fill",
@@ -89120,9 +88906,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 23,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -89332,9 +89118,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green A1",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -89492,7 +89278,7 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green B1",
             "total_moves": 13,
             "goal_type": "move",
@@ -89664,9 +89450,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -89808,9 +89594,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -89958,9 +89744,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -90110,9 +89896,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -90290,9 +90076,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -90438,9 +90224,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -90582,9 +90368,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B1",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -90746,9 +90532,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -90797,9 +90583,9 @@ const data_exp2 = {
             "id": "13149",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 17,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -90985,9 +90771,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green A",
-            "total_moves": 13,
+            "total_moves": 17,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -91173,9 +90959,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C2",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -91329,9 +91115,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -91485,9 +91271,9 @@ const data_exp2 = {
                 "red",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -91631,9 +91417,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B1",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -91783,9 +91569,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -91935,9 +91721,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -92103,9 +91889,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -92271,9 +92057,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A1",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -92330,9 +92116,9 @@ const data_exp2 = {
             "id": "13152",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -92466,9 +92252,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
-            "total_moves": 13,
+            "total_moves": 16,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -92650,9 +92436,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue B",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -92806,9 +92592,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue C",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -92970,9 +92756,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -93114,9 +92900,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -93264,9 +93050,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B1",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -93412,9 +93198,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -93556,9 +93342,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -93692,9 +93478,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -93840,7 +93626,7 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B1",
             "total_moves": 13,
             "goal_type": "fill",
@@ -94012,9 +93798,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 18,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -94204,9 +93990,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue C1",
-            "total_moves": 13,
+            "total_moves": 15,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -94384,9 +94170,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green A1",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -94544,9 +94330,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -94700,9 +94486,9 @@ const data_exp2 = {
                 "white",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -94850,9 +94636,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -95018,9 +94804,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C2",
-            "total_moves": 13,
+            "total_moves": 3,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -95150,9 +94936,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -95290,9 +95076,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 3,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -95422,9 +95208,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A1",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -95586,9 +95372,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 17,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -95774,9 +95560,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green A1",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -95930,9 +95716,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C2",
-            "total_moves": 13,
+            "total_moves": 20,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -96130,9 +95916,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -96270,9 +96056,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -96432,9 +96218,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A1",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -96576,9 +96362,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -96716,9 +96502,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B2",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -96860,9 +96646,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C1",
-            "total_moves": 13,
+            "total_moves": 3,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -96992,9 +96778,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -97136,9 +96922,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -97300,9 +97086,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 3,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -97432,9 +97218,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A1",
-            "total_moves": 13,
+            "total_moves": 29,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -97668,9 +97454,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B1",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -97836,9 +97622,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 30,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -98076,9 +97862,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue A2",
-            "total_moves": 13,
+            "total_moves": 19,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -98272,9 +98058,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red A",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -98416,9 +98202,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red B1",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -98572,9 +98358,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -98728,9 +98514,9 @@ const data_exp2 = {
                 "red",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -98864,9 +98650,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -99002,9 +98788,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -99146,9 +98932,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -99298,9 +99084,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C",
-            "total_moves": 13,
+            "total_moves": 17,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -99486,9 +99272,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -99646,9 +99432,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -99822,9 +99608,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A1",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -99990,9 +99776,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B1",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -100158,7 +99944,7 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -100221,9 +100007,9 @@ const data_exp2 = {
             "id": "626826",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 36,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -100485,9 +100271,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -100653,9 +100439,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue C2",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -100809,7 +100595,7 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green C",
             "total_moves": 13,
             "goal_type": "move",
@@ -100981,9 +100767,9 @@ const data_exp2 = {
                 "green",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C1",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -101137,9 +100923,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -101313,9 +101099,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 17,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -101501,9 +101287,9 @@ const data_exp2 = {
                 "blue",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -101671,9 +101457,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -101819,9 +101605,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor C2",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -101963,9 +101749,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -102103,9 +101889,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -102247,7 +102033,7 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A1",
             "total_moves": 13,
             "goal_type": "fill",
@@ -102310,9 +102096,9 @@ const data_exp2 = {
             "id": "632368",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -102446,9 +102232,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -102614,9 +102400,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green A1",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -102778,9 +102564,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green B2",
-            "total_moves": 13,
+            "total_moves": 31,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -103022,9 +102808,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -103170,9 +102956,9 @@ const data_exp2 = {
                 "blue",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -103312,9 +103098,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor A2",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -103452,9 +103238,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 9,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -103608,9 +103394,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover blue all",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -103768,9 +103554,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -103944,7 +103730,7 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
             "total_moves": 13,
             "goal_type": "fill",
@@ -104007,9 +103793,9 @@ const data_exp2 = {
             "id": "635364",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -104143,9 +103929,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -104319,9 +104105,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green B2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -104495,9 +104281,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move red C",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -104647,9 +104433,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -104791,9 +104577,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 23,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -105005,9 +104791,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -105153,9 +104939,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B1",
-            "total_moves": 13,
+            "total_moves": 3,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -105285,9 +105071,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -105425,9 +105211,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -105561,9 +105347,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -105729,9 +105515,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -105796,9 +105582,9 @@ const data_exp2 = {
             "id": "787069",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -105932,9 +105718,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue B",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -106096,9 +105882,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green C",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -106248,9 +106034,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -106388,9 +106174,9 @@ const data_exp2 = {
                 "green",
                 "green"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -106530,9 +106316,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -106690,9 +106476,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B2",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -106834,9 +106620,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -106986,9 +106772,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -107134,9 +106920,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A2",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -107310,9 +107096,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B1",
-            "total_moves": 13,
+            "total_moves": 14,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -107377,9 +107163,9 @@ const data_exp2 = {
             "id": "891160",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -107537,9 +107323,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue B2",
-            "total_moves": 13,
+            "total_moves": 8,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -107689,9 +107475,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green A2",
-            "total_moves": 13,
+            "total_moves": 12,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -107857,9 +107643,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover blue all",
-            "total_moves": 13,
+            "total_moves": 6,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -108001,9 +107787,9 @@ const data_exp2 = {
                 "green",
                 "red"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 4,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -108139,9 +107925,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -108299,9 +108085,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "clear nocolor B2",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "clear",
             "move_ids": [
                 [
@@ -108439,9 +108225,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover green all",
-            "total_moves": 13,
+            "total_moves": 7,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -108587,9 +108373,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "cover red all",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "cover",
             "move_ids": [
                 [
@@ -108727,9 +108513,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor A1",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -108891,7 +108677,7 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor B1",
             "total_moves": 13,
             "goal_type": "fill",
@@ -108954,9 +108740,9 @@ const data_exp2 = {
             "id": "905560",
             "importId": 0,
             "config": null,
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "fill nocolor C1",
-            "total_moves": 13,
+            "total_moves": 5,
             "goal_type": "fill",
             "move_ids": [
                 [
@@ -109094,9 +108880,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move blue B",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -109254,9 +109040,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "move green B",
-            "total_moves": 13,
+            "total_moves": 11,
             "goal_type": "move",
             "move_ids": [
                 [
@@ -109418,9 +109204,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover green all",
-            "total_moves": 13,
+            "total_moves": 3,
             "goal_type": "uncover",
             "move_ids": [
                 [
@@ -109550,9 +109336,9 @@ const data_exp2 = {
                 "red",
                 "blue"
             ],
-            "goal_optimal": 13,
+            "goal_optimal": 100,
             "goal": "uncover red all",
-            "total_moves": 13,
+            "total_moves": 10,
             "goal_type": "uncover",
             "move_ids": [
                 [

@@ -60,8 +60,7 @@ app.use('/admin.html', basicAuth({
 // use session middleware for Express app
 app.use(sessionMiddleware);
 
-// William changed for 'dist' to work on local development environment
-app.use(express.static('src'));
+app.use(express.static('dist'));
 
 io.use((socket, next) => {
     sessionMiddleware(socket.request, socket.request.res || {}, next);

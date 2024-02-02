@@ -81,7 +81,7 @@ var options = {
             // '97778',
             // '24954',
             // '85713',
-            '12926',  // begining of exp 2 options
+            // '12926',  // begining of exp 2 options
             '13056',
             '13058',
             '13063',

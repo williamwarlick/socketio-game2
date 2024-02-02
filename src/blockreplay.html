@@ -8,7 +8,7 @@
     <!-- Add Bootstrap CSS link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Link to your external style.css -->
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <meta name="google-site-verification" content="I1Q8OC5B5mrI_XeuRr8v5YnEnn0zxG3gUNIdZlt-S28" />
 </head>
 
@@ -63,42 +63,19 @@
         </div>
     </div>
 
-
     <div class="container">
         <!-- content row -->
         <div class="row mt-5">
             <div class="d-flex justify-content-center">
-
-                <!-- middle col: game panel -->
                 <div class="col-7" style="min-width: 738;">
-                    <div class="card p-3 bg-light initCard mt-1" id="inithelp">
-                        <h4 class="display-5">Getting Started</h4>
-                        <h4>Select a <span class="font-weight-bold">Player ID</span> and <span
-                                class="font-weight-bold">Goal Type</span> below. Or, click <span
-                                class="font-weight-bold">Random Game</span>
-                            to see a randomly chosen game.</h4>
-                    </div>
                     <div class="row">
-                        <div class="container">
+                        <div class="container ">
+                            <h3 id="question" class="d-none text-center">Watch the blocks and consider what the Goal is?</h3>
+                            <div id="game-complete" class="input-group my-4 px-5">
+                                <input type="text" class="form-control" placeholder="Explain the goal">
+                                <button class="btn btn-primary" type="button">Submit</button>
+                            </div>
                             <div class="d-flex justify-content-center">
-                                <div style="display: none;" class="card mb-1 border-0" id="topCard" style="">
-                                    <div id="current-goal-box">here</div>
-                                    <div id="current-player-box" style="display: inline-grid;"></div>
-                                    <div id="is-finished-box"></div>
-                                </div>
-                                <div class="dropdown m-4">
-                                    <button class=" btn btn-primary btn-large" id="game_id_button">Select Player ID
-                                        ⏷</button>
-                                    <div class="dropdown-content" id="game_id_dropdown">
-                                    </div>
-                                </div>
-
-                                <div class="dropdown disabled m-4" id="game_goal_dropdown-holder">
-                                    <button class="btn btn-primary disabled" id="goal_type_button">Select Goal Type
-                                        ⏷</button>
-                                    <div class="dropdown-content " id="game_goal_dropdown">
-                                    </div>
-                                </div>
                                 <button id="random-game-button" type="button" style="height: fit-content;"
                                     class="btn btn-success btn-large m-4">Random Game</button>
                             </div>
@@ -151,67 +128,28 @@
 
                     <!-- Game step controls -->
                     <div class="row justify-content-center" id="controlrow" style="display: none;">
-                        <div class="container mt-5">
+                        <div class="container mt-5 justify-content-center">
                             <div class="d-flex justify-content-center">
                                 <div class="btn-toolbar" role="toolbar">
-                                    <div class="btn-group mr-2" role="group" aria-label="Button Group"
-                                        id="ingamecontrols">
-                                        <button id="reset_button" type="button" class="btn btn-outline-danger">⇤
-                                            Reset
-                                            Moves</button>
-                                        <button id="undo_move_button" type="button" class="btn btn-outline-primary">◀
-                                            Undo Move</button>
-                                        <button id="next_move_button" type="button"
-                                            class="btn btn-outline-primary mr-2">Next Move ▶</button>
+                                    
+                                        
                                         <button id="play-all-button" type="button" class="btn btn-outline-success">Play
                                             All Moves⇥</button>
-                                    </div>
-                                    <div class="btn-group mr-2" role="group" aria-label="Second group">
-
-                                    </div>
+                                    
                                 </div>
+                               
                             </div>
+                            
 
                         </div>
+                        <button type="button" class="mt-2 btn btn-primary  btn-large" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" style="width: 170px;">
+                            Show Instructions
+                        </button>
                     </div>
                 </div>
 
-                <!-- right col- game info panel
-                add importat id
-                -->
-
-                <div class="col mt-1">
-                    <div class="d-flex justify-content-center">
-                        <div class="card p-4 infoCard bg-light" id="infopanel">
-                            <div id="current-game-box"></div>
-                            <hr class="my-4">
-                            <div id="current-move-box"></div>
-                            <hr class="my-4">
-                            <a id="change-game-button" href="#" style="width: 12rem;" class="btn btn-primary">Change
-                                Game</a>
-                            <!-- game selection controls -->
-                            <div class="dropdown mt-2">
-                                <button class="btn btn-primary dropdown-toggle" id="mode_selection_button" type="button"
-                                    data-bs-toggle="dropdown" style="width: 12rem;" aria-expanded="false">
-                                    Select Mode
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="mode_selection_button">
-                                    <li><a class="dropdown-item" href="#" id="visualize_mode">Visualize Mode</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="#" id="experiment_mode">Experiment Mode</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="mt-2 btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                Show Instructions
-                            </button>
-
-                        </div>
-                    </div>
-
-                </div>
+                
 
             </div>
         </div>
@@ -235,9 +173,9 @@
 
     <!-- <script src="game.js" defer></script> -->
     <!-- Load in the data and js file, options should be condensed into e2 data -->
-    <script src="js/e2_data.js" defer></script>
+    <!-- <script src="js/e2_data.js" defer></script>
     <script src="js/options.js" defer></script>
-    <script src="js/blockreplay.js" defer></script>
+    <script src="js/blockreplay.js" defer></script> -->
     <!-- Add Bootstrap JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>

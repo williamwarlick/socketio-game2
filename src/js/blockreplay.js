@@ -1,27 +1,29 @@
+import '../style.css';
+
+var options = {
+    "game_ids":
+        [
+            '13056',
+        ],
+    "goal_types": ["fill", "move", "cover", "uncover", "clear"]
+}
+
+const data_exp2 ={13056:[{id:"13056",importId:96815,config:["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","green","red","white","white","white","white","white","white","white","white","white","red","white","white","white","white","white","red","blue","red","white","white","blue","white","blue","red","white","white","green","green","green","blue","white","white","blue","red","blue","blue","blue","green","green","green","red","green","red","white","green","blue","red","blue","green","red"],goal_optimal:100,goal:"clear nocolor A2",total_moves:5,goal_type:"clear",move_ids:[[57,55],[75,72],[93,54],[94,38],[95,37]]},{id:"13056",importId:96815,config:["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","green","red","white","white","white","white","white","white","white","white","white","red","white","white","white","white","white","red","blue","red","white","white","blue","white","blue","red","white","white","green","green","green","blue","white","white","blue","red","blue","blue","blue","green","green","green","red","green","red","white","green","blue","red","blue","green","red"],goal_optimal:100,goal:"clear nocolor B",total_moves:8,goal_type:"clear",move_ids:[[78,76],[96,77],[97,59],[80,58],[98,41],[81,40],[100,39],[99,23]]},{id:"13056",importId:96815,config:["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","green","red","white","white","white","white","white","white","white","white","white","red","white","white","white","white","white","red","blue","red","white","white","blue","white","blue","red","white","white","green","green","green","blue","white","white","blue","red","blue","blue","blue","green","green","green","red","green","red","white","green","blue","red","blue","green","red"],goal_optimal:100,goal:"cover blue all",total_moves:5,goal_type:"cover",move_ids:[[57,72],[95,76],[97,60],[81,62],[67,69]]},{id:"13056",importId:96815,config:["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","green","red","white","white","white","white","white","white","white","white","white","red","white","white","white","white","white","red","blue","red","white","white","blue","white","blue","red","white","white","green","green","green","blue","white","white","blue","red","blue","blue","blue","green","green","green","red","green","red","white","green","blue","red","blue","green","red"],goal_optimal:100,goal:"cover red all",total_moves:6,goal_type:"cover",move_ids:[[56,55],[74,39],[78,63],[84,82],[102,49],[106,89]]},{id:"13056",importId:96815,config:["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","green","red","white","white","white","white","white","white","white","white","white","red","white","white","white","white","white","red","blue","red","white","white","blue","white","blue","red","white","white","green","green","green","blue","white","white","blue","red","blue","blue","blue","green","green","green","red","green","red","white","green","blue","red","blue","green","red"],goal_optimal:100,goal:"fill nocolor A2",total_moves:15,goal_type:"fill",move_ids:[[57,72],[56,76],[74,77],[73,57],[78,59],[72,58],[80,41],[96,40],[97,39],[98,23],[92,22],[91,21],[90,3],[81,4],[99,5]]},{id:"13056",importId:0,config:null,goal_optimal:100,goal:"fill nocolor C1",total_moves:4,goal_type:"fill",move_ids:[[81,32],[83,14],[88,13],[87,12]]},{id:"13056",importId:96815,config:["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","green","red","white","white","white","white","white","white","white","white","white","red","white","white","white","white","white","red","blue","red","white","white","blue","white","blue","red","white","white","green","green","green","blue","white","white","blue","red","blue","blue","blue","green","green","green","red","green","red","white","green","blue","red","blue","green","red"],goal_optimal:100,goal:"fill nocolor C2",total_moves:14,goal_type:"fill",move_ids:[[67,88],[86,89],[85,69],[84,70],[104,71],[103,53],[102,52],[100,51],[81,33],[99,34],[80,35],[98,17],[97,16],[78,15]]},{id:"13056",importId:96815,config:["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","green","red","white","white","white","white","white","white","white","white","white","red","white","white","white","white","white","red","blue","red","white","white","blue","white","blue","red","white","white","green","green","green","blue","white","white","blue","red","blue","blue","blue","green","green","green","red","green","red","white","green","blue","red","blue","green","red"],goal_optimal:100,goal:"move green B2",total_moves:13,goal_type:"move",move_ids:[[81,76],[100,58],[56,100],[97,101],[78,62],[96,83],[95,82],[84,81],[67,89],[106,65],[85,63],[86,64],[102,47]]},{id:"13056",importId:96815,config:["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","green","red","white","white","white","white","white","white","white","white","white","red","white","white","white","white","white","red","blue","red","white","white","blue","white","blue","red","white","white","green","green","green","blue","white","white","blue","red","blue","blue","blue","green","green","green","red","green","red","white","green","blue","red","blue","green","red"],goal_optimal:100,goal:"move red C",total_moves:8,goal_type:"move",move_ids:[[57,68],[75,66],[73,49],[91,50],[100,48],[81,69],[80,79],[98,88]]},{id:"13056",importId:96815,config:["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","green","red","white","white","white","white","white","white","white","white","white","red","white","white","white","white","white","red","blue","red","white","white","blue","white","blue","red","white","white","green","green","green","blue","white","white","blue","red","blue","blue","blue","green","green","green","red","green","red","white","green","blue","red","blue","green","red"],goal_optimal:100,goal:"uncover green all",total_moves:4,goal_type:"uncover",move_ids:[[78,76],[81,82],[67,89],[84,69]]},{id:"13056",importId:96815,config:["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","green","red","white","white","white","white","white","white","white","white","white","red","white","white","white","white","white","red","blue","red","white","white","blue","white","blue","red","white","white","green","green","green","blue","white","white","blue","red","blue","blue","blue","green","green","green","red","green","red","white","green","blue","red","blue","green","red"],goal_optimal:100,goal:"uncover red all",total_moves:4,goal_type:"uncover",move_ids:[[80,79],[86,66],[73,72],[57,76]]}]};
+
+
+
 const tableBody = document.getElementById("table-body");
 var currentGame;
 var currentMove;
-var mode = 'visualize'; // default mode
-var nMoves = 0; // number of moves for experiment mode
+var nMoves = 5; // number of moves for experiment mode
 var idSelectInactive;
 var typeSelectInactive;
-var wasPass;
 var topZ;
 const animation_time = 0.5;
 var isDone;
 var isPlaythrough;
 
-function setMode(selectedMode) {
-    mode = selectedMode;
-    if(mode === 'experiment') {
-        nMoves = 4;
-        // nMoves = Math.floor(Math.random() * currentGame['total_moves']); // random number of moves
-    }
-    console.log("Mode is: " + mode)
-    ModeSelection = document.getElementById("mode_selection_button");
-    ModeSelection.textContent = "Mode: " + mode;
-    getGame(); // reload the game
-}
+
 
 function table_setup(){
     // Generate table rows and cells
@@ -39,114 +41,72 @@ function table_setup(){
     }
 }
 
-function recordGameId(gameId_str){
-    const parts = gameId_str.split("_"); // Split the string by underscores
-    const gameId = parts[parts.length - 1]; // Get the last part of the split string
+// function recordGameId(gameId_str){
+//     const parts = gameId_str.split("_"); // Split the string by underscores
+//     const gameId = parts[parts.length - 1]; // Get the last part of the split string
 
-    gameIdButton = document.getElementById("game_id_button");
-    gameIdButton.textContent = gameId;
-    console.log("recording : " + gameId)
-    getGame()
-}
+//     console.log("recording : " + gameId)
+//     getGame()
+// }
 
-function recordGoalType(goal_type_str){
-    const parts = goal_type_str.split("_"); // Split the string by underscores
-    const goalType = parts[parts.length - 1]; // Get the last part of the split string
+// function recordGoalType(goal_type_str){
+//     const parts = goal_type_str.split("_"); // Split the string by underscores
+//     const goalType = parts[parts.length - 1]; // Get the last part of the split string
 
-    goalTypeButton = document.getElementById("goal_type_button");
-    goalTypeButton.textContent = goalType;
-    console.log("recording type: " + goalType)
-    getGame()
-}
+//     console.log("recording type: " + goalType)
+//     getGame()
+// }
 
 function gameRandom(){
-    var id_arr = options["game_ids"]
-    const randomIndex = Math.floor(Math.random() * id_arr.length);
-    var random_game = id_arr[randomIndex]
-    var goal_arr = options['goal_types']
-    const randomTypeIndex = Math.floor(Math.random() * goal_arr.length);
-    var random_goal = goal_arr[randomTypeIndex]
+    // var id_arr = options["game_ids"]
+    // const randomIndex = Math.floor(Math.random() * id_arr.length);
+    // var random_game = id_arr[randomIndex]
+    // var goal_arr = options['goal_types']
+    // const randomTypeIndex = Math.floor(Math.random() * goal_arr.length);
+    // var random_goal = goal_arr[randomTypeIndex]
+    // var h4Element = document.createElement("h4");
+    // var box = document.getElementById("current-goal-box");
 
-    goalTypeButton = document.getElementById("goal_type_button");
-    goalTypeButton.textContent = random_goal;
+    var button = document.getElementById("random-game-button");
+    button.style.display = 'none';
+    // In experiment mode 
+    var question = document.getElementById("question");
+    question.classList.remove("d-none");
 
-    gameIdButton = document.getElementById("game_id_button");
-    gameIdButton.textContent = random_game;
+    
+    getGame('13056', 'clear')
 
-    recordGameId(random_game)
-    recordGoalType(random_goal)
+    // recordGameId(random_game)
+    // recordGoalType(random_goal)
 }
 
 
-function getGame(){
-    //enable button
-    var b = document.getElementById("goal_type_button");
-    b.classList.remove("disabled");
-    //enable button
-    b = document.getElementById("game_goal_dropdown-holder");
-    b.classList.remove("disabled");
-
-    //load the json for a game after load is pressed
-    const id_button = document.getElementById("game_id_button");
-    const type_button = document.getElementById("goal_type_button");
-    var id = id_button.textContent;
-    var type = type_button.textContent;
+function getGame(gameId, g_type){
+    
     // Data is from expX_data_js. Dict with keys as user ids and values as list of games
     // Each game is a dict with keys: config, goal, goal_type, id, move_ids, total_moves
     // cant figure out why but file seems to exp1  data has to be named data_js.js ? 
     // id games relies on options.js 
-    id_games = data_exp2[id]
+    var id_games = data_exp2[gameId]
     console.log("data[id] is:", id_games)
     
     for (const g of id_games) {
-        if (g.goal_type === type) {
+        if (g.goal_type === g_type) {
             currentGame = g;
             break; // Exit the loop once a match is found
         }
     }
     //set currentmove to 0
     currentMove = 0;
-
     //call loadgame
     loadgame()
-    //updateInfoPanel();
-
-    var help = document.getElementById("inithelp");
-    help.style.display = 'none';
-
-    //show info panel
-    updateInfoPanel()
-    panel = document.getElementById("infopanel");
-    panel.style.display = 'block';
-
-
-    //disable buttons on move
-    var button = document.getElementById("game_id_button");
-    button.style.display = 'none';
-    button = document.getElementById("goal_type_button");
-    button.style.display = 'none';
-    button = document.getElementById("random-game-button");
-    button.style.display = 'none';
-
-    //show topcard
-    updateInfoPanel()
-    panel = document.getElementById("topCard");
-    panel.style.display = 'flex';
     isDone = false;
-
-    // var controls = document.getElementById("ingamecontrols");
-    // controls.style.display = 'block';
-
-    // var t = document.getElementById("gametable");
-    // t.style.display = 'block';
-
 }
 
 function loadgame(){
-    document.getElementById('next_move_button').classList.remove('disabled')
     //load colors into table
     var cellId = 0;
-    colors = currentGame.config
+    let colors = currentGame.config
     for (var i = 0; i < colors.length; i++) {
         var color = colors[cellId];
         var block = document.getElementById(cellId);
@@ -175,72 +135,46 @@ function cleargame(){
 function nextMove(){
     console.log("Nmoves: " + nMoves)
     console.log("Current Move: " + currentMove)
-    if (isPlaythrough){
-        document.getElementById('next_move_button').classList.add('disabled');
-        document.getElementById('undo_move_button').classList.add('disabled');
-        document.getElementById('reset_button').classList.add('disabled');
-    }
+    
     if (currentMove + 1 <= currentGame['total_moves']){
-        move = currentMove;
-        orig_id = currentGame['move_ids'][move][0];
+        let move = currentMove;
+        let orig_id = currentGame['move_ids'][move][0];
         if (orig_id != '999'){
-            wasPass = false;
-            orig_element = document.getElementById(orig_id);
-            bg_color = orig_element.style.backgroundColor;
+           
+            let orig_element = document.getElementById(orig_id);
+            let bg_color = orig_element.style.backgroundColor;
             var orig_color = bg_color.replace("background-color:", "").trim();
 
-            new_id = currentGame['move_ids'][move][1];
-            new_element = document.getElementById(new_id);
+            let new_id = currentGame['move_ids'][move][1];
+            let new_element = document.getElementById(new_id);
             console.log("new_id", new_id)
 
-            animate_move(orig_id, new_id);
+            animate_move(orig_id, new_id, bg_color);
             // orig_element.style.backgroundColor = "white";
             // new_element.style.backgroundColor = orig_color;
-        } else {
-            wasPass = true;
         }
-
-        // //enable game change button
-        // var b = document.getElementById('change-game-button');
-        // b.style.display = '';
-
-        button = document.getElementById("infopanel");
-        button.style.display = 'none';
-
         currentMove++;
-        updateInfoPanel();
+        
         if (currentMove >= currentGame['total_moves']){
-            //in case game is over
-            //add game completed badge
-            var box = document.getElementById("current-player-box");
-            box.innerHTML = box.innerHTML + ' <span class="badge bg-success">Game Completed</span>';
-            //grey out next_move button
-            document.getElementById('next_move_button').classList.add('disabled');
+            // GAME IS OVER 
             isDone = true;
-            //re-enable buttons
-            document.getElementById('undo_move_button').classList.remove('disabled');
-            document.getElementById('reset_button').classList.remove('disabled');
-            isPlaythrough = false;
-            document.getElementById("play-all-button").textContent = "Play All Moves⇥";
+            let box = document.getElementById("game-complete");
+            box.classList.remove("invisible");
+
+            
+            box.classList.add('show');
+            box.style.visibility = 'visible';
+
+
+
+            document.getElementById("play-all-button").textContent = "Show again";
+            
         }
-    } else {
-        //in case game is over
-        //add game completed badge
-        var box = document.getElementById("current-player-box");
-        box.innerHTML = box.innerHTML + ' <span class="badge bg-success">Game Completed</span>';
-        //grey out next_move button
-        document.getElementById('next_move_button').classList.add('disabled');
-        isDone = true;
-        //re-enable buttons
-        document.getElementById('undo_move_button').classList.remove('disabled');
-        document.getElementById('reset_button').classList.remove('disabled');
-        isPlaythrough = false;
-        document.getElementById("play-all-button").textContent = "Play All Moves⇥";
-    }
-    document.getElementById('next_move_button').addEventListener('click', nextMove);
+    } 
 }
 
-function animate_move(id1, id2){
+function animate_move(id1, id2, bg_color){
+
     var orig_color = bg_color.replace("background-color:", "").trim();
 
     //init locations
@@ -252,7 +186,7 @@ function animate_move(id1, id2){
     var xfinal = document.getElementById(id2).offsetLeft;
 
     //create a square of orig_color in location of id1
-    square = createSquare(xinit, yinit, orig_color);
+    let square = createSquare(xinit, yinit, orig_color);
 
     //turn id1 white
     document.getElementById(id1).style.backgroundColor = "white";
@@ -288,104 +222,43 @@ function createSquare(x, y, color) {
     return square;
   }
 
-function updateInfoPanel(){
-    if (currentMove > 0){
-        // Current player
-        if (currentMove % 2 == 1){
-            content ='Last move by: <span class="badge bg-success">Architect</span>';
-        } else {
-            content = 'Last move by:  <span class="badge bg-danger">Helper</span>';
-        }
-        if (wasPass){
-            content = content + ' <span class="badge bg-info">PASS</span>'
-        }
-        var h4Element = document.createElement("h4");
-        h4Element.innerHTML = content;
-        var box = document.getElementById("current-player-box");
-        // Append to the div and empty previous 
-        box.innerHTML = "";
-        box.appendChild(h4Element);
+// function updateInfoPanel(){
+//     if (currentMove > 0){
+//         // Current player
+//         if (currentMove % 2 == 1){
+//             content ='Last move by: <span class="badge bg-success">Architect</span>';
+//         } else {
+//             content = 'Last move by:  <span class="badge bg-danger">Helper</span>';
+//         }
+//         if (wasPass){
+//             content = content + ' <span class="badge bg-info">PASS</span>'
+//         }
+//         var h4Element = document.createElement("h4");
+//         h4Element.innerHTML = content;
+//         var box = document.getElementById("current-player-box");
+//         // Append to the div and empty previous 
+//         box.innerHTML = "";
+//         box.appendChild(h4Element);
 
 
-        //Current move
-        var h4Element = document.createElement("h4");
-        h4Element.textContent = 'Move # ' + currentMove;
+//         //Current move
+//         var h4Element = document.createElement("h4");
+//         h4Element.textContent = 'Move # ' + currentMove;
         
-        var box = document.getElementById("current-move-box");
-        // Append to the div and empty previous 
-        box.innerHTML = "";
-        box.appendChild(h4Element);
-    } else {
-        document.getElementById("current-move-box").innerHTML = '';
-        document.getElementById("current-player-box").innerHTML = '';
-    }
+//         var box = document.getElementById("current-move-box");
+//         // Append to the div and empty previous 
+//         box.innerHTML = "";
+//         box.appendChild(h4Element);
+//     } else {
+//         document.getElementById("current-move-box").innerHTML = '';
+//         document.getElementById("current-player-box").innerHTML = '';
+//     }
 
-    // Current goal
-    var h4Element = document.createElement("h4");
-    var box = document.getElementById("current-goal-box");
+    
 
-    if (mode === 'visualize'){
-        h4Element.textContent = "Current goal: " + niceNames(currentGame['goal']);
-        box.innerHTML = ""; // Clear existing content
-        box.appendChild(h4Element);
-    } else {
-        // In experiment mode 
-        h4Element.textContent = "Watch the blocks and consider what the Goal is?";
+// }
 
-        if (currentMove >= nMoves) {
-            var b = document.getElementById('next_move_button');
-            b.disabled = true;
-            console.log("Disabled!");
-
-          
-
-        // Create the input group container
-        var inputGroup = document.createElement("div");
-        inputGroup.className = "input-group mb-3"; // Bootstrap class for input groups
-
-        // Create and append the input element
-        var inputBox = document.createElement("input");
-        inputBox.type = "text";
-        inputBox.id = "goalInput";
-        inputBox.placeholder = "Explain the goal";
-        inputBox.className = "form-control"; // Bootstrap class for form control
-        inputGroup.appendChild(inputBox);
-
-        // Create and append the submit button
-        var submitButton = document.createElement("button");
-        submitButton.id = "submitGoal";
-        submitButton.textContent = "Submit";
-        submitButton.onclick = submitGoal;
-        submitButton.className = "btn btn-primary"; // Bootstrap class for buttons
-        inputGroup.appendChild(submitButton);
-
-        box.innerHTML = ""; // Clear existing content
-        box.appendChild(h4Element); // Append the current goal text
-        box.appendChild(inputGroup); // Append the input group with input box and submit button
-
-
-
-        } else {
-            var b = document.getElementById('next_move_button');
-            b.disabled = false;
-            box.innerHTML = ""; // Clear existing content
-            box.appendChild(h4Element); // Append the current goal text
-        }
-    }
-
-    // Current game
-    var newh4Element = document.createElement("h4");
-    newh4Element.textContent = "Current ID: " + (currentGame['id']);
-    var newbox = document.getElementById("current-game-box");
-
-    newbox.innerHTML = ""; // Clear existing content
-    newbox.appendChild(newh4Element); // Append the current game text
-
-    // Show info panel
-    panel = document.getElementById("infopanel");
-    panel.style.display = 'block';
-}
-
+// not being used, currently
 function submitGoal() {
     var guessedGoal = document.getElementById('goalInput').value;
     // Placeholder for the response to be send to DB 
@@ -400,7 +273,6 @@ function submitGoal() {
         window.location.href = 'index.html';
     }, 1500);
     // Redirect to the index page
-    
    
 }
 
@@ -429,7 +301,7 @@ function previousMove(){
         orig_id = currentGame['move_ids'][move][1];
         if (orig_id != '999'){
             orig_element = document.getElementById(orig_id);
-            bg_color = orig_element.style.backgroundColor;
+            let bg_color = orig_element.style.backgroundColor;
             var orig_color = bg_color.replace("background-color:", "").trim();
     
             new_id = currentGame['move_ids'][move][0];
@@ -439,42 +311,46 @@ function previousMove(){
             orig_element.style.backgroundColor = "white";
             
         }
-        updateInfoPanel();
+        // updateInfoPanel();
     }
 }
 
 //play all moves sequentially
 function playAll(){
-    //check if function is already running and stop it if so
-    if (isPlaythrough){
-        isDone = true;
-        setTimeout(function() {
-            document.getElementById('undo_move_button').classList.remove('disabled');
-            document.getElementById('reset_button').classList.remove('disabled');
-            document.getElementById('next_move_button').classList.remove('disabled');
-            isPlaythrough = false;
-            isDone = false;
-            //change button to play
-            document.getElementById("play-all-button").textContent = "Play All Moves⇥";
-          }, 810);
-        return
-    }
-    // change button to stop
-    document.getElementById("play-all-button").textContent = "STOP ◼";
+    let playButton = document.getElementById("play-all-button")
+    playButton.textContent = "Playing all moves...";
+    playButton.classList.add('disabled');
 
-    isPlaythrough = true;
+    if (isDone) {
+        cleargame();
+        loadgame();
+        isDone = false;
+        currentMove = 0;
+        // when restarting, pause on inital set up for .8
+        setTimeout(function() {
+            doLoop();
+        }, 800);
+
+    } else {
+        doLoop();
+    }
+
     function doLoop() {         
         setTimeout(function() {   
-            isPlaythrough = true;
-            nextMove()
+            nextMove();
             if (!isDone) {      
-            doLoop();             
+                doLoop();
+            } else {
+                // Re-enable the button only when isDone becomes true
+                playButton.textContent = "Replay Moves"; 
+                playButton.classList.remove('disabled');
             }
-            
-        }, 800)
+        }, 800);
     }
-    doLoop();   
+    
+    
 }
+
 
 // function gameChange(){
 //     //enable game option select buttons
@@ -511,156 +387,19 @@ function playAll(){
 
 // }
 
-function load_options(){
-    var id_dropdown = document.getElementById("game_id_dropdown");
-    var goal_dropdown = document.getElementById("game_goal_dropdown");
-    var ids = options.game_ids
-    var goals = options.goal_types
 
-    for (var i = 0; i < ids.length; i++) {
-        var optionText = ids[i];
-        // Create a new <a> element
-        var anchor = document.createElement("a");
-        // Set the id attribute
-        anchor.setAttribute("id", "option_id_" + optionText);
-        anchor.setAttribute("href", "#");
-        anchor.setAttribute("class", "option_id_item");
-        // Set the text content
-        anchor.textContent = optionText;
-        // Append the <a> element to the dropdown
-        id_dropdown.appendChild(anchor);
-        // anchor.addEventListener("click", function() {
-        //     const argument = optionText
-        //     recordGameId(argument);
-        // });    
-    }
-    for (var i = 0; i < goals.length; i++) {
-        var optionText2 = goals[i];
-        // Create a new <a> element
-        var anchor2 = document.createElement("a");
-        // Set the id attribute
-        anchor2.setAttribute("id", "option_goal_" + optionText2);
-        anchor2.setAttribute("href", "#");
-        anchor2.setAttribute("class", "option_goal_item");
-        // Set the text content
-        anchor2.textContent = optionText2;
-        // Append the <a> element to the dropdown
-        goal_dropdown.appendChild(anchor2);
-        // anchor2.addEventListener("click", function() {
-        //     const argument = optionText2
-        //     recordGoalType(argument);
-        // });
-    }
-}
 
-// for locally developing
-function setChangeGameButtonUrl() {
-    var changeGameButton = document.getElementById('change-game-button');
-    var hostname = window.location.hostname;
-    console.log(hostname)
 
-    if(hostname === 'localhost') {
-        changeGameButton.href = 'http://localhost:3000/blockreplay.html';
-    } else {
-        changeGameButton.href = 'production_url_here';
-    }
-}
  
 //on load do this
 document.addEventListener('DOMContentLoaded', function () {
-    setChangeGameButtonUrl();
-    //load table and options
     table_setup();
-    load_options();
-    coolDown = false;
 
-    //hide table
-    // var t = document.getElementById("gametable");
-    // t.style.display = 'none';
-
-    //hide info panel
-    // panel = document.getElementById("infopanel");
-    // panel.style.display = 'none';
-
-    //hide controls
-    // var controls = document.getElementById("ingamecontrols");
-    // controls.style.display = 'block';
-   
-
-    document.getElementById('visualize_mode').addEventListener('click', () => setMode('visualize'));
-    document.getElementById('experiment_mode').addEventListener('click', () => setMode('experiment'));
-
-    document.getElementById('reset_button').addEventListener('click', getGame);
-    document.getElementById('next_move_button').addEventListener('click', nextMove);
-    document.getElementById('undo_move_button').addEventListener('click', previousMove);
     document.getElementById('random-game-button').addEventListener('click', gameRandom);
     document.getElementById('play-all-button').addEventListener('click', playAll);
 
-
-    const optionIdElements = document.querySelectorAll(".option_id_item");
-
-    // Loop through each element and add a click event listener
-    optionIdElements.forEach(function(element) {
-        element.addEventListener("click", function() {
-            recordGameId(element.id);
-        });
-    });
-
-    const optionGoalElements = document.querySelectorAll(".option_goal_item");
-
-    // Loop through each element and add a click event listener
-    optionGoalElements.forEach(function(element) {
-        element.addEventListener("click", function() {
-            recordGoalType(element.id)
-        });
-    });
 });
 
 
-// function animateMove(id1, id2) {
-//     var source_element = document.getElementById(id1);
-//     var destination_element = document.getElementById(id2);
-
-//     // store the x,y coordinates of the target
-//     var xT = destination_element.offsetLeft;
-//     var yT = destination_element.offsetTop;
-//     //destination_element.style.display = 'block';
-
-//     // store the elements coordinate
-//     var xE = source_element.offsetLeft;
-//     var yE = source_element.offsetTop;
-
-//     source_element.style.left = 0 + 'px';
-//     source_element.style.top = 0 + 'px';
-
-//     source_element.style.zIndex = "999";
-//     console.log('x, y: ' + xT + ' ' + yT)
-
-//     setTimeout(function() {
-//         //set to destination position
-//         source_element.style.left = xT - xE + 'px';
-//         source_element.style.top = yT - yE + 'px';
-//     }, 20);
-//     setTimeout(function () {
-//         //source_element.style.display = 'none';
-        
-//         setTimeout(function() {
-//             //destination_element.style.display = 'block';
-//             coolDown = false;
-//         }, 100);
-//       }, 750);
-    
-// }
-
-// function undo_animation(id1){
-//     var source_element = document.getElementById(id1);
-//     source_element.style.display = 'none'
-//     source_element.style.left = 0 + 'px';
-//     source_element.style.top = 0 + 'px';
-//     setTimeout(function () {
-//         source_element.style.display = 'block';
-//         source_element.style.zIndex = "100";
-//       }, 1000);
-// }
 
 
