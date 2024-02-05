@@ -49,6 +49,41 @@ createTable();
 const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 const MAB_TABLE = 'mabGame';
 
+// Save user descripton of game goal
+const saveGameGoal = (gameId, goal, typingTime) => {
+    const params = {
+      TableName: "mabGame",
+      Item: {
+        id: gameId, // 'id' is the primary key for your table
+        goal: goal,
+        typingTime, typingTime
+        // playerID: sessionData.playerID,
+        // gameStart: sessionData.gameStart,
+        // id: sessionData.id,
+        // demographicDetails: sessionData.demographicDetails,
+        // roundNum: sessionData.roundNum,
+        // shownRound: sessionData.shownRound,
+        // gameStopped: sessionData.gameStopped,
+        // goalDescription: sessionData.goalDescription
+      }
+    };
+  
+    return new Promise((resolve, reject) => {
+      docClient.put(params, function(err, data) {
+        if (err) {
+          console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
+          reject(err);
+        } else {
+          console.log("Added item:", JSON.stringify(data, null, 2));
+          resolve(data);
+        }
+      });
+    });
+  };
+  
+
+
+  
 const updateItem = async (item, tableName) => {
     var result = await docClient
         .put({
@@ -249,5 +284,5 @@ function coordinatesToInteger(x, y, width, height) {
 }
 
 if (module && module.exports) {
-    module.exports = {save, getAll, getAllFormat1, getAllCsv, getDataByUserId, getDemographicDetailsCsv, getDemographicDetailsFormat1};
+    module.exports = {save, getAll, getAllFormat1, getAllCsv, getDataByUserId, getDemographicDetailsCsv, getDemographicDetailsFormat1, saveGameGoal,};
 }

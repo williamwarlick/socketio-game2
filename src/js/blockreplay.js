@@ -1,4 +1,8 @@
 import '../style.css';
+//socket is not init...
+import socket from '../socket';
+console.log('Socket initialized:', socket);
+
 
 var options = {
     "game_ids":
@@ -16,12 +20,8 @@ const tableBody = document.getElementById("table-body");
 var currentGame;
 var currentMove;
 var nMoves = 5; // number of moves for experiment mode
-var idSelectInactive;
-var typeSelectInactive;
-var topZ;
 const animation_time = 0.5;
 var isDone;
-var isPlaythrough;
 
 
 
@@ -125,6 +125,7 @@ function loadgame(){
  //load white cells
 function cleargame(){
     var cellId = 0;
+    let colors = currentGame.config; 
     for (var i = 0; i < colors.length; i++) {
         var block = document.getElementById(cellId);
         block.setAttribute('style', 'background-color:white;')
@@ -222,97 +223,31 @@ function createSquare(x, y, color) {
     return square;
   }
 
-// function updateInfoPanel(){
-//     if (currentMove > 0){
-//         // Current player
-//         if (currentMove % 2 == 1){
-//             content ='Last move by: <span class="badge bg-success">Architect</span>';
-//         } else {
-//             content = 'Last move by:  <span class="badge bg-danger">Helper</span>';
-//         }
-//         if (wasPass){
-//             content = content + ' <span class="badge bg-info">PASS</span>'
-//         }
-//         var h4Element = document.createElement("h4");
-//         h4Element.innerHTML = content;
-//         var box = document.getElementById("current-player-box");
-//         // Append to the div and empty previous 
-//         box.innerHTML = "";
-//         box.appendChild(h4Element);
 
-
-//         //Current move
-//         var h4Element = document.createElement("h4");
-//         h4Element.textContent = 'Move # ' + currentMove;
-        
-//         var box = document.getElementById("current-move-box");
-//         // Append to the div and empty previous 
-//         box.innerHTML = "";
-//         box.appendChild(h4Element);
-//     } else {
-//         document.getElementById("current-move-box").innerHTML = '';
-//         document.getElementById("current-player-box").innerHTML = '';
-//     }
-
-    
-
-// }
-
-// not being used, currently
-function submitGoal() {
+function submitGoal(typingDuration) {
+    // need to add connection to server functionality
     var guessedGoal = document.getElementById('goalInput').value;
-    // Placeholder for the response to be send to DB 
-    console.log("Submitting guessed goal: " + guessedGoal);
-    // Display confirmation message
-    var confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
-    confirmationModal.show();
     
-    // Set a timeout for the modal to hide
-    setTimeout(function() {
-        confirmationModal.hide();
-        window.location.href = 'index.html';
-    }, 1500);
-    // Redirect to the index page
-   
-}
+    let gameId = '13056'; // static for testing, should be based on whatever curr game is
 
+    fetch('/submitGoal', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ gameId: gameId, goal: guessedGoal, typingTime: typingDuration}),
+      })
+      .then(response => response.text())
+      .then(data => {
+        console.log('Success:', data);
+        console.log("Success Submitting guessed goal: " + guessedGoal);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        console.log("Failure Submitting guessed goal: " + guessedGoal);
+      });
 
-
-// make the goal names more readable
-function niceNames(str){
-    if (str.includes("cover")){
-        str = str.replace("all", "")
-        return str.replace("cover", "cover all")
-    } else if (str.includes("fill")) {
-        return str.replace("nocolor", '')
-    } else if (str.includes("move")){
-        str = str.replace("A", "to A")
-        str = str.replace("B", "to B")
-        str = str.replace("C", "to C")
-        return str
-    } else {return str.replace("nocolor","")}
-}
-
-function previousMove(){
-    if (currentMove  > 0 ){
-        document.getElementById('next_move_button').classList.remove('disabled')
-        currentMove--;
-        move = currentMove;
-        orig_id = currentGame['move_ids'][move][1];
-        if (orig_id != '999'){
-            orig_element = document.getElementById(orig_id);
-            let bg_color = orig_element.style.backgroundColor;
-            var orig_color = bg_color.replace("background-color:", "").trim();
     
-            new_id = currentGame['move_ids'][move][0];
-            new_element = document.getElementById(new_id);
-            console.log("new_id", new_id)
-            new_element.style.backgroundColor = orig_color;
-            orig_element.style.backgroundColor = "white";
-            
-        }
-        // updateInfoPanel();
-    }
 }
 
 //play all moves sequentially
@@ -351,55 +286,42 @@ function playAll(){
     
 }
 
-
-// function gameChange(){
-//     //enable game option select buttons
-//    var button = document.getElementById("game_id_button");
-//    button.style.display = '';
-//    button = document.getElementById("goal_type_button");
-//    button.style.display = '';
-//    button = document.getElementById("random-game-button");
-//    button.style.display = '';
-//    //diable game change button
-//    button = document.getElementById("change-game-button");
-//    button.style.display = 'none';
-//    //empty info panels
-//    var box = document.getElementById("current-player-box");
-//    box.innerHTML = "";
-//    var box = document.getElementById("current-move-box");
-//    box.innerHTML = "";
-//    var box = document.getElementById("current-goal-box");
-//    box.innerHTML = "";
-
-//     // reset selection buttons
-//    var box = document.getElementById("goal_type_button");
-//    box.innerHTML = "Selet Goal Type ⏷";
-//    var box = document.getElementById("game_id_button");
-//    box.innerHTML = "Select Player ID ⏷";
-
-//     //hide info panel
-//     panel = document.getElementById("infopanel");
-//     panel.style.display = 'none';
-
-//     //clear game
-//     cleargame();
-
-
-// }
-
-
-
-
  
 //on load do this
 document.addEventListener('DOMContentLoaded', function () {
     table_setup();
-
     document.getElementById('random-game-button').addEventListener('click', gameRandom);
     document.getElementById('play-all-button').addEventListener('click', playAll);
+    document.getElementById('submit-goal-button').addEventListener('click', submitGoal);
 
+    let startTime = null; 
+    let endTime = null; 
+
+    const inputBox = document.getElementById('goalInput');
+    const submitButton = document.getElementById('submit-goal-button');
+
+    // Event listener for when user starts typing
+    inputBox.addEventListener('input', function(event) {
+        // If typing starts, record the start time
+        if (startTime === null) {
+            startTime = new Date();
+        }
+    });
+
+    // Event listener for the submit button
+    submitButton.addEventListener('click', function(event) {
+        // Prevent form from submitting if you're using a form
+        event.preventDefault();
+
+        // Record the end time when submit is clicked
+        endTime = new Date();
+
+        // Calculate the difference in milliseconds
+        const typingDuration = endTime - startTime;
+
+        submitGoal(typingDuration);
+
+        // Optional: do something with the typingDuration, e.g., display it or send it to a server
+    });
 });
-
-
-
 

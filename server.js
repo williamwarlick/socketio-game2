@@ -149,6 +149,17 @@ app.post('/gameack', express.urlencoded({ extended: false }), function (req, res
     });
 })
 
+app.post('/submitGoal', (req, res) => {
+    const { gameId, goal, typingTime } = req.body;
+  
+    dataStore.saveGameGoal(gameId, goal, typingTime)
+      .then(data => res.send("Game data saved successfully"))
+      .catch(err => {
+        console.error("Error saving the game data:", err);
+        res.status(500).send("Error saving the game data");
+      });
+  });
+
 app.get('/user', (req, res) => {
     var username = req.session.user;
     var sonaId = req.session.sonaId;
