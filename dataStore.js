@@ -3,11 +3,99 @@ AWS.config.update({ region: "us-east-1" });
 
 const { o } = require('./components');
 
+// Local DynamoDB
+
+// Configure AWS to use local DynamoDB 
+
+AWS.config.update({
+    region: "local",
+    endpoint: "http://localhost:8000",
+    accessKeyId: 'fakeMyKeyId', // Dummy access key id
+    secretAccessKey: 'fakeSecretAccessKey'  // Dummy secret access key
+  });
+  
+const dynamodb = new AWS.DynamoDB();
+
+const params = {
+    TableName : "mabGame",
+    KeySchema: [       
+        { AttributeName: "id", KeyType: "HASH"},  // Partition key
+    ],
+    AttributeDefinitions: [       
+        { AttributeName: "id", AttributeType: "S" },
+        
+    ],
+    ProvisionedThroughput: {       
+        ReadCapacityUnits: 5, 
+        WriteCapacityUnits: 5
+    }
+};
+
+// dynamodb.deleteTable(params, function(err, data) {
+//     if (err) {
+//         console.error("Unable to delete table. Error JSON:", JSON.stringify(err, null, 2));
+//     } else {
+//         console.log("Deleted table. Table description JSON:", JSON.stringify(data, null, 2));
+//         // Optionally, recreate the table here.
+//     }
+// });
+
+const createTable = () => { 
+    dynamodb.createTable(params, function(err, data) {
+        if (err) {
+            console.error("Error JSON.", JSON.stringify(err, null, 2));
+        } else {
+            console.log("Created table.", JSON.stringify(data, null, 2));
+        }
+    });
+}
+
+createTable(); 
+  
+
 
 // Create DynamoDB document client
 const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 const MAB_TABLE = 'mabGame';
 
+const saveGameGoal = (submissionData) => {
+    const { id, gameId, importId, config, roundNum, helperId, helperResponse, typingTime, stoppingPoint, timesRewatched, demographicDetails, gameStart } = submissionData;
+
+    const params = {
+        TableName: MAB_TABLE,
+        Item: {
+            id: id, //uuid v4
+            gameId: gameId, 
+            importId: importId,
+            config: config,
+            roundNum: roundNum,
+            helperId: helperId,
+            helperResponse: helperResponse,
+            typingTime: typingTime,
+            stoppingPoint: stoppingPoint,
+            timesRewatched: timesRewatched,
+            demographicDetails: demographicDetails,
+            // gameStart: gameStart,
+        }
+    };
+
+  
+    return new Promise((resolve, reject) => {
+      docClient.put(params, function(err, data) {
+        if (err) {
+          console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
+          reject(err);
+        } else {
+          console.log("Added item:", JSON.stringify(data, null, 2));
+          resolve(data);
+        }
+      });
+    });
+  };
+  
+
+
+  
 const updateItem = async (item, tableName) => {
     var result = await docClient
         .put({
@@ -208,5 +296,5 @@ function coordinatesToInteger(x, y, width, height) {
 }
 
 if (module && module.exports) {
-    module.exports = {save, getAll, getAllFormat1, getAllCsv, getDataByUserId, getDemographicDetailsCsv, getDemographicDetailsFormat1};
+    module.exports = {save, getAll, getAllFormat1, getAllCsv, getDataByUserId, getDemographicDetailsCsv, getDemographicDetailsFormat1, saveGameGoal,};
 }

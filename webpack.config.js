@@ -13,6 +13,7 @@ module.exports = {
         consent: './src/js/user.js',
         admin: './src/js/header.js',
         demographicDetails: './src/js/demographic-details.js',
+        blockreplay: './src/js/blockreplay.js',
     },
   output: {
     filename: '[name].js',
@@ -106,6 +107,12 @@ module.exports = {
 			inject: true,
 			chunks: ['demographicDetails'],
 			filename: 'demographic-details.html',
+		}),
+    new HtmlWebpackPlugin({
+			template: './src/blockreplay.html',
+			inject: true,
+			chunks: ['blockreplay'],
+			filename: 'blockreplay.html',
 		}),
   ],
 };

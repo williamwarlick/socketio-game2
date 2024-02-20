@@ -10,7 +10,8 @@ const io = new Server(server);
 const { InMemorySessionStore } = require("./sessionStore");
 const crypto = require("crypto");
 const randomId = () => crypto.randomBytes(8).toString("hex");
-const mab = require('./moveablock-server');
+// const mab = require('./moveablock-server');
+const mab = require('./blockreplay-server');
 const cookieParser = require('cookie-parser');
 const socketIOSession = require('socket.io-session');
 const dataStore = require('./dataStore');
@@ -118,7 +119,9 @@ const doPostDemographicDetails = async (req, demographicDetails, callback) => {
 
 app.post('/login', express.urlencoded({ extended: false }), function (req, res) {
     doLogin(req, req.body.username, req.body.sona, function() {
-        res.redirect('/waiting.html');
+        // goes to waiting by default after login 
+        // res.redirect('/waiting.html');
+        res.redirect('/consent.html');
     });
   })
 
@@ -145,9 +148,21 @@ app.post('/admin/reset', express.urlencoded({ extended: false }), function (req,
 
 app.post('/gameack', express.urlencoded({ extended: false }), function (req, res) {
     ackGame(req, function() {
-        res.redirect('/round-starting.html');
+        // res.redirect('/round-starting.html');
+        res.redirect('/blockreplay.html');
     });
 })
+
+app.post('/submitGoal', (req, res) => {
+    const submissionData = req.body;
+  
+    dataStore.saveGameGoal(submissionData )
+      .then(data => res.send("Game data saved successfully"))
+      .catch(err => {
+        console.error("Error saving the game data:", err);
+        res.status(500).send("Error saving the game data");
+      });
+  });
 
 app.get('/user', (req, res) => {
     var username = req.session.user;
@@ -234,12 +249,28 @@ io.on('connection', async (socket) => {
             console.log('User already completed a game: ' + username);
             socket.emit('MESSAGE', 'COMPLETE');
         } else {
-            await gameServer.joinMoveABlock(io, socket, username, sonaId);
+            // await gameServer.joinMoveABlock(io, socket, username, sonaId);
+            await gameServer.joinBlockReplay(io, socket, username, sonaId);
+
         }
     }
 
     socket.on('lobby', (msg) => {
         console.log('message: ' + msg);
+    });
+
+    socket.on('blockreplay', (msg) => {
+        console.log('blockreplay: ' + JSON.stringify(msg));
+        console.log('blockreplay connected on server: ');
+        const session = socket.request.session;
+        console.log(session);
+        const username = session.user;
+        console.log('Username: '+ username);
+        
+        socket.on('disconnect', () => {
+            console.log('user disconnected');
+        });
+
     });
 
     socket.on('moveablock', (msg) => {

@@ -1,14 +1,21 @@
 import loginTemplate from '../templates/login.mustache';
 import socket from '../socket';
-import {GAME_STATUS } from '../../moveablock2';
+// import {GAME_STATUS } from '../../moveablock2';
+import {GAME_STAUS } from '../../blockreplay2';
 import header from './header';
 
-socket.on('moveablock', (event) => {
+// socket.on('moveablock', (event) => {
+//     if (event.status && event.status == GAME_STATUS.JOINED) {
+//         window.location.href = '/consent.html';
+//     } else if (event.status && event.status == GAME_STATUS.WAITING) {
+//         window.location.href = '/waiting.html';
+//     }
+// });
+
+socket.on('blockreplay', (event) => {
     if (event.status && event.status == GAME_STATUS.JOINED) {
         window.location.href = '/consent.html';
-    } else if (event.status && event.status == GAME_STATUS.WAITING) {
-        window.location.href = '/waiting.html';
-    }
+    } 
 });
 
 (async function doRender(){

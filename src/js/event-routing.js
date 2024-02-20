@@ -1,18 +1,39 @@
 import socket from '../socket';
 import {GAME_STATUS} from '../../moveablock2';
+import { GAME_STATUS } from '../../blockreplay2';}
 
-socket.on('moveablock', (event) => {
+// socket.on('moveablock', (event) => {
+//     if (event.status && event.status == GAME_STATUS.JOINED) {
+//         window.location.href = '/moveablock.html';
+//     } else if (event.status && event.status == GAME_STATUS.WAITING) {
+//         window.location.href = '/waiting.html';
+//     }
+
+//     if (event.status) {
+//         switch (event.status) {
+//             case GAME_STATUS.WAITING:
+//                 window.location.href = '/waiting.html';
+//                 break;
+//             case GAME_STATUS.JOINED:
+//                 window.location.href = '/game-instructions.html';
+//                 break;
+//             case GAME_STATUS.GAME_ACK:
+//                 window.location.href = '/round-acknowledge.html';
+//                 break;
+//             case GAME_STATUS.ROUND_ACK:
+//                 window.location.href = '/moveablock.html';
+//                 break;
+//         }
+//     }
+// });
+
+socket.on('blockreplay', (event) => {
     if (event.status && event.status == GAME_STATUS.JOINED) {
-        window.location.href = '/moveablock.html';
-    } else if (event.status && event.status == GAME_STATUS.WAITING) {
-        window.location.href = '/waiting.html';
-    }
+        window.location.href = '/blockreplay.html';
+    } 
 
     if (event.status) {
         switch (event.status) {
-            case GAME_STATUS.WAITING:
-                window.location.href = '/waiting.html';
-                break;
             case GAME_STATUS.JOINED:
                 window.location.href = '/game-instructions.html';
                 break;
@@ -20,7 +41,7 @@ socket.on('moveablock', (event) => {
                 window.location.href = '/round-acknowledge.html';
                 break;
             case GAME_STATUS.ROUND_ACK:
-                window.location.href = '/moveablock.html';
+                window.location.href = '/blockreplay.html';
                 break;
         }
     }

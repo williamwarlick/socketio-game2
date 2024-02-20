@@ -130,6 +130,11 @@ const loadRoundsFromFile = async (filePath) => {
 
 };
 
+const loadE2Games = async (filePath) => {
+    const jsData = await loadFromFile(filePath);
+    return jsData;
+}
+
 const loadMapRoundsFromFile = async (filePath) => {
     const csvData = await loadFromFile(filePath);
     const roundIdMap = new Map();
@@ -182,5 +187,5 @@ const loadMapRoundsFromFile = async (filePath) => {
 };
 
 if (module && module.exports) {
-    module.exports = {convertBoardConfig, loadFromFile, loadRoundsFromFile, loadMapRoundsFromFile};
+    module.exports = {convertBoardConfig, loadFromFile, loadRoundsFromFile, loadMapRoundsFromFile, loadE2Games};
 }
