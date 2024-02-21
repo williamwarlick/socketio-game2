@@ -7,9 +7,10 @@ import blockreplay, { GAME_STATUS } from '../../blockreplay2';
 const { v4: uuidv4 } = require('uuid');
 
 
+const mab = new blockreplay.Game();
 
 
-const nine_games_data_exp2 = {"13108":{"importId":75842,"config":["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","blue","white","white","white","white","white","green","white","white","white","blue","white","white","red","green","green","red","white","red","white","blue","green","white","blue","blue","white","white","white","red","white","white","red","green","red","green","red","red","white","blue","red","red","blue","blue","blue","green","blue","green","green","green"],"goal_optimal":100,"goal":"move blue C2","total_moves":10,"goal_type":"move","move_ids":[[59,88],[104,89],[102,70],[82,71],[65,85],[83,51],[101,52],[100,53],[79,33],[97,34]]},"13116":{"importId":92567,"config":["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","red","white","white","white","white","white","blue","white","white","white","white","white","white","white","white","red","green","white","blue","red","white","blue","red","green","blue","blue","red","white","blue","white","white","white","green","red","green","green","green","green","white","green","blue","green","red","blue","blue","white","red","red","blue","green","red"],"goal_optimal":100,"goal":"uncover green all","total_moves":7,"goal_type":"uncover","move_ids":[[78,64],[80,95],[76,46],[57,45],[75,61],[89,102],[73,54]]},"905560":{"importId":39277,"config":["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","blue","white","white","white","white","red","white","white","white","red","white","white","white","white","white","white","white","blue","green","green","white","white","white","blue","red","white","white","blue","white","white","blue","green","green","green","white","green","red","red","green","blue","blue","red","red","white","blue","red","green","green","blue","red","green","red","blue"],"goal_optimal":100,"goal":"uncover red all","total_moves":10,"goal_type":"uncover","move_ids":[[60,98],[79,76],[78,77],[55,59],[74,41],[73,23],[86,67],[88,89],[64,81],[82,83]]},"13134":{"importId":50905,"config":["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","blue","blue","white","white","green","white","red","blue","white","blue","blue","green","blue","white","red","white","red","white","red","blue","red","green","blue","red","red","blue","green","green","green","blue","green","red","red","red","green","green","green"],"goal_optimal":100,"goal":"uncover red all","total_moves":3,"goal_type":"uncover","move_ids":[[77,74],[85,65],[71,64]]},"13121":{"importId":70176,"config":["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","green","red","white","white","white","white","green","white","white","white","white","white","white","white","red","green","green","blue","red","red","white","white","white","blue","red","blue","white","blue","white","white","white","red","green","blue","red","blue","blue","red","green","white","white","green","red","green","blue","blue","blue","green","white","red","green"],"goal_optimal":100,"goal":"clear nocolor B2","total_moves":6,"goal_type":"clear","move_ids":[[63,62],[81,97],[82,96],[99,79],[100,78],[101,60]]},"13109":{"importId":68825,"config":["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","blue","white","white","white","white","white","white","white","white","green","white","white","white","white","white","white","white","green","blue","blue","blue","white","green","green","white","white","white","red","white","white","blue","blue","red","white","red","blue","green","red","red","red","red","green","green","red","red","green","blue","red","blue","green","blue","green"],"goal_optimal":100,"goal":"move red B1","total_moves":12,"goal_type":"move","move_ids":[[99,80],[100,62],[65,100],[83,61],[95,60],[76,95],[94,42],[75,94],[93,43],[90,44],[103,24],[88,25]]},"13141":{"importId":85609,"config":["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","blue","white","red","red","green","white","white","white","white","white","white","white","white","white","green","white","white","white","red","red","blue","blue","blue","white","white","white","green","green","white","white","green","white","green","blue","blue","white","green","green","green","red","red","red","white","white","blue","red","white","blue","green","red","blue","blue","red","white"],"goal_optimal":100,"goal":"uncover red all","total_moves":7,"goal_type":"uncover","move_ids":[[54,96],[58,97],[76,79],[81,100],[88,107],[57,78],[75,61]]},"13152":{"importId":94317,"config":["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","blue","white","white","white","red","white","white","green","white","white","white","white","white","white","white","white","blue","white","green","white","green","blue","red","green","green","blue","white","white","red","blue","blue","white","white","green","red","green","green","red","blue","green","red","blue","blue","red","white","red","blue","red","green","white","white","red"],"goal_optimal":100,"goal":"move blue B","total_moves":9,"goal_type":"move","move_ids":[[56,61],[72,62],[77,43],[76,75],[94,44],[85,45],[86,100],[84,85],[102,82]]},"13149":{"importId":27371,"config":["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","red","white","white","red","white","blue","white","blue","white","white","white","white","blue","white","red","white","white","white","blue","white","blue","green","green","green","red","green","white","white","white","white","green","white","red","red","white","blue","green","green","green","red","green","blue","red","blue","green","blue","white","blue","red","red"],"goal_optimal":100,"goal":"move red C2","total_moves":9,"goal_type":"move","move_ids":[[61,87],[82,69],[100,51],[79,60],[97,33],[58,15],[91,52],[72,34],[90,16]]}}
+// const nine_games_data_exp2 = {"13108":{"importId":75842,"config":["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","blue","white","white","white","white","white","green","white","white","white","blue","white","white","red","green","green","red","white","red","white","blue","green","white","blue","blue","white","white","white","red","white","white","red","green","red","green","red","red","white","blue","red","red","blue","blue","blue","green","blue","green","green","green"],"goal_optimal":100,"goal":"move blue C2","total_moves":10,"goal_type":"move","move_ids":[[59,88],[104,89],[102,70],[82,71],[65,85],[83,51],[101,52],[100,53],[79,33],[97,34]]},"13116":{"importId":92567,"config":["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","red","white","white","white","white","white","blue","white","white","white","white","white","white","white","white","red","green","white","blue","red","white","blue","red","green","blue","blue","red","white","blue","white","white","white","green","red","green","green","green","green","white","green","blue","green","red","blue","blue","white","red","red","blue","green","red"],"goal_optimal":100,"goal":"uncover green all","total_moves":7,"goal_type":"uncover","move_ids":[[78,64],[80,95],[76,46],[57,45],[75,61],[89,102],[73,54]]},"905560":{"importId":39277,"config":["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","blue","white","white","white","white","red","white","white","white","red","white","white","white","white","white","white","white","blue","green","green","white","white","white","blue","red","white","white","blue","white","white","blue","green","green","green","white","green","red","red","green","blue","blue","red","red","white","blue","red","green","green","blue","red","green","red","blue"],"goal_optimal":100,"goal":"uncover red all","total_moves":10,"goal_type":"uncover","move_ids":[[60,98],[79,76],[78,77],[55,59],[74,41],[73,23],[86,67],[88,89],[64,81],[82,83]]},"13134":{"importId":50905,"config":["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","blue","blue","white","white","green","white","red","blue","white","blue","blue","green","blue","white","red","white","red","white","red","blue","red","green","blue","red","red","blue","green","green","green","blue","green","red","red","red","green","green","green"],"goal_optimal":100,"goal":"uncover red all","total_moves":3,"goal_type":"uncover","move_ids":[[77,74],[85,65],[71,64]]},"13121":{"importId":70176,"config":["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","green","red","white","white","white","white","green","white","white","white","white","white","white","white","red","green","green","blue","red","red","white","white","white","blue","red","blue","white","blue","white","white","white","red","green","blue","red","blue","blue","red","green","white","white","green","red","green","blue","blue","blue","green","white","red","green"],"goal_optimal":100,"goal":"clear nocolor B2","total_moves":6,"goal_type":"clear","move_ids":[[63,62],[81,97],[82,96],[99,79],[100,78],[101,60]]},"13109":{"importId":68825,"config":["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","blue","white","white","white","white","white","white","white","white","green","white","white","white","white","white","white","white","green","blue","blue","blue","white","green","green","white","white","white","red","white","white","blue","blue","red","white","red","blue","green","red","red","red","red","green","green","red","red","green","blue","red","blue","green","blue","green"],"goal_optimal":100,"goal":"move red B1","total_moves":12,"goal_type":"move","move_ids":[[99,80],[100,62],[65,100],[83,61],[95,60],[76,95],[94,42],[75,94],[93,43],[90,44],[103,24],[88,25]]},"13141":{"importId":85609,"config":["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","blue","white","red","red","green","white","white","white","white","white","white","white","white","white","green","white","white","white","red","red","blue","blue","blue","white","white","white","green","green","white","white","green","white","green","blue","blue","white","green","green","green","red","red","red","white","white","blue","red","white","blue","green","red","blue","blue","red","white"],"goal_optimal":100,"goal":"uncover red all","total_moves":7,"goal_type":"uncover","move_ids":[[54,96],[58,97],[76,79],[81,100],[88,107],[57,78],[75,61]]},"13152":{"importId":94317,"config":["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","blue","white","white","white","red","white","white","green","white","white","white","white","white","white","white","white","blue","white","green","white","green","blue","red","green","green","blue","white","white","red","blue","blue","white","white","green","red","green","green","red","blue","green","red","blue","blue","red","white","red","blue","red","green","white","white","red"],"goal_optimal":100,"goal":"move blue B","total_moves":9,"goal_type":"move","move_ids":[[56,61],[72,62],[77,43],[76,75],[94,44],[85,45],[86,100],[84,85],[102,82]]},"13149":{"importId":27371,"config":["white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","white","red","white","white","red","white","blue","white","blue","white","white","white","white","blue","white","red","white","white","white","blue","white","blue","green","green","green","red","green","white","white","white","white","green","white","red","red","white","blue","green","green","green","red","green","blue","red","blue","green","blue","white","blue","red","red"],"goal_optimal":100,"goal":"move red C2","total_moves":9,"goal_type":"move","move_ids":[[61,87],[82,69],[100,51],[79,60],[97,33],[58,15],[91,52],[72,34],[90,16]]}}
 
 
 const tableBody = document.getElementById("table-body");
@@ -18,30 +19,11 @@ var currentMove;
 var nMoves = 5; // number of moves for experiment mode
 const animation_time = 0.5;
 var isDone;
-const gameOrder = generate_game_order();
+// const gameOrder = generate_game_order();
 let currentGameIndex = 0;
-const gameIds = Object.keys(nine_games_data_exp2); // Extract game IDs to iterate through
+// const gameIds = Object.keys(nine_games_data_exp2); // Extract game IDs to iterate through
 let numRewatch = 0;
 
-
-
-function generate_game_order(){
-    // instead of random... do 1, 2,3, repeat 
-    const randomNumber = Math.floor(Math.random() * 3);
-    const versions = [[(0, 'Move-Beginning'), (1, 'Fill-Middle'), (2, 'Cover-End'), (3, 'Move-Middle'), (4, 'Fill-End'), (5, 'Cover-Beginning'), (6, 'Move-End'), (7, 'Fill-Beginning'), (8, 'Cover-Middle')],
-    [(3, 'Move-Beginning'), (4, 'Fill-Middle'), (5, 'Cover-End'), (6, 'Move-Middle'), (7, 'Fill-End'), (8, 'Cover-Beginning'), (0, 'Move-End'), (1, 'Fill-Beginning'), (2, 'Cover-Middle')],
-    [(6, 'Move-Beginning'), (7, 'Fill-Middle'), (8, 'Cover-End'), (0, 'Move-Middle'), (1, 'Fill-End'), (2, 'Cover-Beginning'), (3, 'Move-End'), (4, 'Fill-Beginning'), (5, 'Cover-Middle')]]
-    
-    return shuffleArray(versions[randomNumber]);
-
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    }
-}
 
 
 function table_setup(){
@@ -61,17 +43,21 @@ function table_setup(){
 }
 
 
-function getGame(gameId){
-    currentGame = nine_games_data_exp2[gameId];
-    console.log("Current game is:", currentGame);
-    currentMove = 0;
-    //call loadgame
-    loadgame()
-    isDone = false;
-}
+// function getGame(gameId){
+//     currentGame = nine_games_data_exp2[gameId];
+//     console.log("Current game is:", currentGame);
+//     currentMove = 0;
+//     //call loadgame
+//     loadgame()
+//     currentMove = 0;
+//     isDone = false;
+// }
 
-function loadgame(){
+function loadgame(rounds){
+    currentGame = rounds
     //load colors into table
+    currentMove = 0;
+    isDone = false;
     var cellId = 0;
     let colors = currentGame.config
     for (var i = 0; i < colors.length; i++) {
@@ -289,14 +275,14 @@ function submitGoal(gameId, typingDuration) {
  
 //on load do this
 document.addEventListener('DOMContentLoaded', function () {
-setupGame();
+    // setupGame();
 
     attachEventListeners();
 
 });
 
 
-function setupGame() {
+function setupGame(rounds) {
     if (currentGameIndex === 0) {
     table_setup();
     
@@ -305,7 +291,11 @@ function setupGame() {
         loadgame();
        
     }
-    getGame(gameIds[currentGameIndex]);
+    loadgame(rounds);
+    // getGame(
+
+    //     // gameIds[currentGameIndex]
+    //     );
 }
 
 function attachEventListeners() {
@@ -346,11 +336,11 @@ function attachEventListeners() {
 
 function moveToNextGame() {
     currentGameIndex++; // Move to the next game in the list
-    if(currentGameIndex < gameIds.length) {
+    if(currentGameIndex < 1) {
         setupGame(gameIds[currentGameIndex]); // Setup the next game
     } else {
         console.log("All games completed!");
-        // Here you might want to redirect the user or show a completion message
+        window.location.href = '/demographic-details.html';
     }
 }
 
@@ -371,7 +361,16 @@ socket.on('blockreplay', async (event) => {
             console.log('Game status: joined');
             window.location.href = '/consent.html';
             return;
-        }
+        } } else if (event.status == GAME_STATUS.COMPLETE) {
+            console.log('Game status: complete');
+            window.location.href = '/demographic-details.html';
+            return;
+    }
+
+
+    if (event.setup && event.round) {
+        console.log('Received setup for round:', event.round);
+        setupGame(event.round); 
     }
 });
 

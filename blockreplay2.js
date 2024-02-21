@@ -35,7 +35,6 @@ class Game {
         this.gameStartTime = null;
         this.gameCompleteTime = null;
 
-        this.board = null; // this becomes one of 9 games with 3 sections, server decides?
         this.demographicDetails = null
     }
 
@@ -59,16 +58,6 @@ class Game {
         playerId.GAME_ACK = true;
     
     }
-
-   
-
-    // printCurrentRoundInstructions() {
-    //     var currRound = this.rounds[this.currentRound];
-    //     console.log(`Round ${this.currentRound} Instructions: `);
-    //     for (var goal of currRound.goals) {
-    //         console.log(goal.description);
-    //     }
-    // };
 
 
 }
