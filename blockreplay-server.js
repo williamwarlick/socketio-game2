@@ -1,5 +1,3 @@
-//const { default: socket } = require("./src/socket");
-// this is where I handle distributing the 3 sections of 9 names 
 const mab2 = require('./blockreplay2');
 const dataStore = require('./dataStore');
 const loader = require('./round-loader');
@@ -11,21 +9,18 @@ const { EVENTS } = require('./components');
 class GameServer {
     constructor() {
         this.inProgress = [];
-        
         this.playerGameIndexMap = {};
-        this.playerSocketId = null;
-
+        this.playerIdSocketMap = {};
         this.singlePlayerRoundPoolIndex = 0;
+
         this.currentVersion = 0;
     }
 
     getPlayerSocketIds(game) {
         var socketIds = [];
-
-        if (game.player) {
-            socketIds.push(this.playerSocketId);
+        if(game.player && this.playerIdSocketMap[game.player.id]) {
+            socketIds.push(this.playerIdSocketMap[game.player.id]);
         }
-
         return socketIds;
     }
 
@@ -61,40 +56,55 @@ class GameServer {
     // handles someone joing block replay
     // once they have joined assigned them all the 9 games they are going to play 
     async joinBlockReplay(io, socket, playerId, sonaId) {
-    this.currentVersion = (this.currentVersion + 1) % 3; 
-
         // keep track of player's socket id
-        this.playerSocketId = socket.id;
+        this.playerIdSocketMap[playerId] = socket.id;
+        // this.currentVersion = (this.currentVersion + 1) % 3; 
 
-        console.log("Socketid:" + socket.id)
+            console.log('Creating new game on-deck ...');
+            let newGame = new mab2.Game();
+            newGame.player = new mab2.Player(playerId, sonaId);
 
+            console.log('Player joined single player game, starting game ...' + playerId);
+            newGame.status = mab2.GAME_STATUS.JOINED;
+            newGame.rounds =  await this.generateSinglePlayerRounds();
         
-        let newGame = new mab2.Game();
-        console.log('Player joined single player game, starting game ...' + playerId);
+            var gameIndex = this.inProgress.push(newGame) - 1;
+            console.log("In progress: " + this.inProgress);
+            this.playerGameIndexMap[newGame.player.id] = gameIndex;
+            console.log("GameId?: " + this.playerGameIndexMap[newGame.player.id]) ;
 
-        newGame.player = new mab2.Player(playerId, sonaId);
+            console.log("Game index: " + gameIndex);    
+            // add to rounds when each one is supposed to stop, perhaps a function
+            // newGame.rounds['stoppingPoint'] = 'beginning';
+            
+            io.to(this.getPlayerSocketIds(newGame)).emit('blockreplay', newGame.getState());
+        // }
+    }
 
-        newGame.status = mab2.GAME_STATUS.JOINED;
+    async submit(io, playerId, aSubmission) {
+        console.log('Processing submission ' + playerId + ', ' + JSON.stringify(aSubmission));
+        var gameIndex = this.playerGameIndexMap[playerId];
 
-        newGame.rounds =  await this.generateSinglePlayerRounds();
-        console.log("Rounds: " + newGame.rounds);
-    
-        var gameIndex = this.inProgress.push(newGame) - 1;
-        console.log("In progress: " + this.inProgress);
-        this.playerGameIndexMap[newGame.player.id] = gameIndex;
-        console.log("Game index: " + gameIndex);
+        console.log('Game index: ' + gameIndex);
 
-        newGame.gameStartTime = Date.now();
+        if (gameIndex !== null && gameIndex >= 0) {
+            var game = this.inProgress[gameIndex];
 
-
-        if (newGame && newGame.player) {
-            io.to(this.playerSocketId).emit('blockreplay', {setup: true, playerId: playerId, round: newGame.rounds});
-            console.log('Sent set up rounds to player: ' + playerId + "rounds" + newGame.rounds);
-            // io.to(this.getPlayerSocketIds(newGame)).emit('blockreplay', newGame.getState());
+            await dataStore.save(game.getSaveState());
+            
+            console.log('Syncing game state with clients ...');
+            io.to(this.getPlayerSocketIds(game)).emit('blockreplay', game.getState());
+                
+            if (game.status === mab2.GAME_STATUS.COMPLETE) {
+                console.log(`Game complete ${gameIndex}`);
+                //this.cleanUpGame(gameIndex, game);
+                await dataStore.save(game.getSaveState());
+            }
+             
         } else {
-            console.log('Error: Game or player is not correctly initialized.');
+            console.log('Game not found for player id: ' + playerId);
+            console.log(JSON.stringify(this.playerGameIndexMap));
         }
-    
     }
 
     playerInGame(playerId) {
@@ -103,11 +113,10 @@ class GameServer {
 
     getGameByPlayerId(playerId) {
         var gameIndex = this.playerGameIndexMap[playerId];
-        console.log('Game index: ' + gameIndex);
 
-        if (gameIndex !== null) {
+        if (gameIndex !== null && gameIndex >= 0) {
             return this.inProgress[gameIndex];
-        } else {
+        }  else {
             console.log('Game not found for player id: ' + playerId);
             return null;
         }
@@ -115,9 +124,10 @@ class GameServer {
 
     cleanUpGame(gameIndex, game) {
         // clean up player game index map
-        console.log(`Clearing player game index for ${game.player.id}`);
-        this.playerGameIndexMap[game.player.id] = null;
-
+        
+        console.log(`Clearing player game index for ${player.id}`);
+        this.playerGameIndexMap[player.id] = null;
+    
 
         // remove from in progress array
         // setting to null for now so it doesn't mess up the playerGameIndexMap,

@@ -19,10 +19,10 @@ const dynamodb = new AWS.DynamoDB();
 const params = {
     TableName : "mabGame",
     KeySchema: [       
-        { AttributeName: "id", KeyType: "HASH"},  // Partition key
+        { AttributeName: "gameId", KeyType: "HASH"},  // Partition key
     ],
     AttributeDefinitions: [       
-        { AttributeName: "id", AttributeType: "S" },
+        { AttributeName: "gameId", AttributeType: "S" },
         
     ],
     ProvisionedThroughput: {       
@@ -31,7 +31,12 @@ const params = {
     }
 };
 
-// dynamodb.deleteTable(params, function(err, data) {
+// // Parameters for deleting the table
+// const deleteTableParams = {
+//     TableName: "mabGame",
+// };
+
+// dynamodb.deleteTable(deleteTableParams, function(err, data) {
 //     if (err) {
 //         console.error("Unable to delete table. Error JSON:", JSON.stringify(err, null, 2));
 //     } else {
@@ -39,6 +44,8 @@ const params = {
 //         // Optionally, recreate the table here.
 //     }
 // });
+
+
 
 const createTable = () => { 
     dynamodb.createTable(params, function(err, data) {
@@ -51,6 +58,7 @@ const createTable = () => {
 }
 
 createTable(); 
+
   
 
 
@@ -59,25 +67,25 @@ const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 const MAB_TABLE = 'mabGame';
 
 const saveGameGoal = (submissionData) => {
-    const { id, gameId, importId, config, roundNum, helperId, helperResponse, typingTime, stoppingPoint, timesRewatched, demographicDetails, gameStart } = submissionData;
+    const { gameId, importId, config, roundNum, stoppingPoint, playerId, playerResponse , typingTime, timesRewatched, demographicDetails } = submissionData;
 
     const params = {
         TableName: MAB_TABLE,
         Item: {
-            id: id, //uuid v4
-            gameId: gameId, 
+            gameId: gameId,
             importId: importId,
             config: config,
             roundNum: roundNum,
-            helperId: helperId,
-            helperResponse: helperResponse,
-            typingTime: typingTime,
             stoppingPoint: stoppingPoint,
+            playerId: playerId,
+            playerResponse: playerResponse,
+            typingTime: typingTime,
             timesRewatched: timesRewatched,
             demographicDetails: demographicDetails,
-            // gameStart: gameStart,
+            
         }
     };
+
 
   
     return new Promise((resolve, reject) => {

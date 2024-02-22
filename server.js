@@ -107,7 +107,9 @@ const ackGame = (req, callback) => {
 
 const doPostDemographicDetails = async (req, demographicDetails, callback) => {
 	const userName = req.session.user
+    console.log('Demographic details username: ' + userName)
 	const game = gameServer.getGameByPlayerId(userName)
+    console.log('Game Id for demographic details: ' + game.id)
     if(game) {
         game.demographicDetails = demographicDetails
 
@@ -265,7 +267,16 @@ io.on('connection', async (socket) => {
         const session = socket.request.session;
         console.log(session);
         const username = session.user;
-        console.log('Username: '+ username);
+        var game = gameServer.getGameByPlayerId(username);
+        console.log('game on server ' + game);
+
+        if (game) {
+            console.log('Syncing game state with clients ...');
+            gameServer.submit(io, username, msg);
+        }
+        
+
+
         
         socket.on('disconnect', () => {
             console.log('user disconnected');
