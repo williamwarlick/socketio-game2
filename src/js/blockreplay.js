@@ -1,10 +1,9 @@
 import '../style.css';
 import header from './header'
 import socket from '../socket';
-console.log('Socket initialized: ', socket);
-import getUser from './header';
+console.log('Socket initialized', socket);
 import blockreplay, { GAME_STATUS } from '../../blockreplay2';
-
+import getUser from './header';
 
 const mab = new blockreplay.Game();
 const tableBody = document.getElementById("table-body");
@@ -12,7 +11,8 @@ var currentGame;
 var currentMove;
 var isDone;
 let currentGameIndex = 0;
-let numRewatch = 0;
+let numWatches = 0;
+let allRounds = null;
 
 
 // Generate table rows and cells
@@ -31,9 +31,10 @@ function table_setup() {
     }
 }
 
-//load colors into table
-function loadgame(rounds) {
-    currentGame = rounds
+
+function loadgame(round){
+    currentGame = round;
+    //load colors into table
     currentMove = 0;
     isDone = false;
     var cellId = 0;
@@ -54,8 +55,8 @@ function loadgame(rounds) {
 
 }
 
-// loads white cells
-function cleargame() {
+ //load white cells
+function cleargame(){
     var cellId = 0;
     let colors = currentGame.config;
     for (var i = 0; i < colors.length; i++) {
@@ -65,8 +66,8 @@ function cleargame() {
     }
 }
 
-function nextMove() {
-    if (currentMove + 1 <= currentGame['total_moves']) {
+function nextMove(){    
+    if (currentMove + 1 <= currentGame['total_moves']){
         let move = currentMove;
         let orig_id = currentGame['move_ids'][move][0];
         if (orig_id != '999') {
@@ -74,16 +75,18 @@ function nextMove() {
             let orig_element = document.getElementById(orig_id);
             let bg_color = orig_element.style.backgroundColor;
             let new_id = currentGame['move_ids'][move][1];
+            let new_element = document.getElementById(new_id);
+
 
             animate_move(orig_id, new_id, bg_color);
         }
         currentMove++;
-
-        // Round IS OVER 
-        if (currentMove >= currentGame['total_moves']) {
+        
+        if (currentMove >= currentGame['total_moves']){
             isDone = true;
 
             let box = document.getElementById("game-complete");
+            document.getElementById("game-text").textContent = "Verbally Describe what you think the goal of the game is.";
             box.classList.remove("invisible");
             box.classList.add('show');
             box.style.visibility = 'visible';
@@ -141,18 +144,17 @@ function createSquare(x, y, color) {
     return square;
 }
 
-
 //play all moves sequentially
 function playAll() {
     let playButton = document.getElementById("play-all-button")
     playButton.textContent = "Playing all moves...";
     playButton.classList.add('disabled');
 
-    numRewatch++;
+    numWatches++;
 
     if (isDone) {
         cleargame();
-        loadgame();
+        loadgame(allRounds[currentGameIndex]);
         isDone = false;
         currentMove = 0;
         // when restarting, pause on inital set up for .8
@@ -175,8 +177,6 @@ function playAll() {
             }
         }, 800);
     }
-
-
 }
 
 function moveToNextGame() {
@@ -187,22 +187,24 @@ function moveToNextGame() {
 }
 
 
-function submitGoal(playerId, typingDuration) {
+async function submitGoal(typingDuration) {
     var guessedGoal = document.getElementById('goalInput').value;
-    console.log("Guessed goal: " + guessedGoal);
-
+    var player = await getUser();
+    
     const submissionData = {
-        // the game which was watched related
-        gameId: mab.id,
+        // game related
+        gameId: mab.id, 
+        playerId: player.user, 
+        version: mab.version,
+        // round related 
+        roundNum: currentGameIndex,
+        stoppingPointNum: currentGame.stoppingPointNum,
+        stoppingPoint: currentGame.stoppingPoint,
         importId: currentGame.importId,
         config: currentGame.config,
-        roundNum: currentGameIndex,
-        stoppingPoint: 'mid',
-        // person playing related 
-        playerId: playerId,
         playerResponse: guessedGoal,
         typingTime: typingDuration,
-        timesRewatched: numRewatch, 
+        numWatches: numWatches,
         demographicDetails: null,
     }
 
@@ -231,7 +233,7 @@ function submitGoal(playerId, typingDuration) {
     let playButton = document.getElementById("play-all-button")
     playButton.textContent = "Play All Moves⇥";
 
-    numRewatch = 0;
+    numWatches = 0;
 
     moveToNextGame();
 }
@@ -239,36 +241,29 @@ function submitGoal(playerId, typingDuration) {
 
 //on load do this
 document.addEventListener('DOMContentLoaded', function () {
+   
+
     attachEventListeners();
 });
 
 
 function setupGame(rounds) {
+    rounds = rounds || 0;
     if (currentGameIndex === 0) {
         table_setup();
-
+        allRounds = rounds;
+        loadgame(allRounds[currentGameIndex]);
     } else {
         cleargame();
-        loadgame();
-
+        loadgame(allRounds[currentGameIndex]);
     }
-    loadgame(rounds);
-    // getGame(
-
-    //     // gameIds[currentGameIndex]
-    //     );
 }
 
 function attachEventListeners() {
     document.getElementById('play-all-button').addEventListener('click', playAll);
-    document.getElementById('submit-goal-button').addEventListener('click', submitGoal);
-
-    let startTime = null;
-
-
     const inputBox = document.getElementById('goalInput');
     const submitButton = document.getElementById('submit-goal-button');
-
+    let startTime = null; 
     // Event listener for when user starts typing
     inputBox.addEventListener('input', function (event) {
         // If typing starts, record the start time
@@ -276,38 +271,51 @@ function attachEventListeners() {
             startTime = new Date();
         }
     });
-
     // Event listener for the submit button
-    submitButton.addEventListener('click', async (event) => {
-        var player = await getUser();
-        // Calculate the difference in milliseconds
+    submitButton.addEventListener('click',  async () => {
+        // Calculate typing duration and submit
         let endTime = new Date();
         const typingDuration = endTime - startTime;
-        submitGoal(player.user, typingDuration);
-
-        // should move some of this logic to client side 
-        // updateBoardState(player.user, newPos, currentPos);
+        await submitGoal(typingDuration); 
     });
 }
 
+
+
+function moveToNextGame() {
+    currentGameIndex++; // Move to the next game in the list
+    document.getElementById("game-text").textContent = "Please click Play-all-Moves button to watch game and then...";
+    if(currentGameIndex < 3) {
+        setupGame();
+    } else {
+        console.log("All games completed!");
+        window.location.href = '/demographic-details.html';
+    }
+}
+
 socket.on('blockreplay', async (event) => {
-    console.log('blockreplay event recieved on blockreplay.js',);
-
+    console.log('blockreplay event recieved on blockreplay.js', );
+    if (event.setup) {
+        console.log('Received setup for round:', event.round);
+        setupGame(event.round); 
+    }
     if (event.state) {
-
-        if (event.status == GAME_STATUS.JOINED) {
+        if (event.status == GAME_STATUS.COMPLETE) {
+            console.log('Game status: complete');
+            window.location.href = '/demographic-details.html';
+            return;
+        } else if (event.status == GAME_STATUS.JOINED) {
             console.log('Game status: joined');
             window.location.href = '/consent.html';
             return;
-        }
-    } else if (event.status == GAME_STATUS.COMPLETE) {
-        console.log('Game status: complete');
-        window.location.href = '/demographic-details.html';
-        return;
-    } else {
-        console.log('Received setup for round:', event.round);
-        setupGame(event.rounds);
+        } } else if (event.status == GAME_STATUS.COMPLETE) {
+            console.log('Game status: complete');
+            window.location.href = '/demographic-details.html';
+            return;
     }
+
+
+    
 });
 
 

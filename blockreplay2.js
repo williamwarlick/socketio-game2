@@ -25,11 +25,11 @@ class Player {
 class Game {
     constructor () {
         this.id = uuid(),
-        this.player = null;
-
+        this.players = [];
         this.rounds = [];
         this.currentRound = 0;
         this.status = GAME_STATUS.NEW;
+        this.version = 0;
 
         this.demographicDetails = null
     }
@@ -39,18 +39,18 @@ class Game {
             status: this.status,
             roundNum: this.currentRound, // assume practice round is 0
             round: this.rounds[this.currentRound],
+            previousRound: this.currentRound > 0 ? this.rounds[this.currentRound - 1] : null,
             rounds: this.rounds,
-            status: this.status,
         }
     }
 
-    // call after each round is complete
     getSaveState() {
         return {
             id: this.id,
-            roundNum: this.currentRound,
-            playerId: this.player.id,
+            playerId: this.players[0].id,
             status: this.status,
+            rounds: 'TODO: implement this',
+            //this.rounds.map(({ goals, isPractice, moves, importId, initBoard, initBoardRecord}) => ({ initBoardRecord, initBoard, goals, isPractice, importId, moves: moves.map(({timestamp, playerId, from, to}) => ({timestamp, playerId, from, to})) })),
             roundNum: this.currentRound + 1,
             demographicDetails: this.demographicDetails,
         }
@@ -73,3 +73,4 @@ class Game {
 if (module && module.exports) {
     module.exports = {Game, Player, GAME_STATUS};
 }
+
