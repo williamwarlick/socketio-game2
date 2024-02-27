@@ -13,6 +13,17 @@ function shuffleArray(array) {
     }
 }
 
+const loadObjectFromFile = async (filePath) => {
+    try {
+        const fileContent = await fs.promises.readFile(filePath, 'utf-8');
+        const object = eval(`(${fileContent})`);
+        return object;
+    } catch (error) {
+        console.error('Error loading object from file:', error);
+        return null;
+    }
+};
+
 const loadFromFile = async (filePath) => {
     // Create an empty array to store the parsed CSV data
     const csvData = [];
@@ -131,7 +142,7 @@ const loadRoundsFromFile = async (filePath) => {
 };
 
 const loadE2Games = async (filePath) => {
-    const jsData = await loadFromFile(filePath);
+    const jsData = await loadObjectFromFile(filePath);
     return jsData;
 }
 

@@ -17,21 +17,28 @@ AWS.config.update({
 const dynamodb = new AWS.DynamoDB();
 
 const params = {
-    TableName : "mabGame",
-    KeySchema: [       
-        { AttributeName: "id", KeyType: "HASH"},  // Partition key
+    TableName: "mabGame",
+    KeySchema: [
+        { AttributeName: "gameId", KeyType: "HASH" }, // Partition key
+        { AttributeName: "roundNum", KeyType: "RANGE" }  // Sort key
     ],
-    AttributeDefinitions: [       
-        { AttributeName: "id", AttributeType: "S" },
-        
+    AttributeDefinitions: [
+        { AttributeName: "gameId", AttributeType: "S" },
+        { AttributeName: "roundNum", AttributeType: "N" }
     ],
-    ProvisionedThroughput: {       
-        ReadCapacityUnits: 5, 
-        WriteCapacityUnits: 5
+    ProvisionedThroughput: {
+        ReadCapacityUnits: 10,
+        WriteCapacityUnits: 10
     }
 };
 
-// dynamodb.deleteTable(params, function(err, data) {
+
+// // Parameters for deleting the table
+// const deleteTableParams = {
+//     TableName: "mabGame",
+// };
+
+// dynamodb.deleteTable(deleteTableParams, function(err, data) {
 //     if (err) {
 //         console.error("Unable to delete table. Error JSON:", JSON.stringify(err, null, 2));
 //     } else {
@@ -57,26 +64,22 @@ createTable();
 // Create DynamoDB document client
 const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 const MAB_TABLE = 'mabGame';
-
 const saveGameGoal = (submissionData) => {
-    const { id, gameId, importId, config, roundNum, helperId, helperResponse, typingTime, stoppingPoint, timesRewatched, demographicDetails, gameStart } = submissionData;
+    const {
+        gameId, playerId, version, roundNum, stoppingPointNum, stoppingPoint, importId, config,
+        playerResponse, typingTime, numWatches, demographicDetails
+    } = submissionData;
+
+    const item = {
+        gameId, // Partition key
+        roundNum, // Sort key
+        playerId, version, stoppingPointNum, stoppingPoint, importId, config,
+        playerResponse, typingTime, numWatches, demographicDetails
+    };
 
     const params = {
         TableName: MAB_TABLE,
-        Item: {
-            id: id, //uuid v4
-            gameId: gameId, 
-            importId: importId,
-            config: config,
-            roundNum: roundNum,
-            helperId: helperId,
-            helperResponse: helperResponse,
-            typingTime: typingTime,
-            stoppingPoint: stoppingPoint,
-            timesRewatched: timesRewatched,
-            demographicDetails: demographicDetails,
-            // gameStart: gameStart,
-        }
+        Item: item
     };
 
   
