@@ -68,15 +68,16 @@ createTable();
 const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 const MAB_TABLE = 'mabGame';
 const saveGameGoal = (submissionData) => {
+    
     const {
-        gameId, playerId, version, roundNum, stoppingPointNum, stoppingPoint, importId, config,
+        gameId, playerId, version, roundNum, stoppingPointNum, stoppingPoint, id, importId, config, moveIds,
         playerResponse, typingTime, numWatches, demographicDetails
     } = submissionData;
 
     const item = {
         gameId, // Partition key
         roundNum, // Sort key
-        playerId, version, stoppingPointNum, stoppingPoint, importId, config,
+        playerId, version, stoppingPointNum, stoppingPoint, id, importId, config,moveIds,
         playerResponse, typingTime, numWatches, demographicDetails
     };
 
@@ -85,7 +86,9 @@ const saveGameGoal = (submissionData) => {
         Item: item
     };
 
-
+    if (!gameId || roundNum === undefined) {
+        console.error("Missing gameId or roundNum", { gameId, roundNum });
+    }
   
     return new Promise((resolve, reject) => {
       docClient.put(params, function(err, data) {
@@ -99,6 +102,59 @@ const saveGameGoal = (submissionData) => {
       });
     });
   };
+  
+
+  async function saveDemographicDetails(gameId, demographicDetails) {  
+    // Query DynamoDB to find all rounds for the given gameId
+    const queryParams = {
+      TableName: 'mabGame',
+      KeyConditionExpression: 'gameId = :gameId',
+      ExpressionAttributeValues: {
+        ':gameId': gameId,
+      },
+    };
+  
+    try {
+      const queryResult = await docClient.query(queryParams).promise();
+      console.log(`Query succeeded for gameId: ${gameId}`);
+      console.log(`Items: ${JSON.stringify(queryResult.Items)}`);
+      const items = queryResult.Items;
+  
+      for (const item of items) {
+        const updateParams = {
+          TableName: 'mabGame',
+          Key: {
+            gameId: item.gameId,
+            roundNum: item.roundNum,
+          },
+          UpdateExpression: 'set demographicDetails = :demographicDetails',
+          ExpressionAttributeValues: {
+            ':demographicDetails': demographicDetails,
+            // {
+            //   additionalInformation: demographicDetails.additionalInformation,
+            //   age: demographicDetails.age,
+            //   gender: demographicDetails.gender,
+            //   handedness: demographicDetails.handedness,
+            //   hispanicOrLatinoOrLatinaOrLatinXOrSpanishOrigin: demographicDetails.hispanicOrLatinoOrLatinaOrLatinXOrSpanishOrigin,
+            //   racialCategories: demographicDetails.racialCategories,
+            //   timeOfDayPreference: demographicDetails.timeOfDayPreference,
+            //   yearsOfFormalEducation: demographicDetails.yearsOfFormalEducation,
+            // },
+          },
+        };
+  
+        await docClient.update(updateParams).promise()
+            .then(data => console.log("Update succeeded:", data))
+            .catch(error => console.error("Update failed:", error));
+
+      }
+  
+      console.log(`Demographic details updated for gameId: ${gameId}`);
+    } catch (error) {
+      console.error(`Error updating demographic details for gameId: ${gameId}`, error);
+      throw error; // Rethrow the error for the caller to handle if needed
+    }
+  }
   
 
 
@@ -303,5 +359,5 @@ function coordinatesToInteger(x, y, width, height) {
 }
 
 if (module && module.exports) {
-    module.exports = {save, getAll, getAllFormat1, getAllCsv, getDataByUserId, getDemographicDetailsCsv, getDemographicDetailsFormat1, saveGameGoal,};
+    module.exports = {save, saveDemographicDetails, getAll, getAllFormat1, getAllCsv, getDataByUserId, getDemographicDetailsCsv, getDemographicDetailsFormat1, saveGameGoal,};
 }

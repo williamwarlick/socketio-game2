@@ -5,7 +5,8 @@ console.log('Socket initialized', socket);
 import blockreplay, { GAME_STATUS } from '../../blockreplay2';
 import getUser from './header';
 
-const mab = new blockreplay.Game();
+let uniqueGameId = null;
+let version = null;
 const tableBody = document.getElementById("table-body");
 var currentGame;
 var currentMove;
@@ -67,7 +68,7 @@ function cleargame(){
 }
 
 function nextMove(){    
-    if (currentMove + 1 <= currentGame['total_moves']){
+    if (currentMove + 1 <= currentGame.stoppingPointNum){
         let move = currentMove;
         let orig_id = currentGame['move_ids'][move][0];
         if (orig_id != '999') {
@@ -82,7 +83,7 @@ function nextMove(){
         }
         currentMove++;
         
-        if (currentMove >= currentGame['total_moves']){
+        if (currentMove >= currentGame.stoppingPointNum){
             isDone = true;
 
             let box = document.getElementById("game-complete");
@@ -179,12 +180,6 @@ function playAll() {
     }
 }
 
-function moveToNextGame() {
-    currentGameIndex++; // Move to the next game in the list
-    if (currentGameIndex < 1) {
-        setupGame(gameIds[currentGameIndex]); // Setup the next game
-    }
-}
 
 
 async function submitGoal(typingDuration) {
@@ -193,15 +188,18 @@ async function submitGoal(typingDuration) {
     
     const submissionData = {
         // game related
-        gameId: mab.id, 
+        gameId: uniqueGameId, 
         playerId: player.user, 
-        version: mab.version,
+        version: version, // need to add by passing thorught 
         // round related 
         roundNum: currentGameIndex,
         stoppingPointNum: currentGame.stoppingPointNum,
         stoppingPoint: currentGame.stoppingPoint,
+        id: currentGame.id,
         importId: currentGame.importId,
         config: currentGame.config,
+        goal: currentGame.goal,
+        moveIds: currentGame.move_ids,
         playerResponse: guessedGoal,
         typingTime: typingDuration,
         numWatches: numWatches,
@@ -285,10 +283,11 @@ function attachEventListeners() {
 function moveToNextGame() {
     currentGameIndex++; // Move to the next game in the list
     document.getElementById("game-text").textContent = "Please click Play-all-Moves button to watch game and then...";
-    if(currentGameIndex < 3) {
+    if(currentGameIndex < 1) { // should be 8 in prod
         setupGame();
     } else {
         console.log("All games completed!");
+        // need to not distonct here, so can connect demographic details 
         window.location.href = '/demographic-details.html';
     }
 }
@@ -297,6 +296,8 @@ socket.on('blockreplay', async (event) => {
     console.log('blockreplay event recieved on blockreplay.js', );
     if (event.setup) {
         console.log('Received setup for round:', event.round);
+        uniqueGameId = event.gameId;
+        version = event.version;
         setupGame(event.round); 
     }
     if (event.state) {

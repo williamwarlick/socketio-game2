@@ -1,3 +1,4 @@
+const rnds = require('./rounds');
 const {v4: uuid} = require('uuid');
 
 
@@ -40,18 +41,16 @@ class Game {
             roundNum: this.currentRound, // assume practice round is 0
             round: this.rounds[this.currentRound],
             previousRound: this.currentRound > 0 ? this.rounds[this.currentRound - 1] : null,
-            rounds: this.rounds,
+            rounds: this.rounds
         }
     }
 
     getSaveState() {
         return {
-            id: this.id,
+            gameId: this.id, 
             playerId: this.players[0].id,
-            status: this.status,
-            rounds: 'TODO: implement this',
-            //this.rounds.map(({ goals, isPractice, moves, importId, initBoard, initBoardRecord}) => ({ initBoardRecord, initBoard, goals, isPractice, importId, moves: moves.map(({timestamp, playerId, from, to}) => ({timestamp, playerId, from, to})) })),
-            roundNum: this.currentRound + 1,
+            // rounds: this.rounds.map(({ goals, isPractice, moves, importId, initBoard, initBoardRecord}) => ({ initBoardRecord, initBoard, goals, isPractice, importId, moves: moves.map(({timestamp, playerId, from, to}) => ({timestamp, playerId, from, to})) })),
+            // roundNum: this.currentRound + 1,
             demographicDetails: this.demographicDetails,
         }
     }

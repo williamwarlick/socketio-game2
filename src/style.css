@@ -134,8 +134,8 @@
 
 
 #game-complete {
-  /* opacity: 0;
-  visibility: hidden; */
+  opacity: 0;
+  visibility: hidden;
   transform: scale(0.95);
   transition: visibility 0s, opacity 0.5s ease, transform 0.5s ease;
 }

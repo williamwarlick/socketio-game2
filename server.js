@@ -111,9 +111,20 @@ const doPostDemographicDetails = async (req, demographicDetails, callback) => {
 	const game = gameServer.getGameByPlayerId(userName)
     console.log('Game Id for demographic details: ' + game.id)
     if(game) {
-        game.demographicDetails = demographicDetails
+        // game.demographicDetails = demographicDetails
+        try {
+            await dataStore.saveDemographicDetails(game.id, demographicDetails);
+            console.log('Demographic details updated for gameId:', game.id);
+        } catch (error) {
+            console.error('Error updating demographic details:', error);
+        }
 
-        await dataStore.save(game.getSaveState())
+
+        // await dataStore.save(game.getSaveState())
+    } else {
+        constructor.log('Game not found for player id: ' + userName + ' ' + game.id); {
+            
+        }
     }
 	callback()
 }
@@ -270,12 +281,10 @@ io.on('connection', async (socket) => {
         var game = gameServer.getGameByPlayerId(username);
         console.log('game on server ' + game);
 
-        if (game) {
-            console.log('Syncing game state with clients ...');
-            gameServer.submit(io, username, msg);
-        }
-        
-
+        // if (game) {
+        //     console.log('Syncing game state with clients ...');
+        //     gameServer.submit(io, username, msg);
+        // }
 
         
         socket.on('disconnect', () => {
